@@ -1,0 +1,118 @@
+﻿<UserControl x:Class="TravelAgency.Views.RoomView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:TravelAgency.Views"
+             xmlns:viewModels="clr-namespace:TravelAgency.ViewModels"
+             mc:Ignorable="d">
+
+
+    <Grid>
+        <StackPanel VerticalAlignment="Top" 
+                    Orientation="Horizontal"
+                    Grid.Row="4"
+                    Grid.Column="1">
+            <Label Width="50"
+                   Margin="5,0,0,0">
+                Room
+            </Label>
+
+            <TextBox 
+                 Width="40"
+                 Height="20"
+                 Margin="5,0,0,0"
+                 Text="{Binding Room.Price,Mode=TwoWay,
+                        UpdateSourceTrigger=PropertyChanged}">
+            </TextBox>
+
+            <TextBox 
+                 Width="40"
+                 Height="20"
+                 Margin="5,0,0,0"
+                 Text="{Binding Room.NumberOfPersons,Mode=TwoWay,
+                        UpdateSourceTrigger=PropertyChanged}">
+            </TextBox>
+
+            <ComboBox Width="100"
+                      Height="20"
+                      Margin="5,0,0,0"
+                    SelectedValue="{Binding Room.RoomViewType, Mode=TwoWay,
+                                UpdateSourceTrigger=PropertyChanged}" 
+                      ItemsSource="{Binding RoomViewTypeList}">
+            </ComboBox>
+
+            <TextBox Width="30"
+                     Height="20"
+                     Margin="5,0,0,0"
+                     Text="{Binding NumberOfRooms}">
+
+            </TextBox>
+
+        </StackPanel>
+
+        <Label Content="Price"
+                  Margin="61,-18,188,173"
+               />
+        <Label Content="Persons"
+               Width="60" 
+               Margin="61,-18,179,173"/>
+        <Label Content="Room view"
+               Width="70" 
+               Margin="126,-18,104,173"/>
+
+
+
+        <DataGrid  VerticalAlignment="Top"
+                   Margin="5,30,0,0"
+            ItemsSource="{Binding Hotel.RoomList}" 
+            SelectedItem="{Binding SelectedRoom, Mode=OneWayToSource}"                          
+            AutoGenerateColumns="False"
+            Grid.Row="5"
+            Grid.RowSpan="2"
+            Grid.Column="1"          
+            HorizontalAlignment="Center"
+            VerticalScrollBarVisibility="Auto"
+            MaxHeight="100"
+            >
+
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Price" Width="50" Binding="{Binding Price}"/>
+                <DataGridTextColumn Header="Number of persons"  Width="120" Binding="{Binding NumberOfPersons}"/>
+                <DataGridTextColumn Header="Room View" Width="120" Binding="{Binding RoomViewType}"/>
+            </DataGrid.Columns>
+
+        </DataGrid>
+
+        <Button VerticalAlignment="Bottom"
+                Command="{Binding AddRoomCommand}"
+                Grid.Row="7"
+                Grid.Column="1"
+                Width="100"
+                Margin="0,0,0,0"
+                HorizontalAlignment="Left">
+            Add Room
+        </Button>
+
+        <Button VerticalAlignment="Bottom"
+                Command="{Binding EditRoomCommand}"
+                Grid.Row="7"
+                Grid.Column="1"
+                Width="100"
+                Margin="0,0,0,0"
+                HorizontalAlignment="Center">
+            Edit Room
+        </Button>
+
+        <Button VerticalAlignment="Bottom"
+                Command="{Binding SaveRoomCommand}"
+                Grid.Row="7"
+                Grid.Column="1"
+                Width="100"
+                Margin="0,0,0,0"
+                HorizontalAlignment="Right">
+            Save Room
+        </Button>
+
+    </Grid>
+</UserControl>

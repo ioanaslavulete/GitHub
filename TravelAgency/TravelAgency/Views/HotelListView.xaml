@@ -1,0 +1,61 @@
+﻿<UserControl x:Class="TravelAgency.Views.HotelListView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:viewModel="clr-namespace:TravelAgency.ViewModels"
+             mc:Ignorable="d">
+
+    <Grid>
+
+        <StackPanel VerticalAlignment="Center">
+            <DataGrid Grid.Row="0"          
+            ItemsSource="{Binding HotelRepository.HotelList}" 
+            SelectedItem="{Binding SelectedHotel, Mode=OneWayToSource}"        
+            AutoGenerateColumns="False"
+            VerticalScrollBarVisibility="Auto"
+            >
+
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Id" Width="40" Binding="{Binding Id}"/>
+                    <DataGridTextColumn Header="Name"  Width="100" Binding="{Binding Name}"/>
+                    <DataGridTextColumn Header=" Location"  Width="150" Binding="{Binding Location.FullName}"/>
+                    <DataGridTextColumn Header="Stars" Width="40" Binding="{Binding NumberOfStars}"/>
+                    <DataGridTextColumn Header=" Rooms" Width="50" Binding="{Binding RoomList.Count}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+
+            <DockPanel Grid.Row="1"   >
+                <Button Command="{Binding SaveHotelCommand}"
+                    Width="100"
+                    Grid.Row="8"
+                    Grid.Column="0"
+                    HorizontalAlignment="Left">
+                    Save
+                </Button>
+
+                <Button  
+            Command="{Binding DeleteHotelCommand}"                
+               Margin="5,0,0,0"
+                Width="100"
+                Grid.Row="8"
+                Grid.Column="0"
+                HorizontalAlignment="Right"               
+                >
+                    Delete Hotel
+                </Button>
+
+                <Button 
+            Command="{Binding EditHotelCommand}"
+               Margin="5,0,0,0"
+                Width="100"
+                Grid.Row="8"
+                HorizontalAlignment="Left"
+               >
+                    Edit Hotel
+                </Button>
+            </DockPanel>
+        </StackPanel>
+
+    </Grid>
+</UserControl>
