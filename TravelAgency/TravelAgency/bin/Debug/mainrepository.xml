@@ -1,9 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
 <MainRepository xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <HotelRepository>
-    <HotelList />
+    <HotelList>
+      <Hotel>
+        <Id>1</Id>
+        <Name>Comandor</Name>
+        <NumberOfStars>5</NumberOfStars>
+        <Location>
+          <CityName>Mamaia</CityName>
+          <CountryName>Romania</CountryName>
+          <FullName>Mamaia, Romania</FullName>
+        </Location>
+        <RoomList>
+          <Room>
+            <Price>199</Price>
+            <NumberOfPersons>2</NumberOfPersons>
+            <RoomViewType>Sea</RoomViewType>
+          </Room>
+          <Room>
+            <Price>210</Price>
+            <NumberOfPersons>2</NumberOfPersons>
+            <RoomViewType>Mountain</RoomViewType>
+          </Room>
+        </RoomList>
+        <AvailableRoomsList />
+      </Hotel>
+      <Hotel>
+        <Id>2</Id>
+        <Name>Orfeu</Name>
+        <NumberOfStars>3</NumberOfStars>
+        <Location>
+          <CityName>Mamaia</CityName>
+          <CountryName>Romania</CountryName>
+          <FullName>Mamaia, Romania</FullName>
+        </Location>
+        <RoomList />
+        <AvailableRoomsList />
+      </Hotel>
+      <Hotel>
+        <Id>3</Id>
+        <Name>Ramada</Name>
+        <NumberOfStars>5</NumberOfStars>
+        <Location>
+          <CityName>Craiova</CityName>
+          <CountryName>Romania</CountryName>
+          <FullName>Craiova, Romania</FullName>
+        </Location>
+        <RoomList />
+        <AvailableRoomsList />
+      </Hotel>
+    </HotelList>
   </HotelRepository>
   <LocationRepository>
-    <LocationList />
+    <LocationList>
+      <Location>
+        <CityName>Mamaia</CityName>
+        <CountryName>Romania</CountryName>
+        <FullName>Mamaia, Romania</FullName>
+      </Location>
+      <Location>
+        <CityName>Craiova</CityName>
+        <CountryName>Romania</CountryName>
+        <FullName>Craiova, Romania</FullName>
+      </Location>
+    </LocationList>
   </LocationRepository>
 </MainRepository>

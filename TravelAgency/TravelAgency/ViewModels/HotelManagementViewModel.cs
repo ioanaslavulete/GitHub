@@ -194,7 +194,7 @@ namespace TravelAgency.ViewModels
 
         public void AddHotel()
         {
-            Hotel newHotel = new Hotel (_hotel.Id, _hotel.Name, _hotel.Location, _hotel.RoomList , _hotel.NumberOfStars);
+            Hotel newHotel = new Hotel(_hotel.Id, _hotel.Name, _hotel.Location, _hotel.RoomList, _hotel.NumberOfStars);
             _hotelRepository.Add(newHotel);
             _locationRepository.Add(_hotel.Location);
 
@@ -224,7 +224,7 @@ namespace TravelAgency.ViewModels
 
         public void AddRoom()
         {
-            for (int i = 1; i<=NumberOfRooms; i++)
+            for (int i = 1; i <= NumberOfRooms; i++)
             {
                 Room newRoom = new Room(_room.Price, _room.NumberOfPersons, _room.RoomViewType);
                 _hotel.Add(newRoom);
@@ -245,11 +245,11 @@ namespace TravelAgency.ViewModels
             ClearRoomFields();
         }
 
-       public void ClearHotelFields()
+        public void ClearHotelFields()
         {
             Hotel = new Hotel();
         }
-        
+
         public void ClearRoomFields()
         {
             Room = new Room();

@@ -46,7 +46,7 @@ namespace TravelAgency.Models
         public override string ToString()
         {
             return FullName;
-        }       
+        }
 
         public event PropertyChangedEventHandler PropertyChanged;
         private void OnPropertyChanged([CallerMemberName] string caller = "")
@@ -59,7 +59,7 @@ namespace TravelAgency.Models
 
         public override bool Equals(object obj)
         {
-            var location = obj as Location;
+            Location location = obj as Location;
             if (_fullName == location.FullName)
                 return true;
             else

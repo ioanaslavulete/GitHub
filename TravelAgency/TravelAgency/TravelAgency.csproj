@@ -69,15 +69,18 @@
     <Compile Include="Models\Commands\OpenHotelManagementViewCommand.cs" />
     <Compile Include="Models\Commands\SaveHotelCommand.cs" />
     <Compile Include="Models\Commands\SaveRoomCommand.cs" />
+    <Compile Include="Models\Commands\SeeDetailsCommand.cs" />
     <Compile Include="Models\Hotel.cs" />
     <Compile Include="Models\HotelRepository.cs" />
     <Compile Include="Models\Location.cs" />
     <Compile Include="Models\LocationRepository.cs" />
     <Compile Include="Models\MainRepository.cs" />
+    <Compile Include="Models\ReservationPeriod.cs" />
     <Compile Include="Models\Room.cs" />
     <Compile Include="Models\RoomViewType.cs" />
     <Compile Include="Models\Services\DataManagementService.cs" />
     <Compile Include="ViewModels\BookingViewModel.cs" />
+    <Compile Include="ViewModels\HotelDetailsViewModel.cs" />
     <Compile Include="ViewModels\HotelManagementViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
     <Compile Include="Views\AddHotelView.xaml.cs">
@@ -85,6 +88,9 @@
     </Compile>
     <Compile Include="Views\BookingView.xaml.cs">
       <DependentUpon>BookingView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\HotelDetailsView.xaml.cs">
+      <DependentUpon>HotelDetailsView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\HotelListView.xaml.cs">
       <DependentUpon>HotelListView.xaml</DependentUpon>
@@ -132,6 +138,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\BookingView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\HotelDetailsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

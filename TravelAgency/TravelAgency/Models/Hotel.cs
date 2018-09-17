@@ -10,13 +10,14 @@ namespace TravelAgency.Models
         private string _name;
         private Location _location;
         private ObservableCollection<Room> _roomList;
+        private ObservableCollection<Room> _availableRoomsList;
         private string _numberOfStars;
-        
 
         public Hotel()
         {
             _location = new Location();
             _roomList = new ObservableCollection<Room>();
+            _availableRoomsList = new ObservableCollection<Room>();
         }
 
         public Hotel(string id, string name, Location location, ObservableCollection<Room> roomList, string numberOfStars)
@@ -26,6 +27,7 @@ namespace TravelAgency.Models
             _location = location;
             _roomList = roomList;
             _numberOfStars = numberOfStars;
+            _availableRoomsList = new ObservableCollection<Room>();
         }
 
         public string Id
@@ -70,13 +72,48 @@ namespace TravelAgency.Models
             set
             {
                 _roomList = value;
-                
+
+            }
+        }
+        public ObservableCollection<Room> AvailableRoomsList
+        {
+            get
+            {
+                return _availableRoomsList;
+            }
+            set
+            {
+                _availableRoomsList = value;
             }
         }
 
         public void Add(Room newRoom)
         {
             _roomList.Add(newRoom);
+        }
+
+        public bool HasRoomsAvailableIn(ReservationPeriod reservationPeriod)
+        {
+            AvailableRoomsList.Clear();
+            if (_roomList.Count > 0)
+            {
+                foreach (Room room in _roomList)
+                {
+                    if (room.IsAvailableIn(reservationPeriod))
+                        AddToAvailableRoomList(room);
+                }
+
+                if (AvailableRoomsList.Count > 0)
+                    return true;
+                else
+                    return false;
+            }
+            return false;
+        }
+
+        private void AddToAvailableRoomList(Room room)
+        {
+            _availableRoomsList.Add(room);
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

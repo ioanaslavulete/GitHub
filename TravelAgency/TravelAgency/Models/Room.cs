@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
 namespace TravelAgency.Models
@@ -8,10 +9,11 @@ namespace TravelAgency.Models
         private string _price;
         private string _numberOfPersons;
         private RoomViewType _roomViewType;
+        private ObservableCollection<ReservationPeriod> _reservedPeriodList;
 
         public Room()
         {
-            
+            _reservedPeriodList = new ObservableCollection<ReservationPeriod>();
         }
 
         public Room(string price, string numberOfPersons, RoomViewType roomViewType)
@@ -19,6 +21,7 @@ namespace TravelAgency.Models
             _price = price;
             _numberOfPersons = numberOfPersons;
             _roomViewType = roomViewType;
+            _reservedPeriodList = new ObservableCollection<ReservationPeriod>();
         }
 
         public string Price
@@ -48,7 +51,22 @@ namespace TravelAgency.Models
                 OnPropertyChanged();
             }
         }
-      
+
+        public bool IsAvailableIn(ReservationPeriod reservationPeriod)
+        {
+            if (_reservedPeriodList.Count > 0)
+            {
+                foreach (ReservationPeriod reservedPeriod in _reservedPeriodList)
+                {
+                    if ((reservationPeriod.IsBefore(reservedPeriod)) || (reservationPeriod.IsAfter(reservedPeriod)))
+                        return true;
+                    else
+                        return false;
+                }
+            }
+            return true;
+        }
+
         public event PropertyChangedEventHandler PropertyChanged;
         private void OnPropertyChanged([CallerMemberName] string caller = "")
         {

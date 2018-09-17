@@ -4,6 +4,15 @@
     {
         private Hotel _hotel;
 
+        public AvailableOption()
+        {
+        }
+
+        public AvailableOption(Hotel hotel)
+        {
+            _hotel = hotel;
+        }
+
         public Hotel Hotel
         {
             get { return _hotel; }
