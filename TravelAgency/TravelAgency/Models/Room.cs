@@ -1,4 +1,5 @@
-﻿using System.Collections.ObjectModel;
+﻿using System;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
@@ -51,6 +52,7 @@ namespace TravelAgency.Models
                 OnPropertyChanged();
             }
         }
+        
 
         public bool IsAvailableIn(ReservationPeriod reservationPeriod)
         {
@@ -65,6 +67,11 @@ namespace TravelAgency.Models
                 }
             }
             return true;
+        }
+
+        public void Add(ReservationPeriod newReservationPeriod)
+        {
+            _reservedPeriodList.Add(newReservationPeriod);
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

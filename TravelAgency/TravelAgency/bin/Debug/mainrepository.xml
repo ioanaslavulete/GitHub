@@ -5,7 +5,7 @@
       <Hotel>
         <Id>1</Id>
         <Name>Comandor</Name>
-        <NumberOfStars>5</NumberOfStars>
+        <NumberOfStars>4</NumberOfStars>
         <Location>
           <CityName>Mamaia</CityName>
           <CountryName>Romania</CountryName>
@@ -13,41 +13,35 @@
         </Location>
         <RoomList>
           <Room>
-            <Price>199</Price>
+            <Price>100</Price>
             <NumberOfPersons>2</NumberOfPersons>
             <RoomViewType>Sea</RoomViewType>
           </Room>
           <Room>
-            <Price>210</Price>
+            <Price>100</Price>
             <NumberOfPersons>2</NumberOfPersons>
             <RoomViewType>Mountain</RoomViewType>
           </Room>
         </RoomList>
-        <AvailableRoomsList />
-      </Hotel>
-      <Hotel>
-        <Id>2</Id>
-        <Name>Orfeu</Name>
-        <NumberOfStars>3</NumberOfStars>
-        <Location>
-          <CityName>Mamaia</CityName>
-          <CountryName>Romania</CountryName>
-          <FullName>Mamaia, Romania</FullName>
-        </Location>
-        <RoomList />
-        <AvailableRoomsList />
-      </Hotel>
-      <Hotel>
-        <Id>3</Id>
-        <Name>Ramada</Name>
-        <NumberOfStars>5</NumberOfStars>
-        <Location>
-          <CityName>Craiova</CityName>
-          <CountryName>Romania</CountryName>
-          <FullName>Craiova, Romania</FullName>
-        </Location>
-        <RoomList />
-        <AvailableRoomsList />
+        <AvailableRoomsList>
+          <Room>
+            <Price>100</Price>
+            <NumberOfPersons>2</NumberOfPersons>
+            <RoomViewType>Sea</RoomViewType>
+          </Room>
+          <Room>
+            <Price>100</Price>
+            <NumberOfPersons>2</NumberOfPersons>
+            <RoomViewType>Mountain</RoomViewType>
+          </Room>
+        </AvailableRoomsList>
+        <BestOption>
+          <Room>
+            <Price>100</Price>
+            <NumberOfPersons>2</NumberOfPersons>
+            <RoomViewType>Sea</RoomViewType>
+          </Room>
+        </BestOption>
       </Hotel>
     </HotelList>
   </HotelRepository>
@@ -57,11 +51,6 @@
         <CityName>Mamaia</CityName>
         <CountryName>Romania</CountryName>
         <FullName>Mamaia, Romania</FullName>
-      </Location>
-      <Location>
-        <CityName>Craiova</CityName>
-        <CountryName>Romania</CountryName>
-        <FullName>Craiova, Romania</FullName>
       </Location>
     </LocationList>
   </LocationRepository>

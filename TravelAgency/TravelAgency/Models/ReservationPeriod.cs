@@ -7,6 +7,18 @@ namespace TravelAgency.Models
         private DateTime _checkIn;
         private DateTime _checkOut;
 
+        public ReservationPeriod(DateTime checkIn, DateTime checkOut)
+        {
+            _checkIn = checkIn;
+            _checkOut = checkOut;
+        }
+
+        public ReservationPeriod()
+        {
+            _checkIn = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day);
+            _checkOut = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day);
+        }
+
         public DateTime CheckIn
         {
             get { return _checkIn; }

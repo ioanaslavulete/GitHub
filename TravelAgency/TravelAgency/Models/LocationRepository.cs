@@ -35,7 +35,7 @@ namespace TravelAgency.Models
             int locationCount = 0;
            foreach(Hotel hotel in hotelRepository.HotelList)
             {
-                if (hotel.Location == location)
+                if (hotel.Location.FullName == location.FullName)
                     locationCount++;
             }
 

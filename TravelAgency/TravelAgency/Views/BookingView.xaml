@@ -63,7 +63,7 @@
             <TextBox Margin="5,0,0,0"
                      Width="100"
                      Height="20"
-                     >
+                     Text="{Binding Customer.Id}">
             </TextBox>
         </StackPanel>
 
@@ -103,7 +103,7 @@
             <TextBox Margin="5,0,0,0"
                      Width="100"
                      Height="20"
-                    >
+                     Text="{Binding Customer.FirstName}">
             </TextBox>
         </StackPanel>
 
@@ -119,7 +119,7 @@
             <TextBox Margin="5,0,0,0"
                      Width="100"
                      Height="20"
-                     >
+                     Text="{Binding Customer.LastName}">
             </TextBox>
         </StackPanel>
 
@@ -135,7 +135,7 @@
             <TextBox Margin="5,10,0,10"
                      Width="150"
                      Height="20"
-                    >
+                     Text="{Binding Customer.Email}">
             </TextBox>
         </StackPanel>
 
@@ -151,7 +151,7 @@
             <TextBox Margin="5,0,0,0"
                      Width="100"
                      Height="20"
-                     >
+                     Text="{Binding Customer.PhoneNumber}">
             </TextBox>
         </StackPanel>
 
@@ -243,7 +243,7 @@
             <TextBox Margin="5,0,0,0"
                      Width="100"
                      Height="20"
-                     >
+                    Text="{Binding Reservation.NumberOfPersons,Mode=TwoWay}" >
             </TextBox>
         </StackPanel>
 
@@ -269,9 +269,8 @@
                     <DataGridTextColumn Header="Hotel" Width="140" Binding="{Binding Hotel.Name}" IsReadOnly="True"/>
                     <DataGridTextColumn Header="Stars" Width="50" Binding="{Binding Hotel.NumberOfStars}" IsReadOnly="True"/>
                     <DataGridTextColumn Header="Location"  Width="150" Binding="{Binding Hotel.Location}" IsReadOnly="True"/>
-                    <DataGridTextColumn Header="Price / Night" Width="100" />
-                    <DataGridTextColumn Header="Total Price" Width="100"/>
-                    <DataGridTextColumn Header="Best option for you" Width="200"/>
+                    <DataGridTextColumn Header="Best option for you" Width="200" Binding="{Binding Hotel.BestOptionString}"/>
+                    <DataGridTextColumn Header="Total Price" Width="100" Binding="{Binding Hotel.BestOptionTotalPrice}" />
                 </DataGrid.Columns>
             </DataGrid>
         </StackPanel>

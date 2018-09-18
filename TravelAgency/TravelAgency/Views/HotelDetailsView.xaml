@@ -12,9 +12,9 @@
         WindowStartupLocation="CenterScreen">
 
 
-    <Grid >
-
+    <Grid Margin="20" >
         <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
             <RowDefinition Height="40"/>
             <RowDefinition Height="40"/>
             <RowDefinition Height="40"/>
@@ -22,6 +22,13 @@
             <RowDefinition Height="40"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
+       
+
+        <Grid.ColumnDefinitions>
+            
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
 
         <Label Grid.Row="0"
                Grid.Column="0"
@@ -29,6 +36,22 @@
                VerticalAlignment="Center"
                HorizontalAlignment="Left">
             Hotel Details
+        </Label>
+
+        <Label Grid.Row="5"
+               Grid.Column="0"
+               FontSize="20"
+               VerticalAlignment="Center"
+               HorizontalAlignment="Left">
+            Available Rooms
+        </Label>
+
+        <Label Grid.Row="5"
+               Grid.Column="1"
+               FontSize="20"
+               VerticalAlignment="Center"
+               HorizontalAlignment="Left">
+            Best Option Rooms
         </Label>
 
         <StackPanel Orientation="Horizontal"
@@ -95,17 +118,41 @@
             HorizontalAlignment="Center"
             VerticalScrollBarVisibility="Auto"
             MaxHeight="150"
-            Grid.Row="5"
+            Grid.Row="6"
             >
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Price" Width="50" Binding="{Binding Price}"/>
                 <DataGridTextColumn Header="Number of persons"  Width="120" Binding="{Binding NumberOfPersons}"/>
-                <DataGridTextColumn Header="Room View" Width="120" Binding="{Binding RoomView}"/>
+                <DataGridTextColumn Header="Room View" Width="120" Binding="{Binding RoomViewType}"/>
+               
             </DataGrid.Columns>
 
         </DataGrid>
 
-        <Button Grid.Row="5"
+        <DataGrid  VerticalAlignment="Top"
+                   Margin="5,30,0,0"
+                   
+            ItemsSource="{Binding SelectedHotel.BestOption}" 
+            SelectedItem="{Binding SelectedRoom, Mode=OneWayToSource}"                          
+            AutoGenerateColumns="False"          
+            HorizontalAlignment="Center"
+            VerticalScrollBarVisibility="Auto"
+            MaxHeight="150"
+            Grid.Row="6"
+            Grid.Column="1"
+            
+            >
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Price" Width="50" Binding="{Binding Price}"/>
+                <DataGridTextColumn Header="Number of persons"  Width="120" Binding="{Binding NumberOfPersons}"/>
+                <DataGridTextColumn Header="Room View" Width="120" Binding="{Binding RoomViewType}"/>
+            </DataGrid.Columns>
+            
+
+        </DataGrid>
+
+        <Button Grid.Row="6"
+                Grid.Column="1"
                 Width="100"
                 VerticalAlignment="Bottom"
                 HorizontalAlignment="Right"
@@ -114,6 +161,7 @@
                 >
             Reserve
         </Button>
+        
 
     </Grid>
 </Window>

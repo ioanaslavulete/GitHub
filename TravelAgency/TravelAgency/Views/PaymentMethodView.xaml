@@ -1,0 +1,64 @@
+﻿<Window x:Class="TravelAgency.Views.PaymentMethodView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TravelAgency.Views"
+        mc:Ignorable="d"
+        Title="PaymentMethodView" 
+        Height="600" 
+        Width="815">
+    
+    <Grid Margin="20">
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="1"
+                    Grid.Column="0"
+                    Orientation="Horizontal">
+            <Label Margin="5,0,0,0"
+                   VerticalAlignment="Center"
+                   Width="80">
+                First Name
+            </Label>
+
+            <TextBox Margin="5,0,0,0"
+                     Width="100"
+                     Height="20"
+                     >
+            </TextBox>
+        </StackPanel>
+
+        <StackPanel Grid.Row="1"
+                    Grid.Column="1"
+                    Orientation="Horizontal">
+            <Label Margin="5,0,0,0"
+                   VerticalAlignment="Center"
+                   Width="80">
+                Last Name
+            </Label>
+
+            <TextBox Margin="5,0,0,0"
+                     Width="100"
+                     Height="20"
+                     >
+            </TextBox>
+        </StackPanel>
+
+    </Grid>
+</Window>

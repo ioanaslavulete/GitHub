@@ -16,6 +16,9 @@ namespace TravelAgency.ViewModels
         private Hotel _hotel;
         private AvailableOption _selectedAvailableOption;
         private ReservationPeriod _reservationPeriod;
+        private Reservation _reservation;
+        private Customer _customer;
+
         private CheckAvailabilityCommand _checkAvailabilityCommand;
         private SeeDetailsCommand _seeDetailsCommand;
 
@@ -28,6 +31,9 @@ namespace TravelAgency.ViewModels
             _hotel = new Hotel();
             _selectedAvailableOption = new AvailableOption();
             _reservationPeriod = new ReservationPeriod();
+            _reservation = new Reservation();
+            
+
             _checkAvailabilityCommand = new CheckAvailabilityCommand(this);
             _seeDetailsCommand = new SeeDetailsCommand(this);
         }
@@ -73,6 +79,37 @@ namespace TravelAgency.ViewModels
                 _selectedAvailableOption = value;
             }
         }
+        public ReservationPeriod ReservationPeriod
+        {
+            get { return _reservationPeriod; }
+            set
+            {
+                _reservationPeriod = value;
+            }
+        }
+        public Reservation Reservation
+        {
+            get
+            {
+                return _reservation;
+            }
+            set
+            {
+                _reservation = value;
+            }
+        }
+        public Customer Customer
+        {
+            get
+            {
+                return _customer;
+            }
+            set
+            {
+                _customer = value;
+            }
+        }
+
         public CheckAvailabilityCommand CheckAvailabilityCommand
         {
             get
@@ -95,14 +132,7 @@ namespace TravelAgency.ViewModels
                 _seeDetailsCommand = value;
             }
         }
-        public ReservationPeriod ReservationPeriod
-        {
-            get { return _reservationPeriod; }
-            set
-            {
-                _reservationPeriod = value;
-            }
-        }
+
 
         public void CheckAvailability()
         {
@@ -112,6 +142,8 @@ namespace TravelAgency.ViewModels
                 if (hotel.HasRoomsAvailableIn(_reservationPeriod))
                 {
                     AvailableOption availableOption = new AvailableOption(hotel);
+                    hotel.GetBestOptionFor(Reservation);
+                    hotel.CalculateTotalPriceFor(ReservationPeriod);
                     _availableOptionList.Add(availableOption);
                 }
             }
@@ -121,6 +153,8 @@ namespace TravelAgency.ViewModels
         {
             HotelDetailsViewModel hotelDetailsViewModel = new HotelDetailsViewModel();
             hotelDetailsViewModel.SelectedHotel = _selectedAvailableOption.Hotel;
+            hotelDetailsViewModel.ReservationPeriod = ReservationPeriod;
+            hotelDetailsViewModel.SelectedHotel.AvailableRoomsList = _selectedAvailableOption.Hotel.AvailableRoomsList;
 
             HotelDetailsView view = new HotelDetailsView();
             view.DataContext = hotelDetailsViewModel;

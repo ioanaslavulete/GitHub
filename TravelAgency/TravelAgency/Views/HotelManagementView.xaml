@@ -14,7 +14,7 @@
         <viewModel:HotelManagementViewModel x:Key="HotelViewModel"></viewModel:HotelManagementViewModel>
     </Window.Resources>
 
-    <Grid Margin="10">
+    <Grid Margin="20">
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
