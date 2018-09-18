@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\itsix\Desktop\Ioana\GitHub\TravelAgency\TravelAgency\obj\Debug\
+C:\Users\Cosmin\Documents\GitHub\GitHub\TravelAgency\TravelAgency\obj\Debug\
 TravelAgency
 none
 false
 DEBUG;TRACE
-C:\Users\itsix\Desktop\Ioana\GitHub\TravelAgency\TravelAgency\App.xaml
-8-1858106523
+C:\Users\Cosmin\Documents\GitHub\GitHub\TravelAgency\TravelAgency\App.xaml
+92080010552
 
-44-499658051
+411993514976
 131569487696
-Views\AddHotelView.xaml;Views\BookingView.xaml;Views\HotelDetailsView.xaml;Views\HotelListView.xaml;Views\HotelManagementView.xaml;Views\MainWindow.xaml;Views\PaymentMethodView.xaml;Views\RoomView.xaml;
+Styles.xaml;Views\AddHotelView.xaml;Views\BookingView.xaml;Views\HotelDetailsView.xaml;Views\HotelListView.xaml;Views\HotelManagementView.xaml;Views\MainWindow.xaml;Views\PaymentMethodView.xaml;Views\RoomView.xaml;
 
 False
 

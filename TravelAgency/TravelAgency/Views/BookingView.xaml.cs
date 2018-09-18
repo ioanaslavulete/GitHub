@@ -17,7 +17,7 @@ namespace TravelAgency.Views
     /// <summary>
     /// Interaction logic for BookingView.xaml
     /// </summary>
-    public partial class BookingView : Window
+    public partial class BookingView : UserControl
     {
         public BookingView()
         {

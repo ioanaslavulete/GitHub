@@ -17,7 +17,7 @@ namespace TravelAgency.Views
     /// <summary>
     /// Interaction logic for HotelManagementView.xaml
     /// </summary>
-    public partial class HotelManagementView : Window
+    public partial class HotelManagementView : UserControl
     {
         public HotelManagementView()
         {
