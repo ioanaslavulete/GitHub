@@ -3,6 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:dg="http://schemas.microsoft.com/wpf/2008/toolkit"
         xmlns:local="clr-namespace:TravelAgency.Views"
         xmlns:viewModel="clr-namespace:TravelAgency.ViewModels"
         mc:Ignorable="d"
@@ -119,12 +120,13 @@
             VerticalScrollBarVisibility="Auto"
             MaxHeight="150"
             Grid.Row="6"
+            HeadersVisibility="Column"
             >
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Price" Width="50" Binding="{Binding Price}"/>
                 <DataGridTextColumn Header="Number of persons"  Width="120" Binding="{Binding NumberOfPersons}"/>
                 <DataGridTextColumn Header="Room View" Width="120" Binding="{Binding RoomViewType}"/>
-               
+                
             </DataGrid.Columns>
 
         </DataGrid>
@@ -132,7 +134,7 @@
         <DataGrid  VerticalAlignment="Top"
                    Margin="5,30,0,0"
                    
-            ItemsSource="{Binding SelectedHotel.BestOption}" 
+            ItemsSource="{Binding SelectedHotel.BestOption.Rooms}" 
             SelectedItem="{Binding SelectedRoom, Mode=OneWayToSource}"                          
             AutoGenerateColumns="False"          
             HorizontalAlignment="Center"
@@ -140,7 +142,8 @@
             MaxHeight="150"
             Grid.Row="6"
             Grid.Column="1"
-            
+            HeadersVisibility="Column"
+            SelectionMode="Extended"
             >
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Price" Width="50" Binding="{Binding Price}"/>

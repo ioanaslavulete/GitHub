@@ -59,6 +59,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Models\AvailableOption.cs" />
+    <Compile Include="Models\BestOption.cs" />
     <Compile Include="Models\Commands\AddHotelCommand.cs" />
     <Compile Include="Models\Commands\AddRoomCommand.cs" />
     <Compile Include="Models\Commands\CheckAvailabilityCommand.cs" />

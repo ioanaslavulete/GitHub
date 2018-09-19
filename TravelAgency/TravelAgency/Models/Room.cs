@@ -12,6 +12,8 @@ namespace TravelAgency.Models
         private RoomViewType _roomViewType;
         private ObservableCollection<ReservationPeriod> _reservedPeriodList;
 
+
+
         public Room()
         {
             _reservedPeriodList = new ObservableCollection<ReservationPeriod>();
@@ -52,7 +54,6 @@ namespace TravelAgency.Models
                 OnPropertyChanged();
             }
         }
-        
 
         public bool IsAvailableIn(ReservationPeriod reservationPeriod)
         {

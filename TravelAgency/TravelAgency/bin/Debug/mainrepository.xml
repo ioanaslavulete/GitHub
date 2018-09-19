@@ -4,18 +4,18 @@
     <HotelList>
       <Hotel>
         <Id>1</Id>
-        <Name>Comandor</Name>
-        <NumberOfStars>4</NumberOfStars>
+        <Name>International</Name>
+        <NumberOfStars>5</NumberOfStars>
         <Location>
-          <CityName>Mamaia</CityName>
+          <CityName>Sinaia</CityName>
           <CountryName>Romania</CountryName>
-          <FullName>Mamaia, Romania</FullName>
+          <FullName>Sinaia, Romania</FullName>
         </Location>
         <RoomList>
           <Room>
             <Price>100</Price>
             <NumberOfPersons>2</NumberOfPersons>
-            <RoomViewType>Sea</RoomViewType>
+            <RoomViewType>Mountain</RoomViewType>
           </Room>
           <Room>
             <Price>100</Price>
@@ -27,7 +27,7 @@
           <Room>
             <Price>100</Price>
             <NumberOfPersons>2</NumberOfPersons>
-            <RoomViewType>Sea</RoomViewType>
+            <RoomViewType>Mountain</RoomViewType>
           </Room>
           <Room>
             <Price>100</Price>
@@ -36,90 +36,23 @@
           </Room>
         </AvailableRoomsList>
         <BestOption>
-          <Room>
-            <Price>100</Price>
-            <NumberOfPersons>2</NumberOfPersons>
-            <RoomViewType>Sea</RoomViewType>
-          </Room>
+          <Rooms>
+            <Room>
+              <Price>100</Price>
+              <NumberOfPersons>2</NumberOfPersons>
+              <RoomViewType>Mountain</RoomViewType>
+            </Room>
+          </Rooms>
         </BestOption>
-      </Hotel>
-      <Hotel>
-        <Id>1241</Id>
-        <Name>Ramada</Name>
-        <NumberOfStars>5</NumberOfStars>
-        <Location>
-          <CityName>Craiova</CityName>
-          <CountryName>Romania</CountryName>
-          <FullName>Craiova, Romania</FullName>
-        </Location>
-        <RoomList>
-          <Room>
-            <Price>120</Price>
-            <NumberOfPersons>2</NumberOfPersons>
-            <RoomViewType>Street</RoomViewType>
-          </Room>
-          <Room>
-            <Price>120</Price>
-            <NumberOfPersons>2</NumberOfPersons>
-            <RoomViewType>Street</RoomViewType>
-          </Room>
-          <Room>
-            <Price>120</Price>
-            <NumberOfPersons>2</NumberOfPersons>
-            <RoomViewType>Street</RoomViewType>
-          </Room>
-          <Room>
-            <Price>120</Price>
-            <NumberOfPersons>2</NumberOfPersons>
-            <RoomViewType>Street</RoomViewType>
-          </Room>
-          <Room>
-            <Price>120</Price>
-            <NumberOfPersons>2</NumberOfPersons>
-            <RoomViewType>Street</RoomViewType>
-          </Room>
-          <Room>
-            <Price>120</Price>
-            <NumberOfPersons>2</NumberOfPersons>
-            <RoomViewType>Street</RoomViewType>
-          </Room>
-          <Room>
-            <Price>120</Price>
-            <NumberOfPersons>2</NumberOfPersons>
-            <RoomViewType>Street</RoomViewType>
-          </Room>
-          <Room>
-            <Price>120</Price>
-            <NumberOfPersons>2</NumberOfPersons>
-            <RoomViewType>Street</RoomViewType>
-          </Room>
-          <Room>
-            <Price>120</Price>
-            <NumberOfPersons>2</NumberOfPersons>
-            <RoomViewType>Street</RoomViewType>
-          </Room>
-          <Room>
-            <Price>120</Price>
-            <NumberOfPersons>2</NumberOfPersons>
-            <RoomViewType>Street</RoomViewType>
-          </Room>
-        </RoomList>
-        <AvailableRoomsList />
-        <BestOption />
       </Hotel>
     </HotelList>
   </HotelRepository>
   <LocationRepository>
     <LocationList>
       <Location>
-        <CityName>Mamaia</CityName>
+        <CityName>Sinaia</CityName>
         <CountryName>Romania</CountryName>
-        <FullName>Mamaia, Romania</FullName>
-      </Location>
-      <Location>
-        <CityName>Craiova</CityName>
-        <CountryName>Romania</CountryName>
-        <FullName>Craiova, Romania</FullName>
+        <FullName>Sinaia, Romania</FullName>
       </Location>
     </LocationList>
   </LocationRepository>

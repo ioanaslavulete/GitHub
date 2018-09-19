@@ -60,6 +60,8 @@ namespace TravelAgency.Models
         public override bool Equals(object obj)
         {
             Location location = obj as Location;
+            if (location == null)
+                return false;
             if (_fullName == location.FullName)
                 return true;
             else

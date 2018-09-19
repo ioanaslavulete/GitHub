@@ -18,6 +18,7 @@ namespace TravelAgency.ViewModels
         private ReservationPeriod _reservationPeriod;
         private Reservation _reservation;
         private Customer _customer;
+        private Location _selectedLocation;
 
         private CheckAvailabilityCommand _checkAvailabilityCommand;
         private SeeDetailsCommand _seeDetailsCommand;
@@ -32,7 +33,8 @@ namespace TravelAgency.ViewModels
             _selectedAvailableOption = new AvailableOption();
             _reservationPeriod = new ReservationPeriod();
             _reservation = new Reservation();
-            
+            _selectedLocation = new Location();
+            _customer = new Customer();
 
             _checkAvailabilityCommand = new CheckAvailabilityCommand(this);
             _seeDetailsCommand = new SeeDetailsCommand(this);
@@ -109,6 +111,17 @@ namespace TravelAgency.ViewModels
                 _customer = value;
             }
         }
+        public Location SelectedLocation
+        {
+            get
+            {
+                return _selectedLocation;
+            }
+            set
+            {
+                _selectedLocation = value;
+            }
+        }
 
         public CheckAvailabilityCommand CheckAvailabilityCommand
         {
@@ -139,13 +152,21 @@ namespace TravelAgency.ViewModels
             AvailableOptionList.Clear();
             foreach (Hotel hotel in _hotelRepository.HotelList)
             {
-                if (hotel.HasRoomsAvailableIn(_reservationPeriod))
+                if (_selectedLocation.FullName == hotel.Location.FullName)
                 {
-                    AvailableOption availableOption = new AvailableOption(hotel);
-                    hotel.GetBestOptionFor(Reservation);
-                    hotel.CalculateTotalPriceFor(ReservationPeriod);
-                    _availableOptionList.Add(availableOption);
+                    if (hotel.HasRoomsAvailableIn(_reservationPeriod))
+                    {
+                        AvailableOption availableOption = new AvailableOption(hotel);
+                        hotel.GetBestOptionFor(Reservation);
+                        if (hotel.BestOption.Rooms.Count != 0)
+                        {
+                            hotel.BestOption.CalculateTotalPriceFor(ReservationPeriod);
+                            _availableOptionList.Add(availableOption);
+                        }
+
+                    }
                 }
+               
             }
         }
 

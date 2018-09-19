@@ -7,7 +7,8 @@
         mc:Ignorable="d"
         Title="PaymentMethodView" 
         Height="600" 
-        Width="815">
+        Width="815"
+        WindowStartupLocation="CenterScreen">
     
     <Grid Margin="20">
 
@@ -58,6 +59,24 @@
                      Height="20"
                      >
             </TextBox>
+        </StackPanel>
+
+        <StackPanel Grid.Row="2"
+                    Grid.Column="0"
+                    Orientation="Horizontal">
+            <Label Margin="5,0,0,0"
+                   VerticalAlignment="Center"
+                   Width="80">
+                Payment
+            </Label>
+
+            <ComboBox Margin="5,0,0,0"
+                     Width="100"
+                     Height="20"
+                     >
+                <ComboBoxItem>Cash</ComboBoxItem>
+                <ComboBoxItem>Card</ComboBoxItem>
+            </ComboBox>
         </StackPanel>
 
     </Grid>

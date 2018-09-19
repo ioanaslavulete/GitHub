@@ -14,15 +14,15 @@ namespace TravelAgency.Models
         private ObservableCollection<Room> _roomList;
         private ObservableCollection<Room> _availableRoomsList;
         private string _numberOfStars;
-        private ObservableCollection<Room> _bestOption;
-        private string _bestOptionTotalPrice;
+        private BestOption _bestOption;
 
         public Hotel()
         {
             _location = new Location();
             _roomList = new ObservableCollection<Room>();
             _availableRoomsList = new ObservableCollection<Room>();
-            _bestOption = new ObservableCollection<Room>();
+            _bestOption = new BestOption();
+            
         }
 
         public Hotel(string id, string name, Location location, ObservableCollection<Room> roomList, string numberOfStars)
@@ -33,7 +33,8 @@ namespace TravelAgency.Models
             _roomList = roomList;
             _numberOfStars = numberOfStars;
             _availableRoomsList = new ObservableCollection<Room>();
-            _bestOption = new ObservableCollection<Room>();
+            _bestOption = new BestOption();
+            
         }
 
         public string Id
@@ -92,7 +93,7 @@ namespace TravelAgency.Models
                 _availableRoomsList = value;
             }
         }
-        public ObservableCollection<Room> BestOption
+        public BestOption BestOption
         {
             get
             {
@@ -102,35 +103,6 @@ namespace TravelAgency.Models
             {
                 _bestOption = value;
             }
-        }
-        public string BestOptionString
-        {
-            get
-            {
-                string result = "";
-                foreach (Room room in _bestOption)
-                {
-                    result += string.Format(room.NumberOfPersons + "persons" + " - " + room.Price + "ron/night" + "\n");
-                }
-                return result;
-            }
-        }
-        public string BestOptionTotalPrice
-        {
-            get
-            {
-                return _bestOptionTotalPrice + " ron";
-            }
-        }
-
-        public void CalculateTotalPriceFor(ReservationPeriod reservationPeriod)
-        {
-            int _totalPrice = 0;
-            foreach(Room room in _bestOption)
-            {
-                _totalPrice += int.Parse(room.Price) * (reservationPeriod.CheckOut.Day - reservationPeriod.CheckIn.Day);
-            }
-            _bestOptionTotalPrice = _totalPrice.ToString();
         }
 
         public void Add(Room newRoom)
@@ -160,26 +132,27 @@ namespace TravelAgency.Models
         private void AddToAvailableRoomList(Room room)
         {
             _availableRoomsList.Add(room);
+           
         }
 
         public void GetBestOptionFor(Reservation reservation)
         {
-            _bestOption.Clear();
+            _bestOption.Rooms.Clear();
 
             List<Room> newList = new List<Room>();
             foreach (Room room in _availableRoomsList)
                 newList.Add(room);
 
-            List<Room> orderedList = newList.OrderByDescending(o => o.NumberOfPersons).ToList();
+            List<Room> orderedListDescending = newList.OrderByDescending(o => o.NumberOfPersons).ToList();
 
             int numberOfPersons = int.Parse(reservation.NumberOfPersons);
 
-            foreach (Room room in orderedList)
+            foreach (Room room in orderedListDescending)
             {
                 int roomCapacity = int.Parse(room.NumberOfPersons);
                 if (numberOfPersons >= roomCapacity)
                 {
-                    _bestOption.Add(room);
+                    _bestOption.Rooms.Add(room);
                     numberOfPersons -= roomCapacity;
                     
                 }
@@ -194,12 +167,15 @@ namespace TravelAgency.Models
                     int roomCapacity = int.Parse(room.NumberOfPersons);
                     if (numberOfPersons < roomCapacity)
                     {
-                        _bestOption.Add(room);
+                        _bestOption.Rooms.Add(room);
                         return;
                     }
                 }
             }
-            
+
+            if (numberOfPersons > 0)
+                _bestOption.Rooms.Clear();
+
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

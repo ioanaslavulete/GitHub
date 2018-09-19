@@ -227,7 +227,7 @@ namespace TravelAgency.ViewModels
             for (int i = 1; i <= NumberOfRooms; i++)
             {
                 Room newRoom = new Room(_room.Price, _room.NumberOfPersons, _room.RoomViewType);
-                _hotel.Add(newRoom);
+                _hotel.Add(newRoom);                
             }
             DataManagementService.Instance.SaveData();
             ClearRoomFields();

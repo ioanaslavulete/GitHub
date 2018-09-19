@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using TravelAgency.Models;
 using TravelAgency.Models.Commands;
 using TravelAgency.Services;
+using TravelAgency.Views;
 
 namespace TravelAgency.ViewModels
 {
@@ -13,8 +14,9 @@ namespace TravelAgency.ViewModels
     {
         private Hotel _selectedHotel;
         private Room _selectedRoom;
-        private ReserveRoomCommand _reserveRoomCommand;
         private ReservationPeriod _reservationPeriod;
+        private ReserveRoomCommand _reserveRoomCommand;
+
 
         public HotelDetailsViewModel()
         {
@@ -58,9 +60,12 @@ namespace TravelAgency.ViewModels
 
         public void ReserveRoom()
         {
+            PaymentMethodView view = new PaymentMethodView();
             ReservationPeriod newReservationPeriod = new ReservationPeriod(_reservationPeriod.CheckIn, _reservationPeriod.CheckOut);
             _selectedRoom.Add(newReservationPeriod);
             DataManagementService.Instance.SaveData();
+
+            view.ShowDialog();
             
         }
     }

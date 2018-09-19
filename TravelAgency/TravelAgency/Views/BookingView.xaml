@@ -264,8 +264,8 @@
                     <DataGridTextColumn Header="Hotel" Width="140" Binding="{Binding Hotel.Name}" IsReadOnly="True"/>
                     <DataGridTextColumn Header="Stars" Width="50" Binding="{Binding Hotel.NumberOfStars}" IsReadOnly="True"/>
                     <DataGridTextColumn Header="Location"  Width="150" Binding="{Binding Hotel.Location}" IsReadOnly="True"/>
-                    <DataGridTextColumn Header="Best option for you" Width="200" Binding="{Binding Hotel.BestOptionString}"/>
-                    <DataGridTextColumn Header="Total Price" Width="100" Binding="{Binding Hotel.BestOptionTotalPrice}" />
+                    <DataGridTextColumn Header="Best option for you" Width="200" Binding="{Binding Hotel.BestOption.Result}"/>
+                    <DataGridTextColumn Header="Total Price" Width="100" Binding="{Binding Hotel.BestOption.TotalPrice}" />
                 </DataGrid.Columns>
             </DataGrid>
         </StackPanel>
