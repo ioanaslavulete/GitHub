@@ -5,6 +5,8 @@
         
         private ReservationPeriod _reservationPeriod;
         private string _numberOfPersons;
+        private Customer _owner;
+        private Hotel _hotel;
 
         public string NumberOfPersons
         {
@@ -22,6 +24,21 @@
                 _reservationPeriod = value;
             }
         }
-        
+        public Customer Owner
+        {
+            get { return _owner; }
+            set
+            {
+                _owner = value;
+            }
+        }
+        public Hotel Hotel
+        {
+            get { return _hotel; }
+            set
+            {
+                _hotel = value;
+            }
+        }
     }
 }

@@ -61,7 +61,6 @@ C:\Users\Cosmin\Documents\GitHub\GitHub\TravelAgency\TravelAgency\obj\Debug\View
 C:\Users\Cosmin\Documents\GitHub\GitHub\TravelAgency\TravelAgency\obj\Debug\Views\HotelListView.g.cs
 C:\Users\Cosmin\Documents\GitHub\GitHub\TravelAgency\TravelAgency\obj\Debug\Views\HotelManagementView.g.cs
 C:\Users\Cosmin\Documents\GitHub\GitHub\TravelAgency\TravelAgency\obj\Debug\Views\MainWindow.g.cs
-C:\Users\Cosmin\Documents\GitHub\GitHub\TravelAgency\TravelAgency\obj\Debug\Views\PaymentMethodView.g.cs
 C:\Users\Cosmin\Documents\GitHub\GitHub\TravelAgency\TravelAgency\obj\Debug\Views\RoomView.g.cs
 C:\Users\Cosmin\Documents\GitHub\GitHub\TravelAgency\TravelAgency\obj\Debug\App.g.cs
 C:\Users\Cosmin\Documents\GitHub\GitHub\TravelAgency\TravelAgency\obj\Debug\GeneratedInternalTypeHelper.g.cs
@@ -74,7 +73,6 @@ C:\Users\Cosmin\Documents\GitHub\GitHub\TravelAgency\TravelAgency\obj\Debug\View
 C:\Users\Cosmin\Documents\GitHub\GitHub\TravelAgency\TravelAgency\obj\Debug\Views\HotelListView.baml
 C:\Users\Cosmin\Documents\GitHub\GitHub\TravelAgency\TravelAgency\obj\Debug\Views\HotelManagementView.baml
 C:\Users\Cosmin\Documents\GitHub\GitHub\TravelAgency\TravelAgency\obj\Debug\Views\MainWindow.baml
-C:\Users\Cosmin\Documents\GitHub\GitHub\TravelAgency\TravelAgency\obj\Debug\Views\PaymentMethodView.baml
 C:\Users\Cosmin\Documents\GitHub\GitHub\TravelAgency\TravelAgency\obj\Debug\Views\RoomView.baml
 C:\Users\Cosmin\Documents\GitHub\GitHub\TravelAgency\TravelAgency\obj\Debug\TravelAgency.g.resources
 C:\Users\Cosmin\Documents\GitHub\GitHub\TravelAgency\TravelAgency\obj\Debug\TravelAgency.Properties.Resources.resources
@@ -146,3 +144,6 @@ C:\Users\itsix\Desktop\Copie\TravelAgency\TravelAgency\obj\Debug\TravelAgency.cs
 C:\Users\itsix\Desktop\Copie\TravelAgency\TravelAgency\obj\Debug\TravelAgency.csproj.CoreCompileInputs.cache
 C:\Users\itsix\Desktop\Copie\TravelAgency\TravelAgency\obj\Debug\TravelAgency.exe
 C:\Users\itsix\Desktop\Copie\TravelAgency\TravelAgency\obj\Debug\TravelAgency.pdb
+C:\Users\Cosmin\Documents\GitHub\GitHub\TravelAgency\TravelAgency\obj\Debug\TravelAgency.csprojAssemblyReference.cache
+C:\Users\Cosmin\Documents\GitHub\GitHub\TravelAgency\TravelAgency\obj\Debug\Views\BookingVoucherView.g.cs
+C:\Users\Cosmin\Documents\GitHub\GitHub\TravelAgency\TravelAgency\obj\Debug\Views\BookingVoucherView.baml

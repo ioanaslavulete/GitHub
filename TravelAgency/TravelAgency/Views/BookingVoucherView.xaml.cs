@@ -15,11 +15,11 @@ using System.Windows.Shapes;
 namespace TravelAgency.Views
 {
     /// <summary>
-    /// Interaction logic for PaymentMethodView.xaml
+    /// Interaction logic for BookingVoucherView.xaml
     /// </summary>
-    public partial class PaymentMethodView : Window
+    public partial class BookingVoucherView : Window
     {
-        public PaymentMethodView()
+        public BookingVoucherView()
         {
             InitializeComponent();
         }

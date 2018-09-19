@@ -6,8 +6,8 @@
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
         xmlns:viewModel="clr-namespace:TravelAgency.ViewModels"
         mc:Ignorable="d"
-        
         Background="White">
+    
     <UserControl.Resources>
         <viewModel:BookingViewModel x:Key="BookingViewModel"></viewModel:BookingViewModel>
     </UserControl.Resources>
@@ -35,7 +35,7 @@
                Style="{StaticResource HeadingLeabelStyle}">
             Reserve Room
         </Label>
-
+        
         <CheckBox Grid.Row="1" 
                   Grid.Column="0"
                   VerticalAlignment="Center"
@@ -52,10 +52,8 @@
                    Width="80">
                 Customer ID
             </Label>
-
             <TextBox Margin="5,0,0,0"
-                     Width="100"
-                     Height="20"
+                     Style="{StaticResource NormalTextBoxStyle}"
                      Text="{Binding Customer.Id}">
             </TextBox>
         </StackPanel>
@@ -94,8 +92,7 @@
             </Label>
 
             <TextBox Margin="5,0,0,0"
-                     Width="100"
-                     Height="20"
+                     Style="{StaticResource NormalTextBoxStyle}"
                      Text="{Binding Customer.FirstName}">
             </TextBox>
         </StackPanel>
@@ -110,8 +107,7 @@
             </Label>
 
             <TextBox Margin="5,0,0,0"
-                     Width="100"
-                     Height="20"
+                     Style="{StaticResource NormalTextBoxStyle}"
                      Text="{Binding Customer.LastName}">
             </TextBox>
         </StackPanel>
@@ -143,8 +139,7 @@
             </Label>
 
             <TextBox Margin="5,0,0,0"
-                     Width="100"
-                     Height="20"
+                     Style="{StaticResource NormalTextBoxStyle}"
                      Text="{Binding Customer.PhoneNumber}">
             </TextBox>
         </StackPanel>
@@ -221,9 +216,7 @@
                 Rooms
             </Label>
             <TextBox Margin="5,0,0,0"
-                     Width="100"
-                     Height="20"
-                     >
+                     Style="{StaticResource NormalTextBoxStyle}">
             </TextBox>
         </StackPanel>
 
@@ -235,9 +228,8 @@
                 Persons
             </Label>
             <TextBox Margin="5,0,0,0"
-                     Width="100"
-                     Height="20"
-                    Text="{Binding Reservation.NumberOfPersons,Mode=TwoWay}" >
+                     Style="{StaticResource NormalTextBoxStyle}"
+                     Text="{Binding Reservation.NumberOfPersons,Mode=TwoWay}" >
             </TextBox>
         </StackPanel>
 
@@ -259,7 +251,9 @@
                       SelectedItem="{Binding SelectedAvailableOption}"
                       AutoGenerateColumns="False"                      
                       HorizontalScrollBarVisibility="Disabled"
-                      HeadersVisibility="Column">
+                      HeadersVisibility="Column"
+                      VerticalScrollBarVisibility="Auto"
+                      MaxHeight="150">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Hotel" Width="140" Binding="{Binding Hotel.Name}" IsReadOnly="True"/>
                     <DataGridTextColumn Header="Stars" Width="50" Binding="{Binding Hotel.NumberOfStars}" IsReadOnly="True"/>
@@ -277,7 +271,7 @@
                 VerticalAlignment="Bottom"
                 Margin="0,0,0,30"
                 Command="{Binding SeeDetailsCommand}">
-            See Details
+            Next
         </Button>
     </Grid>
 </UserControl>

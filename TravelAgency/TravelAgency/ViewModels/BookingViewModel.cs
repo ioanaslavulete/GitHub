@@ -166,20 +166,27 @@ namespace TravelAgency.ViewModels
 
                     }
                 }
-               
             }
         }
 
         public void ShowHotelDetailsView()
         {
-            HotelDetailsViewModel hotelDetailsViewModel = new HotelDetailsViewModel();
-            hotelDetailsViewModel.SelectedHotel = _selectedAvailableOption.Hotel;
-            hotelDetailsViewModel.ReservationPeriod = ReservationPeriod;
-            hotelDetailsViewModel.SelectedHotel.AvailableRoomsList = _selectedAvailableOption.Hotel.AvailableRoomsList;
+            //HotelDetailsViewModel hotelDetailsViewModel = new HotelDetailsViewModel();
+            //hotelDetailsViewModel.SelectedHotel = _selectedAvailableOption.Hotel;
+            //hotelDetailsViewModel.ReservationPeriod = ReservationPeriod;
+            //hotelDetailsViewModel.SelectedHotel.AvailableRoomsList = _selectedAvailableOption.Hotel.AvailableRoomsList;
 
-            HotelDetailsView view = new HotelDetailsView();
-            view.DataContext = hotelDetailsViewModel;
-            view.ShowDialog();
+            //HotelDetailsView view = new HotelDetailsView();
+            //view.DataContext = hotelDetailsViewModel;
+            //view.ShowDialog();
+
+            BookingVoucherView view = new BookingVoucherView();
+            BookingVoucherViewModel viewModel = new BookingVoucherViewModel();
+
+            viewModel.Customer = _customer;
+            viewModel.SelectedHotel = _selectedAvailableOption.Hotel;
+            view.DataContext = viewModel;
+            view.Show();
         }
     }
 }

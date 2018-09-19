@@ -33,25 +33,19 @@
 
         <Label Grid.Row="0"
                Grid.Column="0"
-               FontSize="20"
-               VerticalAlignment="Center"
-               HorizontalAlignment="Left">
+               Style="{StaticResource HeadingLeabelStyle}" >
             Hotel Details
         </Label>
 
         <Label Grid.Row="5"
                Grid.Column="0"
-               FontSize="20"
-               VerticalAlignment="Center"
-               HorizontalAlignment="Left">
+               Style="{StaticResource HeadingLeabelStyle}" >
             Available Rooms
         </Label>
 
         <Label Grid.Row="5"
                Grid.Column="1"
-               FontSize="20"
-               VerticalAlignment="Center"
-               HorizontalAlignment="Left">
+               Style="{StaticResource HeadingLeabelStyle}" >
             Best Option Rooms
         </Label>
 

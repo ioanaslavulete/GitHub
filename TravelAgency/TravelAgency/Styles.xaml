@@ -21,4 +21,8 @@
         <Setter Property="HorizontalAlignment" Value="Left"></Setter>
     </Style>
 
+    <Style TargetType="TextBox" x:Key="NormalTextBoxStyle">
+        <Setter Property="Width" Value="100"/>
+        <Setter Property="Height" Value="20"/>
+    </Style>           
 </ResourceDictionary>

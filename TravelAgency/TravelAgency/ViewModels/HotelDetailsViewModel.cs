@@ -16,7 +16,7 @@ namespace TravelAgency.ViewModels
         private Room _selectedRoom;
         private ReservationPeriod _reservationPeriod;
         private ReserveRoomCommand _reserveRoomCommand;
-
+        
 
         public HotelDetailsViewModel()
         {
@@ -60,12 +60,16 @@ namespace TravelAgency.ViewModels
 
         public void ReserveRoom()
         {
-            PaymentMethodView view = new PaymentMethodView();
-            ReservationPeriod newReservationPeriod = new ReservationPeriod(_reservationPeriod.CheckIn, _reservationPeriod.CheckOut);
-            _selectedRoom.Add(newReservationPeriod);
-            DataManagementService.Instance.SaveData();
+            //ReservationPeriod newReservationPeriod = new ReservationPeriod(_reservationPeriod.CheckIn, _reservationPeriod.CheckOut);
+            //_selectedRoom.Add(newReservationPeriod);
+            //DataManagementService.Instance.SaveData();
 
-            view.ShowDialog();
+            
+            BookingVoucherViewModel bookingVoucherViewModel = new BookingVoucherViewModel();
+
+            BookingVoucherView bookingVoucherView = new BookingVoucherView();
+            bookingVoucherView.DataContext = bookingVoucherViewModel;
+            bookingVoucherView.ShowDialog();
             
         }
     }
