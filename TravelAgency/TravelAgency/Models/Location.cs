@@ -10,6 +10,16 @@ namespace TravelAgency.Models
         private string _countryName;
         private string _fullName;
 
+        public Location(string cityName, string countryName)
+        {
+            CityName = cityName;
+            CountryName = countryName;
+        }
+
+        public Location()
+        {
+        }
+
         public string CityName
         {
             get { return _cityName; }

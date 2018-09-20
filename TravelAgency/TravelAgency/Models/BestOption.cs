@@ -12,7 +12,11 @@ namespace TravelAgency.Models
         {
             _rooms = new ObservableCollection<Room>();
             _totalPrice = null;
+        }
 
+        public BestOption(ObservableCollection<Room> rooms)
+        {
+            Rooms = rooms;
         }
 
         public ObservableCollection<Room> Rooms

@@ -12,8 +12,6 @@ namespace TravelAgency.Models
         private RoomViewType _roomViewType;
         private ObservableCollection<ReservationPeriod> _reservedPeriodList;
 
-
-
         public Room()
         {
             _reservedPeriodList = new ObservableCollection<ReservationPeriod>();
@@ -55,24 +53,37 @@ namespace TravelAgency.Models
             }
         }
 
+        public ObservableCollection<ReservationPeriod> ReservedPeriodList
+        {
+            get { return _reservedPeriodList; }
+            set
+            {
+                _reservedPeriodList = value;
+            }
+        }
+
         public bool IsAvailableIn(ReservationPeriod reservationPeriod)
         {
+            bool isAvailable = true;
             if (_reservedPeriodList.Count > 0)
             {
                 foreach (ReservationPeriod reservedPeriod in _reservedPeriodList)
                 {
-                    if ((reservationPeriod.IsBefore(reservedPeriod)) || (reservationPeriod.IsAfter(reservedPeriod)))
-                        return true;
-                    else
-                        return false;
+                    if ((reservationPeriod.IsBefore(reservedPeriod) == false) && (reservationPeriod.IsAfter(reservedPeriod) == false))
+                        isAvailable = false;
                 }
             }
-            return true;
+            return isAvailable;
         }
 
         public void Add(ReservationPeriod newReservationPeriod)
         {
             _reservedPeriodList.Add(newReservationPeriod);
+        }
+
+        public void Delete(ReservationPeriod reservationPeriod)
+        {
+            _reservedPeriodList.Remove(reservationPeriod);
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

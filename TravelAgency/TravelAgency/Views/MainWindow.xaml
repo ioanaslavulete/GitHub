@@ -10,42 +10,49 @@
         Height="600"
         WindowStartupLocation="CenterScreen"
         mc:Ignorable="d">
-	<Window.Resources>
-		<ResourceDictionary>
-			<ResourceDictionary.MergedDictionaries>
-				<ResourceDictionary Source="/TravelAgency;component/Styles.xaml" />
-			</ResourceDictionary.MergedDictionaries>
-		</ResourceDictionary>
-	</Window.Resources>
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/TravelAgency;component/Styles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
 
-	<Grid>
-		<TabControl TabStripPlacement="Left">
-			<TabItem Style="{StaticResource TabItemStyle}">
-				<TabItem.Header>
-					<StackPanel>
-						<TextBlock Style="{StaticResource TabHeaderText}" Text="Book Now" />
-					</StackPanel>
-				</TabItem.Header>
-				<views:BookingView Width="800" Margin="20" />
-			</TabItem>
-			<TabItem Style="{StaticResource TabItemStyle}">
-				<TabItem.Header>
-					<StackPanel>
-						<TextBlock Style="{StaticResource TabHeaderText}" Text="View" />
-						<TextBlock Style="{StaticResource TabHeaderText}" Text="Reservations" />
-					</StackPanel>
-				</TabItem.Header>
-				<views:ReservationsView />
-			</TabItem>
-			<TabItem Style="{StaticResource TabItemStyle}">
-				<TabItem.Header>
-					<StackPanel>
-						<TextBlock Style="{StaticResource TabHeaderText}" Text="Accomodations" />
-						<TextBlock Style="{StaticResource TabHeaderText}" Text="Management" />
-					</StackPanel>
-				</TabItem.Header>
-				<views:HotelManagementView Margin="20" />
-			</TabItem>
-		</TabControl>
-	</Grid>
+    <Grid>
+        <TabControl TabStripPlacement="Left">
+            <TabItem Style="{StaticResource TabItemStyle}">
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Height="30" Source="..\Icons\book.png"></Image>
+                        <TextBlock Style="{StaticResource TabHeaderText}" Text="Book Now" VerticalAlignment="Center"/>
+                    </StackPanel>
+                </TabItem.Header>
+                <views:BookingView Width="800" Margin="20" />
+            </TabItem>
+            <TabItem Style="{StaticResource TabItemStyle}">
+                <TabItem.Header>
+                    <StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Image Margin="0,0,2,0" Height="22" Source="..\Icons\reservation.png"></Image>
+                            <TextBlock Style="{StaticResource TabHeaderText}" Text="View" />
+                        </StackPanel>
+                        <TextBlock Style="{StaticResource TabHeaderText}" Text="Reservations" />
+                    </StackPanel>
+                </TabItem.Header>
+                <views:ReservationsView />
+            </TabItem>
+            <TabItem Style="{StaticResource TabItemStyle}">
+                <TabItem.Header>
+                    <StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Image Margin="0,0,2,0" Height="24" Source="..\Icons\accomodation.png"></Image>
+                            <TextBlock Style="{StaticResource TabHeaderText}" Text="Accomodation" />
+                        </StackPanel>
+                        <TextBlock Style="{StaticResource TabHeaderText}" Text="Management" />
+                    </StackPanel>
+                </TabItem.Header>
+                <views:HotelManagementView Margin="20" />
+            </TabItem>
+        </TabControl>
+    </Grid>
 </Window>

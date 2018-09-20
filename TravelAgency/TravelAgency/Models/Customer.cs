@@ -8,6 +8,17 @@
         private string _phoneNumber;
         private string _email;
 
+        public Customer() { }
+
+        public Customer(string id, string firstName, string lastName, string email, string phoneNumber)
+        {
+            Id = id;
+            FirstName = firstName;
+            LastName = lastName;
+            Email = email;
+            PhoneNumber = phoneNumber;
+        }
+
         public string Id
         {
             get { return _id; }

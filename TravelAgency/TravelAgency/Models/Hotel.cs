@@ -24,15 +24,15 @@ namespace TravelAgency.Models
             _bestOption = new BestOption();
         }
 
-        public Hotel(string id, string name, Location location, ObservableCollection<Room> roomList, string numberOfStars)
+        public Hotel(string id, string name, Location location, ObservableCollection<Room> roomList, string numberOfStars, BestOption bestOption)
         {
             _id = id;
             _name = name;
-            _location = location;
+            _location = new Location(location.CityName, location.CountryName);
             _roomList = roomList;
             _numberOfStars = numberOfStars;
             _availableRoomsList = new ObservableCollection<Room>();
-            _bestOption = new BestOption();
+            _bestOption = new BestOption(bestOption.Rooms);
         }
 
         public string Id
@@ -130,7 +130,7 @@ namespace TravelAgency.Models
         private void AddToAvailableRoomList(Room room)
         {
             _availableRoomsList.Add(room);
-           
+
         }
 
         public void GetBestOptionFor(Reservation reservation)
@@ -141,26 +141,26 @@ namespace TravelAgency.Models
             foreach (Room room in _availableRoomsList)
                 newList.Add(room);
 
-            List<Room> orderedListDescending = newList.OrderByDescending(o => o.NumberOfPersons).ToList();
+            var descendingList = newList.OrderByDescending(o => o.NumberOfPersons).ToList();
 
             int numberOfPersons = int.Parse(reservation.NumberOfPersons);
 
-            foreach (Room room in orderedListDescending)
+            foreach (Room room in descendingList)
             {
                 int roomCapacity = int.Parse(room.NumberOfPersons);
                 if (numberOfPersons >= roomCapacity)
                 {
                     _bestOption.Rooms.Add(room);
                     numberOfPersons -= roomCapacity;
-                    
+
                 }
             }
 
             if (numberOfPersons > 0)
             {
-                List<Room> orderedListAscending = newList.OrderBy(o => o.NumberOfPersons).ToList();
+                var ascendingList = newList.OrderBy(o => o.NumberOfPersons).ToList();
 
-                foreach (Room room in orderedListAscending)
+                foreach (Room room in ascendingList)
                 {
                     int roomCapacity = int.Parse(room.NumberOfPersons);
                     if (numberOfPersons < roomCapacity)

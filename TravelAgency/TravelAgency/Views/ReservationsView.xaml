@@ -25,7 +25,7 @@
 			                                 Mode=OneWayToSource}">
 			<DataGrid.Columns>
                 <DataGridTextColumn Width="70"
-				                    Binding="{Binding Owner.ID}"
+				                    Binding="{Binding Owner.Id}"
 				                    Header="ID" />
 				<DataGridTextColumn Width="100"
 				                    Binding="{Binding Owner.FirstName}"

@@ -53,5 +53,16 @@ namespace TravelAgency.Models
             else
                 return false;
         }
+
+        public override bool Equals(object obj)
+        {
+            if (obj != null)
+            {
+                var res = obj as ReservationPeriod;
+
+                return this.CheckIn.Equals(res.CheckIn) && this.CheckOut.Equals(res.CheckOut);
+            }
+            return false;
+        }
     }
 }

@@ -57,11 +57,10 @@ namespace TravelAgency.ViewModels
 
 		public void ReserveRoom()
 		{
-			ReservationPeriod newReservationPeriod = new ReservationPeriod(Reservation.ReservationPeriod.CheckIn, Reservation.ReservationPeriod.CheckOut);
 			foreach (Room room in Reservation.Hotel.BestOption.Rooms)
-				room.Add(newReservationPeriod);
+				room.Add(_reservation.ReservationPeriod);
 
-			_reservationRepository.Add(Reservation);
+			_reservationRepository.Add(_reservation);
 			DataManagementService.Instance.SaveData();
 			MessageBox.Show("Successful");
 		}

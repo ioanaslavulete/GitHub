@@ -60,7 +60,6 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Models\AvailableOption.cs" />
     <Compile Include="Models\BestOption.cs" />
     <Compile Include="Models\Commands\AddHotelCommand.cs" />
     <Compile Include="Models\Commands\AddRoomCommand.cs" />
@@ -140,7 +139,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Icons\accomodation.png" />
+    <Resource Include="Icons\book.png" />
+    <Resource Include="Icons\reservation.png" />
+  </ItemGroup>
   <ItemGroup>
     <Page Include="Styles.xaml">
       <SubType>Designer</SubType>

@@ -10,191 +10,190 @@
         WindowStartupLocation="CenterScreen"
         mc:Ignorable="d">
 
-	<Grid Margin="20">
+    <Grid Margin="20">
 
-		<Grid.RowDefinitions>
-			<RowDefinition Height="40" />
-			<RowDefinition Height="40" />
-			<RowDefinition Height="40" />
-			<RowDefinition Height="40" />
-			<RowDefinition Height="40" />
-			<RowDefinition Height="40" />
-			<RowDefinition Height="40" />
-			<RowDefinition Height="40" />
-			<RowDefinition Height="40" />
-			<RowDefinition Height="*" />
-			<RowDefinition Height="*" />
-		</Grid.RowDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40" />
+            <RowDefinition Height="40" />
+            <RowDefinition Height="40" />
+            <RowDefinition Height="40" />
+            <RowDefinition Height="40" />
+            <RowDefinition Height="40" />
+            <RowDefinition Height="40" />
+            <RowDefinition Height="40" />
+            <RowDefinition Height="40" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
 
-		<Grid.ColumnDefinitions>
-			<ColumnDefinition Width="*" />
-			<ColumnDefinition Width="*" />
-			<ColumnDefinition Width="*" />
-		</Grid.ColumnDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="300" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
 
-		<Label Grid.Row="0" Style="{StaticResource HeadingLeabelStyle}">
-			Voucher
-		</Label>
+        <Label Grid.Row="0" Style="{StaticResource HeadingLeabelStyle}">
+            Voucher
+        </Label>
 
-		<StackPanel Grid.Row="1"
+        <StackPanel Grid.Row="1"
 		            Grid.Column="0"
 		            Orientation="Horizontal">
-			<Label Width="80"
+            <Label Width="80"
 			       Margin="5,0,0,0"
 			       VerticalAlignment="Center">
-				First Name
-			</Label>
+                First Name
+            </Label>
 
-			<TextBlock Width="120"
+            <TextBlock Width="120"
 			           Height="20"
 			           Margin="5,0,0,0"
 			           FontWeight="DemiBold"
 			           Text="{Binding Reservation.Owner.FirstName}" />
-		</StackPanel>
+        </StackPanel>
 
-		<StackPanel Grid.Row="1"
+        <StackPanel Grid.Row="1"
 		            Grid.Column="1"
 		            VerticalAlignment="Center"
 		            Orientation="Horizontal">
-			<Label>
-				Hotel
-			</Label>
-			<TextBlock Margin="10,0,0,0"
+            <Label>
+                Hotel
+            </Label>
+            <TextBlock Margin="10,0,0,0"
 			           VerticalAlignment="Center"
 			           FontWeight="DemiBold"
 			           Text="{Binding Reservation.Hotel.Name}" />
-		</StackPanel>
+        </StackPanel>
 
-		<StackPanel Grid.Row="2"
+        <StackPanel Grid.Row="2"
 		            Grid.Column="0"
 		            Orientation="Horizontal">
-			<Label Width="80"
+            <Label Width="80"
 			       Margin="5,0,0,0"
 			       VerticalAlignment="Center">
-				Last Name
-			</Label>
+                Last Name
+            </Label>
 
-			<TextBlock Width="120"
+            <TextBlock Width="120"
 			           Height="20"
 			           Margin="5,0,0,0"
 			           FontWeight="DemiBold"
 			           Text="{Binding Reservation.Owner.LastName}" />
-		</StackPanel>
+        </StackPanel>
 
-		<DataGrid Grid.Row="2"
+        <DataGrid Grid.Row="2"
 		          Grid.RowSpan="3"
 		          Grid.Column="1"
-		          HorizontalAlignment="Center"
+		          HorizontalAlignment="Left"
 		          AutoGenerateColumns="False"
 		          HeadersVisibility="Column"
 		          HorizontalScrollBarVisibility="Disabled"
 		          ItemsSource="{Binding Reservation.Hotel.BestOption.Rooms}"
 		          VerticalScrollBarVisibility="Auto">
-			<DataGrid.Columns>
-				<DataGridTextColumn Width="50"
+            <DataGrid.Columns>
+                <DataGridTextColumn Width="50"
 				                    Binding="{Binding Price}"
 				                    Header="Price" />
-				<DataGridTextColumn Width="120"
+                <DataGridTextColumn Width="120"
 				                    Binding="{Binding NumberOfPersons}"
 				                    Header="Number of persons" />
-				<DataGridTextColumn Width="120"
+                <DataGridTextColumn Width="120"
 				                    Binding="{Binding RoomViewType}"
 				                    Header="Room View" />
-			</DataGrid.Columns>
-		</DataGrid>
+            </DataGrid.Columns>
+        </DataGrid>
 
-		<StackPanel Grid.Row="3"
+        <StackPanel Grid.Row="3"
 		            Grid.Column="0"
 		            Orientation="Horizontal">
-			<Label Width="80"
+            <Label Width="80"
 			       Margin="5,8,0,7"
 			       VerticalAlignment="Center">
-				E-Mail
-			</Label>
+                E-Mail
+            </Label>
 
-			<TextBlock Width="100"
+            <TextBlock Width="120"
 			           Height="20"
-			           Margin="5,10,0,11"
+			           Margin="5,10,0,10"
 			           VerticalAlignment="Center"
 			           FontWeight="DemiBold"
 			           Text="{Binding Reservation.Owner.Email}" />
-		</StackPanel>
+        </StackPanel>
 
-		<StackPanel Grid.Row="4"
+        <StackPanel Grid.Row="4"
 		            Grid.Column="0"
 		            Orientation="Horizontal">
-			<Label Width="80"
+            <Label Width="80"
 			       Margin="5,0,0,0"
 			       VerticalAlignment="Center">
-				Phone
-			</Label>
-			<TextBlock Width="100"
+                Phone
+            </Label>
+            <TextBlock Width="100"
 			           Height="20"
 			           Margin="5,0,0,0"
 			           FontWeight="DemiBold"
 			           Text="{Binding Reservation.Owner.PhoneNumber}" />
-		</StackPanel>
+        </StackPanel>
 
-		<Label Grid.Row="5" Style="{StaticResource HeadingLeabelStyle}">
-			Payment Info
-		</Label>
+        <Label Grid.Row="5" Style="{StaticResource HeadingLeabelStyle}">
+            Payment Info
+        </Label>
 
-		<StackPanel Grid.Row="6"
+        <StackPanel Grid.Row="6"
 		            VerticalAlignment="Center"
 		            Orientation="Horizontal">
-			<RadioButton IsChecked="True">Cash at Hotel</RadioButton>
-			<RadioButton Margin="20,0,0,0">Credit Card</RadioButton>
-		</StackPanel>
+            <RadioButton IsChecked="True">Cash at Hotel</RadioButton>
+            <RadioButton Margin="20,0,0,0">Credit Card</RadioButton>
+        </StackPanel>
 
-		<StackPanel Grid.Row="7"
+        <StackPanel Grid.Row="7"
 		            VerticalAlignment="Center"
 		            Orientation="Horizontal">
-			<Label Width="80">Card Number</Label>
-			<TextBox Width="120"
+            <Label Width="80">Card Number</Label>
+            <TextBox Width="120"
 			         Height="20"
 			         Margin="10,0,0,0" />
-		</StackPanel>
-		<StackPanel Grid.Row="7"
+        </StackPanel>
+        <StackPanel Grid.Row="7"
 		            Grid.Column="1"
 		            VerticalAlignment="Center"
 		            Orientation="Horizontal">
-			<Label Width="85">Card Holder</Label>
-			<TextBox Width="120"
+            <Label Width="85">Card Holder</Label>
+            <TextBox Width="120"
 			         Height="20"
 			         Margin="10,0,0,0" />
-		</StackPanel>
-		<StackPanel Grid.Row="8"
+        </StackPanel>
+        <StackPanel Grid.Row="8"
 		            Grid.Column="0"
 		            VerticalAlignment="Center"
 		            Orientation="Horizontal">
-			<Label Width="80">Expire Date</Label>
-			<TextBox Width="46"
+            <Label Width="80">Expire Date</Label>
+            <TextBox Width="46"
 			         Height="20"
 			         Margin="10,0,0,0" />
-			<Label Width="16" Margin="5,0,0,0">/</Label>
-			<TextBox Width="46"
+            <Label Width="16" Margin="5,0,0,0">/</Label>
+            <TextBox Width="46"
 			         Height="20"
 			         Margin="5,0,0,0" />
-		</StackPanel>
-		<StackPanel Grid.Row="8"
+        </StackPanel>
+        <StackPanel Grid.Row="8"
 		            Grid.Column="1"
 		            VerticalAlignment="Center"
 		            Orientation="Horizontal">
-			<Label Width="85">Security Code</Label>
-			<TextBox Width="120"
+            <Label Width="85">Security Code</Label>
+            <TextBox Width="120"
 			         Height="20"
 			         Margin="10,0,0,0" />
-		</StackPanel>
+        </StackPanel>
 
-		<Button Grid.Row="10"
+        <Button Grid.Row="10"
 		        Grid.Column="2"
 		        Width="100"
 		        Height="20"
 		        HorizontalAlignment="Center"
 		        VerticalAlignment="Center"
 		        Command="{Binding ReserveRoomCommand}">
-			Finalize
-		</Button>
+            Finalize
+        </Button>
 
-	</Grid>
+    </Grid>
 </Window>
