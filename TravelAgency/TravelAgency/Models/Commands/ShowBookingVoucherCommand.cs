@@ -4,11 +4,11 @@ using TravelAgency.ViewModels;
 
 namespace TravelAgency.Models.Commands
 {
-    public class SeeDetailsCommand : ICommand
+    public class ShowBookingVoucherCommand : ICommand
     {
         private BookingViewModel _bookingViewModel;
 
-        public SeeDetailsCommand(BookingViewModel bookingViewModel)
+        public ShowBookingVoucherCommand(BookingViewModel bookingViewModel)
         {
            _bookingViewModel = bookingViewModel;
         }

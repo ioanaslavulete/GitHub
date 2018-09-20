@@ -71,7 +71,7 @@
     <Compile Include="Models\Commands\ReserveRoomCommand.cs" />
     <Compile Include="Models\Commands\SaveHotelCommand.cs" />
     <Compile Include="Models\Commands\SaveRoomCommand.cs" />
-    <Compile Include="Models\Commands\SeeDetailsCommand.cs" />
+    <Compile Include="Models\Commands\ShowBookingVoucherCommand.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\Hotel.cs" />
     <Compile Include="Models\HotelRepository.cs" />

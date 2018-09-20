@@ -6,7 +6,6 @@
 		private string _numberOfPersons;
 		private Customer _owner;
 		private Hotel _hotel;
-		private Customer _customer;
 
 		public Reservation()
 		{

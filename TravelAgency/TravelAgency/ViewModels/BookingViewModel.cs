@@ -9,36 +9,25 @@ namespace TravelAgency.ViewModels
 {
 	public class BookingViewModel
 	{
-		private HotelRepository _hotelRepository;
-		private LocationRepository _locationRepository;
+		private Reservation _reservation;
+		private ObservableCollection<Hotel> _hotelList;
 		private ObservableCollection<Location> _locationList;
 		private ObservableCollection<AvailableOption> _availableOptionList;
 		private AvailableOption _selectedAvailableOption;
-		private Hotel _hotel;
-		private ReservationPeriod _reservationPeriod;
-		private Reservation _reservation;
-		private Customer _customer;
-		private Location _selectedLocation;
 
 		private CheckAvailabilityCommand _checkAvailabilityCommand;
-		private SeeDetailsCommand _seeDetailsCommand;
+		private ShowBookingVoucherCommand _seeDetailsCommand;
 
 		public BookingViewModel()
 		{
-			_hotelRepository = DataManagementService.Instance.MainRepository.HotelRepository;
-			_locationRepository = DataManagementService.Instance.MainRepository.LocationRepository;
-			_locationList = _locationRepository.LocationList;
-			_availableOptionList = new ObservableCollection<AvailableOption>();
-			_hotel = new Hotel();
-			_selectedAvailableOption = new AvailableOption();
-			_reservationPeriod = new ReservationPeriod();
-
-			_selectedLocation = new Location();
-			_customer = new Customer();
+			_hotelList = DataManagementService.Instance.MainRepository.HotelRepository.HotelList;
+			_locationList = DataManagementService.Instance.MainRepository.LocationRepository.LocationList;
 			_reservation = new Reservation();
+			_availableOptionList = new ObservableCollection<AvailableOption>();
+			_selectedAvailableOption = new AvailableOption();
 
 			_checkAvailabilityCommand = new CheckAvailabilityCommand(this);
-			_seeDetailsCommand = new SeeDetailsCommand(this);
+			_seeDetailsCommand = new ShowBookingVoucherCommand(this);
 		}
 
 		public ObservableCollection<Location> LocationList
@@ -60,17 +49,6 @@ namespace TravelAgency.ViewModels
 				_availableOptionList = value;
 			}
 		}
-		public Hotel Hotel
-		{
-			get
-			{
-				return _hotel;
-			}
-			set
-			{
-				_hotel = value;
-			}
-		}
 		public AvailableOption SelectedAvailableOption
 		{
 			get
@@ -82,14 +60,6 @@ namespace TravelAgency.ViewModels
 				_selectedAvailableOption = value;
 			}
 		}
-		public ReservationPeriod ReservationPeriod
-		{
-			get { return _reservationPeriod; }
-			set
-			{
-				_reservationPeriod = value;
-			}
-		}
 		public Reservation Reservation
 		{
 			get
@@ -99,28 +69,6 @@ namespace TravelAgency.ViewModels
 			set
 			{
 				_reservation = value;
-			}
-		}
-		public Customer Customer
-		{
-			get
-			{
-				return _customer;
-			}
-			set
-			{
-				_customer = value;
-			}
-		}
-		public Location SelectedLocation
-		{
-			get
-			{
-				return _selectedLocation;
-			}
-			set
-			{
-				_selectedLocation = value;
 			}
 		}
 
@@ -135,7 +83,7 @@ namespace TravelAgency.ViewModels
 				_checkAvailabilityCommand = value;
 			}
 		}
-		public SeeDetailsCommand SeeDetailsCommand
+		public ShowBookingVoucherCommand SeeDetailsCommand
 		{
 			get
 			{
@@ -150,18 +98,19 @@ namespace TravelAgency.ViewModels
 
 		public void CheckAvailability()
 		{
-			AvailableOptionList.Clear();
-			foreach (Hotel hotel in _hotelRepository.HotelList)
+			_availableOptionList.Clear();
+
+			foreach (Hotel hotel in _hotelList)
 			{
-				if (_selectedLocation.FullName == hotel.Location.FullName)
+				if (hotel.Location.Equals(_reservation.Hotel.Location))
 				{
-					if (hotel.HasRoomsAvailableIn(_reservationPeriod))
+					if (hotel.HasRoomsAvailableIn(_reservation.ReservationPeriod))
 					{
 						AvailableOption availableOption = new AvailableOption(hotel);
-						hotel.GetBestOptionFor(Reservation);
-						if (hotel.BestOption.Rooms.Count != 0)
+						hotel.GetBestOptionFor(_reservation);
+						if (hotel.BestOption.HasRooms())
 						{
-							hotel.BestOption.CalculateTotalPriceFor(ReservationPeriod);
+							hotel.BestOption.CalculateTotalPriceFor(_reservation.ReservationPeriod);
 							_availableOptionList.Add(availableOption);
 						}
 					}
@@ -169,6 +118,7 @@ namespace TravelAgency.ViewModels
 			}
 		}
 
+		//TODO - Refactor this method
 		public void ShowHotelDetailsView()
 		{
 			BookingVoucherView view = new BookingVoucherView();
