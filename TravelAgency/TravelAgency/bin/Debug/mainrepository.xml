@@ -45,6 +45,49 @@
           </Rooms>
         </BestOption>
       </Hotel>
+      <Hotel>
+        <Id>2</Id>
+        <Name>Ramada Plaza</Name>
+        <NumberOfStars>5</NumberOfStars>
+        <Location>
+          <CityName>Craiova</CityName>
+          <CountryName>Romania</CountryName>
+          <FullName>Craiova, Romania</FullName>
+        </Location>
+        <RoomList>
+          <Room>
+            <Price>100</Price>
+            <NumberOfPersons>2</NumberOfPersons>
+            <RoomViewType>Street</RoomViewType>
+          </Room>
+          <Room>
+            <Price>100</Price>
+            <NumberOfPersons>2</NumberOfPersons>
+            <RoomViewType>Street</RoomViewType>
+          </Room>
+          <Room>
+            <Price>100</Price>
+            <NumberOfPersons>2</NumberOfPersons>
+            <RoomViewType>Street</RoomViewType>
+          </Room>
+        </RoomList>
+        <AvailableRoomsList>
+          <Room>
+            <Price>100</Price>
+            <NumberOfPersons>2</NumberOfPersons>
+            <RoomViewType>Street</RoomViewType>
+          </Room>
+        </AvailableRoomsList>
+        <BestOption>
+          <Rooms>
+            <Room>
+              <Price>100</Price>
+              <NumberOfPersons>2</NumberOfPersons>
+              <RoomViewType>Street</RoomViewType>
+            </Room>
+          </Rooms>
+        </BestOption>
+      </Hotel>
     </HotelList>
   </HotelRepository>
   <LocationRepository>
@@ -53,6 +96,11 @@
         <CityName>Sinaia</CityName>
         <CountryName>Romania</CountryName>
         <FullName>Sinaia, Romania</FullName>
+      </Location>
+      <Location>
+        <CityName>Craiova</CityName>
+        <CountryName>Romania</CountryName>
+        <FullName>Craiova, Romania</FullName>
       </Location>
     </LocationList>
   </LocationRepository>

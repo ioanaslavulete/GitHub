@@ -20,7 +20,7 @@ namespace TravelAgency.ViewModels
 
         public HotelDetailsViewModel()
         {
-            _reserveRoomCommand = new ReserveRoomCommand(this);
+           // _reserveRoomCommand = new ReserveRoomCommand(this);
             _reservationPeriod = new ReservationPeriod();
         }
 

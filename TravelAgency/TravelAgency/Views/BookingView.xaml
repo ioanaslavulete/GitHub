@@ -1,277 +1,280 @@
 ﻿<UserControl x:Class="TravelAgency.Views.BookingView"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:sys="clr-namespace:System;assembly=mscorlib"
-        xmlns:viewModel="clr-namespace:TravelAgency.ViewModels"
-        mc:Ignorable="d"
-        Background="White">
-    
-    <UserControl.Resources>
-        <viewModel:BookingViewModel x:Key="BookingViewModel"></viewModel:BookingViewModel>
-    </UserControl.Resources>
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             xmlns:viewModel="clr-namespace:TravelAgency.ViewModels"
+             Background="White"
+             mc:Ignorable="d">
 
-    <Grid DataContext="{Binding Source={StaticResource BookingViewModel}}">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="40"/>
-            <RowDefinition Height="40"/>
-            <RowDefinition Height="40"/>
-            <RowDefinition Height="40"/>
-            <RowDefinition Height="40"/>
-            <RowDefinition Height="40"/>
-            <RowDefinition Height="40"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
+	<UserControl.Resources>
+		<viewModel:BookingViewModel x:Key="BookingViewModel" />
+	</UserControl.Resources>
 
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
+	<Grid DataContext="{Binding Source={StaticResource BookingViewModel}}">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="40" />
+			<RowDefinition Height="40" />
+			<RowDefinition Height="40" />
+			<RowDefinition Height="40" />
+			<RowDefinition Height="40" />
+			<RowDefinition Height="40" />
+			<RowDefinition Height="40" />
+			<RowDefinition Height="*" />
+		</Grid.RowDefinitions>
 
-        <Label Grid.Row="0"
-               Grid.Column="0"
-               Style="{StaticResource HeadingLeabelStyle}">
-            Reserve Room
-        </Label>
-        
-        <CheckBox Grid.Row="1" 
-                  Grid.Column="0"
-                  VerticalAlignment="Center"
-                  HorizontalAlignment="Left"
-                  Margin="5,0,0,0">
-            New Customer
-        </CheckBox>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="*" />
+			<ColumnDefinition Width="*" />
+			<ColumnDefinition Width="*" />
+		</Grid.ColumnDefinitions>
 
-        <StackPanel Orientation="Horizontal"
-                    VerticalAlignment="Center"
-                    Grid.Row="1"
-                    Grid.Column="1">
-            <Label Margin="5,0,0,0"                   
-                   Width="80">
-                Customer ID
-            </Label>
-            <TextBox Margin="5,0,0,0"
-                     Style="{StaticResource NormalTextBoxStyle}"
-                     Text="{Binding Customer.Id}">
-            </TextBox>
-        </StackPanel>
+		<Label Grid.Row="0"
+		       Grid.Column="0"
+		       Style="{StaticResource HeadingLeabelStyle}">
+			Reserve Room
+		</Label>
 
-        <Button Grid.Row="1"
-                Grid.Column="2"
-                Margin="10,10,0,10"
-                VerticalAlignment="Center"
-                HorizontalAlignment="Left" Width="100">
-            Get Info
-        </Button>
+		<CheckBox Grid.Row="1"
+		          Grid.Column="0"
+		          Margin="5,0,0,0"
+		          HorizontalAlignment="Left"
+		          VerticalAlignment="Center">
+			New Customer
+		</CheckBox>
 
-        <StackPanel Grid.Row="2"
-                    Grid.Column="0"
-                    Orientation="Horizontal"
-                    VerticalAlignment="Center">
-            <Label Margin="5,0,0,0" Width="50">
-                Title
-            </Label>
-            <ComboBox Margin="5,0,0,0"
-                      Width="75"
-                      Height="20">
-                <ComboBoxItem>Mr.</ComboBoxItem>
-                <ComboBoxItem>Ms.</ComboBoxItem>
-                <ComboBoxItem>Mrs.</ComboBoxItem>
-            </ComboBox>
-        </StackPanel>
+		<StackPanel Grid.Row="1"
+		            Grid.Column="1"
+		            VerticalAlignment="Center"
+		            Orientation="Horizontal">
+			<Label Width="80" Margin="5,0,0,0">
+				Customer ID
+			</Label>
+			<TextBox Margin="5,0,0,0"
+			         Style="{StaticResource NormalTextBoxStyle}"
+			         Text="{Binding Customer.Id}" />
+		</StackPanel>
 
-        <StackPanel Grid.Row="2"
-                    Grid.Column="1"
-                    Orientation="Horizontal">
-            <Label Margin="5,0,0,0"
-                   VerticalAlignment="Center"
-                   Width="80">
-                First Name
-            </Label>
+		<Button Grid.Row="1"
+		        Grid.Column="2"
+		        Width="100"
+		        Margin="10,10,0,10"
+		        HorizontalAlignment="Left"
+		        VerticalAlignment="Center">
+			Get Info
+		</Button>
 
-            <TextBox Margin="5,0,0,0"
-                     Style="{StaticResource NormalTextBoxStyle}"
-                     Text="{Binding Customer.FirstName}">
-            </TextBox>
-        </StackPanel>
+		<StackPanel Grid.Row="2"
+		            Grid.Column="0"
+		            VerticalAlignment="Center"
+		            Orientation="Horizontal">
+			<Label Width="50" Margin="5,0,0,0">
+				Title
+			</Label>
+			<ComboBox Width="75"
+			          Height="20"
+			          Margin="5,0,0,0">
+				<ComboBoxItem>Mr.</ComboBoxItem>
+				<ComboBoxItem>Ms.</ComboBoxItem>
+				<ComboBoxItem>Mrs.</ComboBoxItem>
+			</ComboBox>
+		</StackPanel>
 
-        <StackPanel Grid.Row="2"
-                    Grid.Column="2"
-                    Orientation="Horizontal">
-            <Label Margin="5,0,0,0"
-                   VerticalAlignment="Center"
-                   Width="80">
-                Last Name
-            </Label>
+		<StackPanel Grid.Row="2"
+		            Grid.Column="1"
+		            Orientation="Horizontal">
+			<Label Width="80"
+			       Margin="5,0,0,0"
+			       VerticalAlignment="Center">
+				First Name
+			</Label>
 
-            <TextBox Margin="5,0,0,0"
-                     Style="{StaticResource NormalTextBoxStyle}"
-                     Text="{Binding Customer.LastName}">
-            </TextBox>
-        </StackPanel>
+			<TextBox Margin="5,0,0,0"
+			         Style="{StaticResource NormalTextBoxStyle}"
+			         Text="{Binding Customer.FirstName}" />
+		</StackPanel>
 
-        <StackPanel Grid.Row="3"
-                    Grid.Column="0"
-                    Orientation="Horizontal">
-            <Label Margin="5,7,0,7"
-                   VerticalAlignment="Center"
-                   Width="49">
-                E-Mail
-            </Label>
+		<StackPanel Grid.Row="2"
+		            Grid.Column="2"
+		            Orientation="Horizontal">
+			<Label Width="80"
+			       Margin="5,0,0,0"
+			       VerticalAlignment="Center">
+				Last Name
+			</Label>
 
-            <TextBox Margin="5,0,0,0"
-                     VerticalAlignment="Center"
-                     Width="150"
-                     Height="20"
-                     Text="{Binding Customer.Email}">
-            </TextBox>
-        </StackPanel>
+			<TextBox Margin="5,0,0,0"
+			         Style="{StaticResource NormalTextBoxStyle}"
+			         Text="{Binding Customer.LastName}" />
+		</StackPanel>
 
-        <StackPanel Grid.Row="3"
-                    Grid.Column="1"
-                    Orientation="Horizontal">
-            <Label Margin="5,0,0,0"
-                   VerticalAlignment="Center"
-                   Width="80">
-                Phone
-            </Label>
+		<StackPanel Grid.Row="3"
+		            Grid.Column="0"
+		            Orientation="Horizontal">
+			<Label Width="49"
+			       Margin="5,7,0,7"
+			       VerticalAlignment="Center">
+				E-Mail
+			</Label>
 
-            <TextBox Margin="5,0,0,0"
-                     Style="{StaticResource NormalTextBoxStyle}"
-                     Text="{Binding Customer.PhoneNumber}">
-            </TextBox>
-        </StackPanel>
+			<TextBox Width="150"
+			         Height="20"
+			         Margin="5,0,0,0"
+			         VerticalAlignment="Center"
+			         Text="{Binding Customer.Email}" />
+		</StackPanel>
 
-        <StackPanel Grid.Row="4"
-                    Grid.Column="0"
-                    Orientation="Horizontal">
-            <Label Margin="5,7,0,7"
-                   VerticalAlignment="Center"
-                   Width="50">
-                Place
-            </Label>
+		<StackPanel Grid.Row="3"
+		            Grid.Column="1"
+		            Orientation="Horizontal">
+			<Label Width="80"
+			       Margin="5,0,0,0"
+			       VerticalAlignment="Center">
+				Phone
+			</Label>
 
-            <ComboBox Margin="5,10,0,10"
-                      Width="150"
-                      Height="20"
-                      IsEditable="True"
-                      ItemsSource="{Binding LocationList}"
-                      SelectedItem="{Binding SelectedLocation}">
-            </ComboBox>
-        </StackPanel>
+			<TextBox Margin="5,0,0,0"
+			         Style="{StaticResource NormalTextBoxStyle}"
+			         Text="{Binding Customer.PhoneNumber}" />
+		</StackPanel>
 
-        <StackPanel Grid.Row="4"
-                    Grid.Column="1"
-                    Orientation="Horizontal"
-                    VerticalAlignment="Center">
-            <Label Margin="5,0,0,0" Width="80">
-                Room View:
-            </Label>
-            <ComboBox Margin="5,0,0,0"
-                      Width="100"
-                      Height="20">
-            </ComboBox>
-        </StackPanel>
+		<StackPanel Grid.Row="4"
+		            Grid.Column="0"
+		            Orientation="Horizontal">
+			<Label Width="50"
+			       Margin="5,7,0,7"
+			       VerticalAlignment="Center">
+				Place
+			</Label>
 
-        <StackPanel Grid.Row="5"
-                    Grid.Column="0"
-                    Orientation="Horizontal"
-                    VerticalAlignment="Center">
-            <Label Margin="5,0,0,0" Width="80">
-                Check In
-            </Label>
-            <DatePicker Margin="5,0,0,0"
-                        Width="120"
-                        Height="26"                        
-                        SelectedDate="{Binding ReservationPeriod.CheckIn, Mode=OneWayToSource}"
-                        DisplayDateStart="{x:Static sys:DateTime.Today}"
-                        Validation.ErrorTemplate="{x:Null}"
-                        >
-            </DatePicker>
-        </StackPanel>
+			<ComboBox Width="150"
+			          Height="20"
+			          Margin="5,10,0,10"
+			          IsEditable="True"
+			          ItemsSource="{Binding LocationList}"
+			          SelectedItem="{Binding SelectedLocation}" />
+		</StackPanel>
 
-        <StackPanel Grid.Row="6"
-                    Grid.Column="0"
-                    Orientation="Horizontal"
-                    VerticalAlignment="Center">
-            <Label Margin="5,0,0,0" Width="80">
-                Check Out
-            </Label>
-            <DatePicker Margin="5,0,0,0"
-                        Width="120"
-                        Height="26"
-                        SelectedDate="{Binding ReservationPeriod.CheckOut, Mode=OneWayToSource}"
-                        DisplayDateStart="{x:Static sys:DateTime.Today}"
-                        Validation.ErrorTemplate="{x:Null}">
-            </DatePicker>
-        </StackPanel>
+		<StackPanel Grid.Row="4"
+		            Grid.Column="1"
+		            VerticalAlignment="Center"
+		            Orientation="Horizontal">
+			<Label Width="80" Margin="5,0,0,0">
+				Room View:
+			</Label>
+			<ComboBox Width="100"
+			          Height="20"
+			          Margin="5,0,0,0" />
+		</StackPanel>
 
-        <StackPanel Grid.Row="5"
-                    Grid.Column="1"
-                    Orientation="Horizontal"
-                    VerticalAlignment="Center">
-            <Label Margin="5,0,0,0" Width="80">
-                Rooms
-            </Label>
-            <TextBox Margin="5,0,0,0"
-                     Style="{StaticResource NormalTextBoxStyle}">
-            </TextBox>
-        </StackPanel>
+		<StackPanel Grid.Row="5"
+		            Grid.Column="0"
+		            VerticalAlignment="Center"
+		            Orientation="Horizontal">
+			<Label Width="80" Margin="5,0,0,0">
+				Check In
+			</Label>
+			<DatePicker Width="120"
+			            Height="26"
+			            Margin="5,0,0,0"
+			            DisplayDateStart="{x:Static sys:DateTime.Today}"
+			            SelectedDate="{Binding ReservationPeriod.CheckIn,
+			                                   Mode=OneWayToSource}"
+			            Validation.ErrorTemplate="{x:Null}" />
+		</StackPanel>
 
-        <StackPanel Grid.Row="6"
-                    Grid.Column="1"
-                    Orientation="Horizontal"
-                    VerticalAlignment="Center">
-            <Label Margin="5,0,0,0" Width="80">
-                Persons
-            </Label>
-            <TextBox Margin="5,0,0,0"
-                     Style="{StaticResource NormalTextBoxStyle}"
-                     Text="{Binding Reservation.NumberOfPersons,Mode=TwoWay}" >
-            </TextBox>
-        </StackPanel>
+		<StackPanel Grid.Row="5"
+		            Grid.Column="1"
+		            VerticalAlignment="Center"
+		            Orientation="Horizontal">
+			<Label Width="80" Margin="5,0,0,0">
+				Rooms
+			</Label>
+			<TextBox Margin="5,0,0,0" Style="{StaticResource NormalTextBoxStyle}" />
+		</StackPanel>
 
-        <Button Grid.Row="6"
-                Grid.Column="2"
-                Margin="10,0,0,0"
-                Width="100"
-                HorizontalAlignment="Left"
-                VerticalAlignment="Center"
-                Command="{Binding CheckAvailabilityCommand}">
-            Check Availability
-        </Button>
+		<StackPanel Grid.Row="6"
+		            Grid.Column="0"
+		            VerticalAlignment="Center"
+		            Orientation="Horizontal">
+			<Label Width="80" Margin="5,0,0,0">
+				Check Out
+			</Label>
+			<DatePicker Width="120"
+			            Height="26"
+			            Margin="5,0,0,0"
+			            DisplayDateStart="{x:Static sys:DateTime.Today}"
+			            SelectedDate="{Binding ReservationPeriod.CheckOut,
+			                                   Mode=OneWayToSource}"
+			            Validation.ErrorTemplate="{x:Null}" />
+		</StackPanel>
 
-        <StackPanel Grid.Row="7"
-                    Grid.ColumnSpan="3">
-            <Label>Best Options</Label>
-            <DataGrid Margin="5,0,5,0"
-                      ItemsSource="{Binding AvailableOptionList}"
-                      SelectedItem="{Binding SelectedAvailableOption}"
-                      AutoGenerateColumns="False"                      
-                      HorizontalScrollBarVisibility="Disabled"
-                      HeadersVisibility="Column"
-                      VerticalScrollBarVisibility="Auto"
-                      MaxHeight="150">
-                <DataGrid.Columns>
-                    <DataGridTextColumn Header="Hotel" Width="140" Binding="{Binding Hotel.Name}" IsReadOnly="True"/>
-                    <DataGridTextColumn Header="Stars" Width="50" Binding="{Binding Hotel.NumberOfStars}" IsReadOnly="True"/>
-                    <DataGridTextColumn Header="Location"  Width="150" Binding="{Binding Hotel.Location}" IsReadOnly="True"/>
-                    <DataGridTextColumn Header="Best option for you" Width="200" Binding="{Binding Hotel.BestOption.Result}"/>
-                    <DataGridTextColumn Header="Total Price" Width="100" Binding="{Binding Hotel.BestOption.TotalPrice}" />
-                </DataGrid.Columns>
-            </DataGrid>
-        </StackPanel>
+		<StackPanel Grid.Row="6"
+		            Grid.Column="1"
+		            VerticalAlignment="Center"
+		            Orientation="Horizontal">
+			<Label Width="80" Margin="5,0,0,0">
+				Persons
+			</Label>
+			<TextBox Margin="5,0,0,0"
+			         Style="{StaticResource NormalTextBoxStyle}"
+			         Text="{Binding Reservation.NumberOfPersons,
+			                        Mode=TwoWay,
+			                        UpdateSourceTrigger=PropertyChanged}" />
+		</StackPanel>
 
-        <Button Grid.Row="7"
-                Width="100"
-                Height="20"
-                Grid.Column="2"
-                VerticalAlignment="Bottom"
-                Margin="0,0,0,30"
-                Command="{Binding SeeDetailsCommand}">
-            Next
-        </Button>
-    </Grid>
+		<Button Grid.Row="6"
+		        Grid.Column="2"
+		        Width="100"
+		        Margin="10,0,0,0"
+		        HorizontalAlignment="Left"
+		        VerticalAlignment="Center"
+		        Command="{Binding CheckAvailabilityCommand}">
+			Check Availability
+		</Button>
+
+		<StackPanel Grid.Row="7" Grid.ColumnSpan="3">
+			<Label>Best Options</Label>
+			<DataGrid MaxHeight="150"
+			          Margin="5,0,5,0"
+			          AutoGenerateColumns="False"
+			          HeadersVisibility="Column"
+			          HorizontalScrollBarVisibility="Disabled"
+			          ItemsSource="{Binding AvailableOptionList}"
+			          SelectedItem="{Binding SelectedAvailableOption}"
+			          VerticalScrollBarVisibility="Auto">
+				<DataGrid.Columns>
+					<DataGridTextColumn Width="140"
+					                    Binding="{Binding Hotel.Name}"
+					                    Header="Hotel"
+					                    IsReadOnly="True" />
+					<DataGridTextColumn Width="50"
+					                    Binding="{Binding Hotel.NumberOfStars}"
+					                    Header="Stars"
+					                    IsReadOnly="True" />
+					<DataGridTextColumn Width="150"
+					                    Binding="{Binding Hotel.Location}"
+					                    Header="Location"
+					                    IsReadOnly="True" />
+					<DataGridTextColumn Width="200"
+					                    Binding="{Binding Hotel.BestOption.Result}"
+					                    Header="Best option for you" />
+					<DataGridTextColumn Width="100"
+					                    Binding="{Binding Hotel.BestOption.TotalPrice}"
+					                    Header="Total Price" />
+				</DataGrid.Columns>
+			</DataGrid>
+		</StackPanel>
+
+		<Button Grid.Row="7"
+		        Grid.Column="2"
+		        Width="100"
+		        Height="20"
+		        Margin="0,0,0,30"
+		        VerticalAlignment="Bottom"
+		        Command="{Binding SeeDetailsCommand}">
+			Next
+		</Button>
+	</Grid>
 </UserControl>

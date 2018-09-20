@@ -6,7 +6,6 @@ namespace TravelAgency.Models
     {
         private ObservableCollection<Room> _rooms;
         private string _totalPrice;
-        
 
         public BestOption()
         {
@@ -40,10 +39,7 @@ namespace TravelAgency.Models
                     result += string.Format(room.NumberOfPersons + "persons" + " - " + room.Price + "ron/night" + "\n");
                 }
                 return result;
-
             }
-
-
         }
 
         public void CalculateTotalPriceFor(ReservationPeriod reservationPeriod)

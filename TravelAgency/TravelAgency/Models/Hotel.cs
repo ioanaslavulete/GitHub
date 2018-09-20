@@ -22,7 +22,6 @@ namespace TravelAgency.Models
             _roomList = new ObservableCollection<Room>();
             _availableRoomsList = new ObservableCollection<Room>();
             _bestOption = new BestOption();
-            
         }
 
         public Hotel(string id, string name, Location location, ObservableCollection<Room> roomList, string numberOfStars)
@@ -34,7 +33,6 @@ namespace TravelAgency.Models
             _numberOfStars = numberOfStars;
             _availableRoomsList = new ObservableCollection<Room>();
             _bestOption = new BestOption();
-            
         }
 
         public string Id

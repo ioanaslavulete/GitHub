@@ -2,7 +2,6 @@
 {
     public class Reservation
     {
-        
         private ReservationPeriod _reservationPeriod;
         private string _numberOfPersons;
         private Customer _owner;
