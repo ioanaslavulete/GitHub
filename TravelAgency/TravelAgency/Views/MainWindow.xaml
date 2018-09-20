@@ -5,46 +5,47 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:viewModel="clr-namespace:TravelAgency.ViewModels"
         xmlns:views="clr-namespace:TravelAgency.Views"
-        mc:Ignorable="d"
-        Title="MainWindow" 
-        Height="600" 
-        Width="1000" 
-        WindowStartupLocation="CenterScreen">
-    <Window.Resources>
-        <ResourceDictionary>
-            <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="/TravelAgency;component/Styles.xaml" />
-            </ResourceDictionary.MergedDictionaries>
-        </ResourceDictionary>
-    </Window.Resources>
+        Title="MainWindow"
+        Width="1000"
+        Height="600"
+        WindowStartupLocation="CenterScreen"
+        mc:Ignorable="d">
+	<Window.Resources>
+		<ResourceDictionary>
+			<ResourceDictionary.MergedDictionaries>
+				<ResourceDictionary Source="/TravelAgency;component/Styles.xaml" />
+			</ResourceDictionary.MergedDictionaries>
+		</ResourceDictionary>
+	</Window.Resources>
 
-    <Grid>
-        <TabControl TabStripPlacement="Left">
-            <TabItem Style="{StaticResource TabItemStyle}">
-                <TabItem.Header>
-                    <StackPanel>
-                        <TextBlock Text="Book Now" Style="{StaticResource TabHeaderText}" />
-                    </StackPanel>
-                </TabItem.Header>
-                <views:BookingView Margin="20" Width="800"/>
-            </TabItem>
-            <TabItem Style="{StaticResource TabItemStyle}">
-                <TabItem.Header>
-                    <StackPanel>
-                        <TextBlock Text="View" Style="{StaticResource TabHeaderText}" />
-                        <TextBlock Text="Reservations" Style="{StaticResource TabHeaderText}" />
-                    </StackPanel>
-                </TabItem.Header>
-            </TabItem>
-            <TabItem Style="{StaticResource TabItemStyle}">
-                <TabItem.Header>
-                    <StackPanel>
-                        <TextBlock Text="Accomodations" Style="{StaticResource TabHeaderText}" />
-                        <TextBlock Text="Management" Style="{StaticResource TabHeaderText}" />
-                    </StackPanel>
-                </TabItem.Header>
-                <views:HotelManagementView Margin="20"></views:HotelManagementView>
-            </TabItem>
-        </TabControl>
-    </Grid>
+	<Grid>
+		<TabControl TabStripPlacement="Left">
+			<TabItem Style="{StaticResource TabItemStyle}">
+				<TabItem.Header>
+					<StackPanel>
+						<TextBlock Style="{StaticResource TabHeaderText}" Text="Book Now" />
+					</StackPanel>
+				</TabItem.Header>
+				<views:BookingView Width="800" Margin="20" />
+			</TabItem>
+			<TabItem Style="{StaticResource TabItemStyle}">
+				<TabItem.Header>
+					<StackPanel>
+						<TextBlock Style="{StaticResource TabHeaderText}" Text="View" />
+						<TextBlock Style="{StaticResource TabHeaderText}" Text="Reservations" />
+					</StackPanel>
+				</TabItem.Header>
+				<views:ReservationsView />
+			</TabItem>
+			<TabItem Style="{StaticResource TabItemStyle}">
+				<TabItem.Header>
+					<StackPanel>
+						<TextBlock Style="{StaticResource TabHeaderText}" Text="Accomodations" />
+						<TextBlock Style="{StaticResource TabHeaderText}" Text="Management" />
+					</StackPanel>
+				</TabItem.Header>
+				<views:HotelManagementView Margin="20" />
+			</TabItem>
+		</TabControl>
+	</Grid>
 </Window>

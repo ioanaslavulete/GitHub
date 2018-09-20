@@ -36,6 +36,8 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -78,6 +80,7 @@
     <Compile Include="Models\MainRepository.cs" />
     <Compile Include="Models\Reservation.cs" />
     <Compile Include="Models\ReservationPeriod.cs" />
+    <Compile Include="Models\ReservationRepository.cs" />
     <Compile Include="Models\Room.cs" />
     <Compile Include="Models\RoomViewType.cs" />
     <Compile Include="Models\Services\DataManagementService.cs" />
@@ -85,6 +88,7 @@
     <Compile Include="ViewModels\BookingVoucherViewModel.cs" />
     <Compile Include="ViewModels\HotelDetailsViewModel.cs" />
     <Compile Include="ViewModels\HotelManagementViewModel.cs" />
+    <Compile Include="ViewModels\ReservationsViewModel.cs" />
     <Compile Include="Views\AddHotelView.xaml.cs">
       <DependentUpon>AddHotelView.xaml</DependentUpon>
     </Compile>
@@ -105,6 +109,9 @@
     </Compile>
     <Compile Include="Views\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ReservationsView.xaml.cs">
+      <DependentUpon>ReservationsView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\RoomView.xaml.cs">
       <DependentUpon>RoomView.xaml</DependentUpon>
@@ -167,6 +174,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\MainWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ReservationsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

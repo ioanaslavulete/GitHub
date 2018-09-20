@@ -4,49 +4,6 @@
     <HotelList>
       <Hotel>
         <Id>1</Id>
-        <Name>International</Name>
-        <NumberOfStars>5</NumberOfStars>
-        <Location>
-          <CityName>Sinaia</CityName>
-          <CountryName>Romania</CountryName>
-          <FullName>Sinaia, Romania</FullName>
-        </Location>
-        <RoomList>
-          <Room>
-            <Price>100</Price>
-            <NumberOfPersons>2</NumberOfPersons>
-            <RoomViewType>Mountain</RoomViewType>
-          </Room>
-          <Room>
-            <Price>100</Price>
-            <NumberOfPersons>2</NumberOfPersons>
-            <RoomViewType>Mountain</RoomViewType>
-          </Room>
-        </RoomList>
-        <AvailableRoomsList>
-          <Room>
-            <Price>100</Price>
-            <NumberOfPersons>2</NumberOfPersons>
-            <RoomViewType>Mountain</RoomViewType>
-          </Room>
-          <Room>
-            <Price>100</Price>
-            <NumberOfPersons>2</NumberOfPersons>
-            <RoomViewType>Mountain</RoomViewType>
-          </Room>
-        </AvailableRoomsList>
-        <BestOption>
-          <Rooms>
-            <Room>
-              <Price>100</Price>
-              <NumberOfPersons>2</NumberOfPersons>
-              <RoomViewType>Mountain</RoomViewType>
-            </Room>
-          </Rooms>
-        </BestOption>
-      </Hotel>
-      <Hotel>
-        <Id>2</Id>
         <Name>Ramada Plaza</Name>
         <NumberOfStars>5</NumberOfStars>
         <Location>
@@ -77,6 +34,16 @@
             <NumberOfPersons>2</NumberOfPersons>
             <RoomViewType>Street</RoomViewType>
           </Room>
+          <Room>
+            <Price>100</Price>
+            <NumberOfPersons>2</NumberOfPersons>
+            <RoomViewType>Street</RoomViewType>
+          </Room>
+          <Room>
+            <Price>100</Price>
+            <NumberOfPersons>2</NumberOfPersons>
+            <RoomViewType>Street</RoomViewType>
+          </Room>
         </AvailableRoomsList>
         <BestOption>
           <Rooms>
@@ -93,15 +60,272 @@
   <LocationRepository>
     <LocationList>
       <Location>
-        <CityName>Sinaia</CityName>
-        <CountryName>Romania</CountryName>
-        <FullName>Sinaia, Romania</FullName>
-      </Location>
-      <Location>
         <CityName>Craiova</CityName>
         <CountryName>Romania</CountryName>
         <FullName>Craiova, Romania</FullName>
       </Location>
     </LocationList>
   </LocationRepository>
+  <ReservationRepository>
+    <ReservationList>
+      <Reservation>
+        <ReservationPeriod>
+          <CheckIn>2018-09-20T00:00:00</CheckIn>
+          <CheckOut>2018-09-22T00:00:00</CheckOut>
+        </ReservationPeriod>
+        <Owner />
+        <Hotel>
+          <Id>1</Id>
+          <Name>Ramada Plaza</Name>
+          <NumberOfStars>5</NumberOfStars>
+          <Location>
+            <CityName>Craiova</CityName>
+            <CountryName>Romania</CountryName>
+            <FullName>Craiova, Romania</FullName>
+          </Location>
+          <RoomList>
+            <Room>
+              <Price>100</Price>
+              <NumberOfPersons>2</NumberOfPersons>
+              <RoomViewType>Street</RoomViewType>
+            </Room>
+            <Room>
+              <Price>100</Price>
+              <NumberOfPersons>2</NumberOfPersons>
+              <RoomViewType>Street</RoomViewType>
+            </Room>
+            <Room>
+              <Price>100</Price>
+              <NumberOfPersons>2</NumberOfPersons>
+              <RoomViewType>Street</RoomViewType>
+            </Room>
+          </RoomList>
+          <AvailableRoomsList>
+            <Room>
+              <Price>100</Price>
+              <NumberOfPersons>2</NumberOfPersons>
+              <RoomViewType>Street</RoomViewType>
+            </Room>
+            <Room>
+              <Price>100</Price>
+              <NumberOfPersons>2</NumberOfPersons>
+              <RoomViewType>Street</RoomViewType>
+            </Room>
+            <Room>
+              <Price>100</Price>
+              <NumberOfPersons>2</NumberOfPersons>
+              <RoomViewType>Street</RoomViewType>
+            </Room>
+          </AvailableRoomsList>
+          <BestOption>
+            <Rooms>
+              <Room>
+                <Price>100</Price>
+                <NumberOfPersons>2</NumberOfPersons>
+                <RoomViewType>Street</RoomViewType>
+              </Room>
+            </Rooms>
+          </BestOption>
+        </Hotel>
+      </Reservation>
+      <Reservation>
+        <NumberOfPersons>3</NumberOfPersons>
+        <ReservationPeriod>
+          <CheckIn>2018-09-30T00:00:00</CheckIn>
+          <CheckOut>2018-10-04T00:00:00</CheckOut>
+        </ReservationPeriod>
+        <Owner>
+          <FirstName>qwrqwrq</FirstName>
+          <LastName>qwrq</LastName>
+          <PhoneNumber>wrqwrqwr</PhoneNumber>
+          <Email>qwrqwrqwr</Email>
+        </Owner>
+        <Hotel>
+          <Id>1</Id>
+          <Name>Ramada Plaza</Name>
+          <NumberOfStars>5</NumberOfStars>
+          <Location>
+            <CityName>Craiova</CityName>
+            <CountryName>Romania</CountryName>
+            <FullName>Craiova, Romania</FullName>
+          </Location>
+          <RoomList>
+            <Room>
+              <Price>100</Price>
+              <NumberOfPersons>2</NumberOfPersons>
+              <RoomViewType>Street</RoomViewType>
+            </Room>
+            <Room>
+              <Price>100</Price>
+              <NumberOfPersons>2</NumberOfPersons>
+              <RoomViewType>Street</RoomViewType>
+            </Room>
+            <Room>
+              <Price>100</Price>
+              <NumberOfPersons>2</NumberOfPersons>
+              <RoomViewType>Street</RoomViewType>
+            </Room>
+          </RoomList>
+          <AvailableRoomsList>
+            <Room>
+              <Price>100</Price>
+              <NumberOfPersons>2</NumberOfPersons>
+              <RoomViewType>Street</RoomViewType>
+            </Room>
+            <Room>
+              <Price>100</Price>
+              <NumberOfPersons>2</NumberOfPersons>
+              <RoomViewType>Street</RoomViewType>
+            </Room>
+          </AvailableRoomsList>
+          <BestOption>
+            <Rooms>
+              <Room>
+                <Price>100</Price>
+                <NumberOfPersons>2</NumberOfPersons>
+                <RoomViewType>Street</RoomViewType>
+              </Room>
+              <Room>
+                <Price>100</Price>
+                <NumberOfPersons>2</NumberOfPersons>
+                <RoomViewType>Street</RoomViewType>
+              </Room>
+            </Rooms>
+          </BestOption>
+        </Hotel>
+      </Reservation>
+      <Reservation>
+        <NumberOfPersons>3</NumberOfPersons>
+        <ReservationPeriod>
+          <CheckIn>2018-09-30T00:00:00</CheckIn>
+          <CheckOut>2018-10-04T00:00:00</CheckOut>
+        </ReservationPeriod>
+        <Owner>
+          <FirstName>qwrqwrq</FirstName>
+          <LastName>qwrq</LastName>
+          <PhoneNumber>wrqwrqwr</PhoneNumber>
+          <Email>qwrqwrqwr</Email>
+        </Owner>
+        <Hotel>
+          <Id>1</Id>
+          <Name>Ramada Plaza</Name>
+          <NumberOfStars>5</NumberOfStars>
+          <Location>
+            <CityName>Craiova</CityName>
+            <CountryName>Romania</CountryName>
+            <FullName>Craiova, Romania</FullName>
+          </Location>
+          <RoomList>
+            <Room>
+              <Price>100</Price>
+              <NumberOfPersons>2</NumberOfPersons>
+              <RoomViewType>Street</RoomViewType>
+            </Room>
+            <Room>
+              <Price>100</Price>
+              <NumberOfPersons>2</NumberOfPersons>
+              <RoomViewType>Street</RoomViewType>
+            </Room>
+            <Room>
+              <Price>100</Price>
+              <NumberOfPersons>2</NumberOfPersons>
+              <RoomViewType>Street</RoomViewType>
+            </Room>
+          </RoomList>
+          <AvailableRoomsList>
+            <Room>
+              <Price>100</Price>
+              <NumberOfPersons>2</NumberOfPersons>
+              <RoomViewType>Street</RoomViewType>
+            </Room>
+            <Room>
+              <Price>100</Price>
+              <NumberOfPersons>2</NumberOfPersons>
+              <RoomViewType>Street</RoomViewType>
+            </Room>
+          </AvailableRoomsList>
+          <BestOption>
+            <Rooms>
+              <Room>
+                <Price>100</Price>
+                <NumberOfPersons>2</NumberOfPersons>
+                <RoomViewType>Street</RoomViewType>
+              </Room>
+              <Room>
+                <Price>100</Price>
+                <NumberOfPersons>2</NumberOfPersons>
+                <RoomViewType>Street</RoomViewType>
+              </Room>
+            </Rooms>
+          </BestOption>
+        </Hotel>
+      </Reservation>
+      <Reservation>
+        <NumberOfPersons>2</NumberOfPersons>
+        <ReservationPeriod>
+          <CheckIn>2018-09-20T00:00:00</CheckIn>
+          <CheckOut>2018-09-20T00:00:00</CheckOut>
+        </ReservationPeriod>
+        <Owner>
+          <FirstName>wrqwrq</FirstName>
+          <LastName>wrqwrqw</LastName>
+          <PhoneNumber>rqrqwr</PhoneNumber>
+          <Email>wqrq</Email>
+        </Owner>
+        <Hotel>
+          <Id>1</Id>
+          <Name>Ramada Plaza</Name>
+          <NumberOfStars>5</NumberOfStars>
+          <Location>
+            <CityName>Craiova</CityName>
+            <CountryName>Romania</CountryName>
+            <FullName>Craiova, Romania</FullName>
+          </Location>
+          <RoomList>
+            <Room>
+              <Price>100</Price>
+              <NumberOfPersons>2</NumberOfPersons>
+              <RoomViewType>Street</RoomViewType>
+            </Room>
+            <Room>
+              <Price>100</Price>
+              <NumberOfPersons>2</NumberOfPersons>
+              <RoomViewType>Street</RoomViewType>
+            </Room>
+            <Room>
+              <Price>100</Price>
+              <NumberOfPersons>2</NumberOfPersons>
+              <RoomViewType>Street</RoomViewType>
+            </Room>
+          </RoomList>
+          <AvailableRoomsList>
+            <Room>
+              <Price>100</Price>
+              <NumberOfPersons>2</NumberOfPersons>
+              <RoomViewType>Street</RoomViewType>
+            </Room>
+            <Room>
+              <Price>100</Price>
+              <NumberOfPersons>2</NumberOfPersons>
+              <RoomViewType>Street</RoomViewType>
+            </Room>
+            <Room>
+              <Price>100</Price>
+              <NumberOfPersons>2</NumberOfPersons>
+              <RoomViewType>Street</RoomViewType>
+            </Room>
+          </AvailableRoomsList>
+          <BestOption>
+            <Rooms>
+              <Room>
+                <Price>100</Price>
+                <NumberOfPersons>2</NumberOfPersons>
+                <RoomViewType>Street</RoomViewType>
+              </Room>
+            </Rooms>
+          </BestOption>
+        </Hotel>
+      </Reservation>
+    </ReservationList>
+  </ReservationRepository>
 </MainRepository>

@@ -10,22 +10,13 @@ namespace TravelAgency.ViewModels
 	{
 		private Customer _customer;
 		private ReserveRoomCommand _reserveRoomCommand;
-		public Customer Customer
-		{
-			get { return _customer; }
-			set
-			{
-				_customer = value;
-			}
-		}
+		private ReservationRepository _reservationRepository;
 
 		public BookingVoucherViewModel()
 		{
+			_reservationRepository = DataManagementService.Instance.MainRepository.ReservationRepository;
 			_reserveRoomCommand = new ReserveRoomCommand(this);
 		}
-
-		public Hotel SelectedHotel { get; set; }
-		public ReservationPeriod ReservationPeriod { get; set; }
 
 		public ReserveRoomCommand ReserveRoomCommand
 		{
@@ -40,11 +31,27 @@ namespace TravelAgency.ViewModels
 			}
 		}
 
+		public Reservation Reservation { get; set; }
+		public ReservationRepository ReservationRepository
+		{
+			get
+			{
+				return _reservationRepository;
+			}
+
+			set
+			{
+				_reservationRepository = value;
+			}
+		}
+
 		internal void ReserveRoom()
 		{
-			ReservationPeriod newReservationPeriod = new ReservationPeriod(ReservationPeriod.CheckIn, ReservationPeriod.CheckOut);
-			foreach (Room room in SelectedHotel.BestOption.Rooms)
+			ReservationPeriod newReservationPeriod = new ReservationPeriod(Reservation.ReservationPeriod.CheckIn, Reservation.ReservationPeriod.CheckOut);
+			foreach (Room room in Reservation.Hotel.BestOption.Rooms)
 				room.Add(newReservationPeriod);
+
+			_reservationRepository.Add(Reservation);
 			DataManagementService.Instance.SaveData();
 			MessageBox.Show("Successful");
 		}

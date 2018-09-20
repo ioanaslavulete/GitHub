@@ -32,9 +32,10 @@ namespace TravelAgency.ViewModels
 			_hotel = new Hotel();
 			_selectedAvailableOption = new AvailableOption();
 			_reservationPeriod = new ReservationPeriod();
-			_reservation = new Reservation();
+
 			_selectedLocation = new Location();
 			_customer = new Customer();
+			_reservation = new Reservation();
 
 			_checkAvailabilityCommand = new CheckAvailabilityCommand(this);
 			_seeDetailsCommand = new SeeDetailsCommand(this);
@@ -172,10 +173,10 @@ namespace TravelAgency.ViewModels
 		{
 			BookingVoucherView view = new BookingVoucherView();
 			BookingVoucherViewModel viewModel = new BookingVoucherViewModel();
+			Reservation.Hotel = SelectedAvailableOption.Hotel;
 
-			viewModel.Customer = _customer;
-			viewModel.SelectedHotel = _selectedAvailableOption.Hotel;
-			viewModel.ReservationPeriod = _reservationPeriod;
+			Reservation newReservation = new Reservation(Reservation);
+			viewModel.Reservation = newReservation;
 			view.DataContext = viewModel;
 			view.Show();
 		}
