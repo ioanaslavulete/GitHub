@@ -29,7 +29,6 @@
 				_locationRepository = value;
 			}
 		}
-
 		public ReservationRepository ReservationRepository
 		{
 			get

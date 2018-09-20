@@ -29,7 +29,6 @@ C:\Users\itsix\Desktop\Ioana\GitHub\TravelAgency\TravelAgency\bin\Debug\TravelAg
 C:\Users\itsix\Desktop\Ioana\GitHub\TravelAgency\TravelAgency\bin\Debug\TravelAgency.pdb
 C:\Users\itsix\Desktop\Ioana\GitHub\TravelAgency\TravelAgency\obj\Debug\Views\AddHotelView.g.cs
 C:\Users\itsix\Desktop\Ioana\GitHub\TravelAgency\TravelAgency\obj\Debug\Views\BookingView.g.cs
-C:\Users\itsix\Desktop\Ioana\GitHub\TravelAgency\TravelAgency\obj\Debug\Views\HotelDetailsView.g.cs
 C:\Users\itsix\Desktop\Ioana\GitHub\TravelAgency\TravelAgency\obj\Debug\Views\HotelListView.g.cs
 C:\Users\itsix\Desktop\Ioana\GitHub\TravelAgency\TravelAgency\obj\Debug\Views\HotelManagementView.g.cs
 C:\Users\itsix\Desktop\Ioana\GitHub\TravelAgency\TravelAgency\obj\Debug\Views\MainWindow.g.cs
@@ -40,7 +39,6 @@ C:\Users\itsix\Desktop\Ioana\GitHub\TravelAgency\TravelAgency\obj\Debug\TravelAg
 C:\Users\itsix\Desktop\Ioana\GitHub\TravelAgency\TravelAgency\obj\Debug\TravelAgency_MarkupCompile.lref
 C:\Users\itsix\Desktop\Ioana\GitHub\TravelAgency\TravelAgency\obj\Debug\Views\AddHotelView.baml
 C:\Users\itsix\Desktop\Ioana\GitHub\TravelAgency\TravelAgency\obj\Debug\Views\BookingView.baml
-C:\Users\itsix\Desktop\Ioana\GitHub\TravelAgency\TravelAgency\obj\Debug\Views\HotelDetailsView.baml
 C:\Users\itsix\Desktop\Ioana\GitHub\TravelAgency\TravelAgency\obj\Debug\Views\HotelListView.baml
 C:\Users\itsix\Desktop\Ioana\GitHub\TravelAgency\TravelAgency\obj\Debug\Views\HotelManagementView.baml
 C:\Users\itsix\Desktop\Ioana\GitHub\TravelAgency\TravelAgency\obj\Debug\Views\MainWindow.baml
@@ -179,3 +177,10 @@ C:\Users\itsix\Documents\GitHub\GitHub\TravelAgency\TravelAgency\obj\Debug\Trave
 C:\Users\itsix\Documents\GitHub\GitHub\TravelAgency\TravelAgency\obj\Debug\TravelAgency.csproj.GenerateResource.Cache
 C:\Users\itsix\Documents\GitHub\GitHub\TravelAgency\TravelAgency\obj\Debug\TravelAgency.exe
 C:\Users\itsix\Documents\GitHub\GitHub\TravelAgency\TravelAgency\obj\Debug\TravelAgency.pdb
+C:\Users\itsix\Desktop\Ioana\GitHub\TravelAgency\TravelAgency\obj\Debug\TravelAgency.csprojAssemblyReference.cache
+C:\Users\itsix\Desktop\Ioana\GitHub\TravelAgency\TravelAgency\obj\Debug\Views\BookingVoucherView.g.cs
+C:\Users\itsix\Desktop\Ioana\GitHub\TravelAgency\TravelAgency\obj\Debug\Views\ReservationsView.g.cs
+C:\Users\itsix\Desktop\Ioana\GitHub\TravelAgency\TravelAgency\obj\Debug\App.baml
+C:\Users\itsix\Desktop\Ioana\GitHub\TravelAgency\TravelAgency\obj\Debug\Styles.baml
+C:\Users\itsix\Desktop\Ioana\GitHub\TravelAgency\TravelAgency\obj\Debug\Views\BookingVoucherView.baml
+C:\Users\itsix\Desktop\Ioana\GitHub\TravelAgency\TravelAgency\obj\Debug\Views\ReservationsView.baml

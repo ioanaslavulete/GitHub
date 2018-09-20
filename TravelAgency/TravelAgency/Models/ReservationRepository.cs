@@ -33,5 +33,10 @@ namespace TravelAgency.Models
 		{
 			_reservationList.Add(reservation);
 		}
-	}
+
+        public void Delete(Reservation selectedReservation)
+        {
+            _reservationList.Remove(selectedReservation);
+        }
+    }
 }

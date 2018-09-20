@@ -264,6 +264,9 @@
 					<DataGridTextColumn Width="100"
 					                    Binding="{Binding Hotel.BestOption.TotalPrice}"
 					                    Header="Total Price" />
+                    <DataGridTextColumn Width="150"
+					                    Binding="{Binding Hotel.AvailableRoomsList.Count}"
+					                    Header="Available Rooms" />
 				</DataGrid.Columns>
 			</DataGrid>
 		</StackPanel>
@@ -274,7 +277,7 @@
 		        Height="20"
 		        Margin="0,0,0,30"
 		        VerticalAlignment="Bottom"
-		        Command="{Binding SeeDetailsCommand}">
+		        Command="{Binding ShowBookingVoucherCommand}">
 			Next
 		</Button>
 	</Grid>

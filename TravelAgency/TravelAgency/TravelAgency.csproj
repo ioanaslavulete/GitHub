@@ -66,6 +66,7 @@
     <Compile Include="Models\Commands\AddRoomCommand.cs" />
     <Compile Include="Models\Commands\CheckAvailabilityCommand.cs" />
     <Compile Include="Models\Commands\DeleteHotelCommand.cs" />
+    <Compile Include="Models\Commands\CancelReservationCommand.cs" />
     <Compile Include="Models\Commands\EditHotelCommand.cs" />
     <Compile Include="Models\Commands\EditRoomCommand.cs" />
     <Compile Include="Models\Commands\ReserveRoomCommand.cs" />
@@ -86,7 +87,6 @@
     <Compile Include="Models\Services\DataManagementService.cs" />
     <Compile Include="ViewModels\BookingViewModel.cs" />
     <Compile Include="ViewModels\BookingVoucherViewModel.cs" />
-    <Compile Include="ViewModels\HotelDetailsViewModel.cs" />
     <Compile Include="ViewModels\HotelManagementViewModel.cs" />
     <Compile Include="ViewModels\ReservationsViewModel.cs" />
     <Compile Include="Views\AddHotelView.xaml.cs">
@@ -97,9 +97,6 @@
     </Compile>
     <Compile Include="Views\BookingVoucherView.xaml.cs">
       <DependentUpon>BookingVoucherView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\HotelDetailsView.xaml.cs">
-      <DependentUpon>HotelDetailsView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\HotelListView.xaml.cs">
       <DependentUpon>HotelListView.xaml</DependentUpon>
@@ -158,10 +155,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\BookingVoucherView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\HotelDetailsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

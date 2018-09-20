@@ -5,8 +5,8 @@
              xmlns:local="clr-namespace:TravelAgency.Views"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:viewModel="clr-namespace:TravelAgency.ViewModels"
-             d:DesignHeight="300"
-             d:DesignWidth="300"
+             d:DesignHeight="500"
+             d:DesignWidth="800"
              mc:Ignorable="d">
 
 	<UserControl.Resources>
@@ -14,15 +14,50 @@
 	</UserControl.Resources>
 
 	<Grid DataContext="{Binding Source={StaticResource ReservationViewModel}}">
-		<DataGrid Width="250"
-		          Height="100"
+        
+        
+		<DataGrid Width="800"
+		          Height="300"
 		          AutoGenerateColumns="False"
-		          ItemsSource="{Binding ReservationRepository.ReservationList}">
+                  HeadersVisibility="Column"
+		          ItemsSource="{Binding ReservationRepository.ReservationList}"
+                  SelectedItem="{Binding SelectedReservation,
+			                                 Mode=OneWayToSource}">
 			<DataGrid.Columns>
-				<DataGridTextColumn Width="50"
+                <DataGridTextColumn Width="70"
+				                    Binding="{Binding Owner.ID}"
+				                    Header="ID" />
+				<DataGridTextColumn Width="100"
+				                    Binding="{Binding Owner.FirstName}"
+				                    Header="First Name" />
+                <DataGridTextColumn Width="100"
+				                    Binding="{Binding Owner.LastName}"
+				                    Header="Last Name" />
+                <DataGridTextColumn Width="70"
 				                    Binding="{Binding NumberOfPersons}"
-				                    Header="Number" />
+				                    Header="Persons" />
+                <DataGridTextColumn Width="100"
+				                    Binding="{Binding Hotel.Name}"
+				                    Header="Hotel" />
+                <DataGridTextColumn Width="100"
+				                    Binding="{Binding Hotel.Location.FullName}"
+				                    Header="Location" />
+                <DataGridTextColumn Width="65"
+				                    Binding="{Binding ReservationPeriod.CheckIn}"
+				                    Header="Check In" />
+                <DataGridTextColumn Width="65"
+				                    Binding="{Binding ReservationPeriod.CheckOut}"
+				                    Header="Check Out" />
 			</DataGrid.Columns>
 		</DataGrid>
+
+        <Button Width="120"
+                Height="20"
+                VerticalAlignment="Bottom"
+                HorizontalAlignment="Right"
+                Margin="0,0,20,20"
+                Command="{Binding CancelReservationCommand}">
+            Cancel Reservation
+        </Button>
 	</Grid>
 </UserControl>

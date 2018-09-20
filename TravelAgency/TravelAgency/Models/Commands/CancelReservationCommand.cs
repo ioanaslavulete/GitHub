@@ -4,13 +4,13 @@ using TravelAgency.ViewModels;
 
 namespace TravelAgency.Models.Commands
 {
-    public class ShowBookingVoucherCommand : ICommand
+    public class CancelReservationCommand : ICommand
     {
-        private BookingViewModel _bookingViewModel;
+        private ReservationsViewModel _reservationsViewModel;
 
-        public ShowBookingVoucherCommand(BookingViewModel bookingViewModel)
+        public CancelReservationCommand(ReservationsViewModel reservationsViewModel)
         {
-           _bookingViewModel = bookingViewModel;
+            _reservationsViewModel = reservationsViewModel;
         }
 
         public event EventHandler CanExecuteChanged;
@@ -22,7 +22,7 @@ namespace TravelAgency.Models.Commands
 
         public void Execute(object parameter)
         {
-            _bookingViewModel.ShowBookingVoucherView();
+            _reservationsViewModel.CancelReservation();
         }
     }
 }

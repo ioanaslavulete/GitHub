@@ -1,20 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TravelAgency.Models;
+﻿using TravelAgency.Models;
+using TravelAgency.Models.Commands;
 using TravelAgency.Services;
 
 namespace TravelAgency.ViewModels
 {
-	public class ReservationsViewModel
+    public class ReservationsViewModel
 	{
 		private ReservationRepository _reservationRepository;
+        private Reservation _selectedReservation;
+        private CancelReservationCommand _cancelReservationCommand;
 
-		public ReservationsViewModel()
+        public ReservationsViewModel()
 		{
 			_reservationRepository = DataManagementService.Instance.MainRepository.ReservationRepository;
+            _cancelReservationCommand = new CancelReservationCommand(this);
 		}
 
 		public ReservationRepository ReservationRepository
@@ -29,5 +28,28 @@ namespace TravelAgency.ViewModels
 				_reservationRepository = value;
 			}
 		}
-	}
+        public Reservation SelectedReservation
+        {
+            get { return _selectedReservation; }
+            set
+            {
+                _selectedReservation = value;
+            }
+        }
+        public CancelReservationCommand CancelReservationCommand
+        {
+            get { return _cancelReservationCommand; }
+            set
+            {
+                _cancelReservationCommand = value;
+            }
+        }
+
+        public void CancelReservation()
+        {
+            _reservationRepository.Delete(_selectedReservation);
+            DataManagementService.Instance.SaveData();
+        }
+
+    }
 }

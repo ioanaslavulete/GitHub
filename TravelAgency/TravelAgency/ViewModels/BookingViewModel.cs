@@ -14,9 +14,8 @@ namespace TravelAgency.ViewModels
 		private ObservableCollection<Location> _locationList;
 		private ObservableCollection<AvailableOption> _availableOptionList;
 		private AvailableOption _selectedAvailableOption;
-
 		private CheckAvailabilityCommand _checkAvailabilityCommand;
-		private ShowBookingVoucherCommand _seeDetailsCommand;
+		private ShowBookingVoucherCommand _showBookingVoucherCommand;
 
 		public BookingViewModel()
 		{
@@ -27,7 +26,7 @@ namespace TravelAgency.ViewModels
 			_selectedAvailableOption = new AvailableOption();
 
 			_checkAvailabilityCommand = new CheckAvailabilityCommand(this);
-			_seeDetailsCommand = new ShowBookingVoucherCommand(this);
+			_showBookingVoucherCommand = new ShowBookingVoucherCommand(this);
 		}
 
 		public ObservableCollection<Location> LocationList
@@ -71,7 +70,6 @@ namespace TravelAgency.ViewModels
 				_reservation = value;
 			}
 		}
-
 		public CheckAvailabilityCommand CheckAvailabilityCommand
 		{
 			get
@@ -83,15 +81,15 @@ namespace TravelAgency.ViewModels
 				_checkAvailabilityCommand = value;
 			}
 		}
-		public ShowBookingVoucherCommand SeeDetailsCommand
+		public ShowBookingVoucherCommand ShowBookingVoucherCommand
 		{
 			get
 			{
-				return _seeDetailsCommand;
+				return _showBookingVoucherCommand;
 			}
 			set
 			{
-				_seeDetailsCommand = value;
+				_showBookingVoucherCommand = value;
 			}
 		}
 
@@ -118,17 +116,15 @@ namespace TravelAgency.ViewModels
 			}
 		}
 
-		//TODO - Refactor this method
-		public void ShowHotelDetailsView()
+		public void ShowBookingVoucherView()
 		{
-			BookingVoucherView view = new BookingVoucherView();
-			BookingVoucherViewModel viewModel = new BookingVoucherViewModel();
+			BookingVoucherView bookingVoucherView = new BookingVoucherView();
+			BookingVoucherViewModel bookingVoucherViewModel = new BookingVoucherViewModel();
 			Reservation.Hotel = SelectedAvailableOption.Hotel;
-
 			Reservation newReservation = new Reservation(Reservation);
-			viewModel.Reservation = newReservation;
-			view.DataContext = viewModel;
-			view.Show();
+			bookingVoucherViewModel.Reservation = newReservation;
+			bookingVoucherView.DataContext = bookingVoucherViewModel;
+			bookingVoucherView.Show();
 		}
 	}
 }

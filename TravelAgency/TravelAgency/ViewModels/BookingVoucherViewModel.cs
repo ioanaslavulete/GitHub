@@ -8,9 +8,9 @@ namespace TravelAgency.ViewModels
 {
 	public class BookingVoucherViewModel
 	{
-		private Customer _customer;
 		private ReserveRoomCommand _reserveRoomCommand;
 		private ReservationRepository _reservationRepository;
+        private Reservation _reservation;
 
 		public BookingVoucherViewModel()
 		{
@@ -31,7 +31,17 @@ namespace TravelAgency.ViewModels
 			}
 		}
 
-		public Reservation Reservation { get; set; }
+		public Reservation Reservation
+        {
+            get
+            {
+                return _reservation;
+            }
+            set
+            {
+                _reservation = value;
+            }
+        }
 		public ReservationRepository ReservationRepository
 		{
 			get
@@ -45,7 +55,7 @@ namespace TravelAgency.ViewModels
 			}
 		}
 
-		internal void ReserveRoom()
+		public void ReserveRoom()
 		{
 			ReservationPeriod newReservationPeriod = new ReservationPeriod(Reservation.ReservationPeriod.CheckIn, Reservation.ReservationPeriod.CheckOut);
 			foreach (Room room in Reservation.Hotel.BestOption.Rooms)
