@@ -11,12 +11,13 @@ namespace TravelAgency.Models
         public BestOption()
         {
             _rooms = new ObservableCollection<Room>();
-            _totalPrice = null;
+            _totalPrice = string.Empty;
         }
 
         public BestOption(ObservableCollection<Room> rooms)
         {
             Rooms = rooms;
+            _totalPrice = string.Empty;
         }
 
         public ObservableCollection<Room> Rooms

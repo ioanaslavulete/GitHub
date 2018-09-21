@@ -141,7 +141,7 @@ namespace TravelAgency.Models
             foreach (Room room in _availableRoomsList)
                 newList.Add(room);
 
-            var descendingList = newList.OrderByDescending(o => o.NumberOfPersons).ToList();
+            var descendingList = newList.OrderByDescending(o => o.NumberOfPersons).ThenBy(o=>o.Price).ToList();
 
             int numberOfPersons = int.Parse(reservation.NumberOfPersons);
 
@@ -152,13 +152,13 @@ namespace TravelAgency.Models
                 {
                     _bestOption.Rooms.Add(room);
                     numberOfPersons -= roomCapacity;
-
+                    newList.Remove(room);
                 }
             }
 
             if (numberOfPersons > 0)
             {
-                var ascendingList = newList.OrderBy(o => o.NumberOfPersons).ToList();
+                var ascendingList = newList.OrderBy(o => o.NumberOfPersons).ThenBy(o=>o.Price).ToList();
 
                 foreach (Room room in ascendingList)
                 {

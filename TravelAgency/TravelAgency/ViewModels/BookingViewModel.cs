@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using TravelAgency.Models;
 using TravelAgency.Models.Commands;
 using TravelAgency.Services;
@@ -7,7 +8,7 @@ using TravelAgency.Views;
 
 namespace TravelAgency.ViewModels
 {
-    public class BookingViewModel
+    public class BookingViewModel : INotifyPropertyChanged
     {
         private Reservation _reservation;
         private Location _selectedLocation;
@@ -90,6 +91,7 @@ namespace TravelAgency.ViewModels
             }
         }
 
+
         public void CheckAvailability()
         {
             _availableHotels.Clear();
@@ -115,9 +117,10 @@ namespace TravelAgency.ViewModels
         {
             BookingVoucherView bookingVoucherView = new BookingVoucherView();
             BookingVoucherViewModel bookingVoucherViewModel = new BookingVoucherViewModel();
-             
-            bookingVoucherViewModel.Reservation = new Reservation(_reservation.Owner, _reservation.Hotel, _reservation.ReservationPeriod, _reservation.NumberOfPersons); 
+
+            bookingVoucherViewModel.Reservation = new Reservation(_reservation.Owner, _reservation.Hotel, _reservation.ReservationPeriod, _reservation.NumberOfPersons);
             bookingVoucherView.DataContext = bookingVoucherViewModel;
+
             bookingVoucherView.Show();
         }
     }
