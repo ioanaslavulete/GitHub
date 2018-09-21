@@ -47,7 +47,7 @@ namespace TravelAgency.ViewModels
 
         public void CancelReservation()
         {
-            foreach(Room room in _selectedReservation.Hotel.BestOption.Rooms)
+            foreach(Room room in _selectedReservation.BestOption.RoomList)
             {
                 room.Delete(_selectedReservation.ReservationPeriod);
             }

@@ -57,7 +57,7 @@ namespace TravelAgency.ViewModels
 
 		public void ReserveRoom()
 		{
-			foreach (Room room in Reservation.Hotel.BestOption.Rooms)
+			foreach (Room room in Reservation.BestOption.RoomList)
 				room.Add(_reservation.ReservationPeriod);
 
 			_reservationRepository.Add(_reservation);

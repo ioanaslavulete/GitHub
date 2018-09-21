@@ -87,7 +87,7 @@
 		          AutoGenerateColumns="False"
 		          HeadersVisibility="Column"
 		          HorizontalScrollBarVisibility="Disabled"
-		          ItemsSource="{Binding Reservation.Hotel.BestOption.Rooms}"
+		          ItemsSource="{Binding Reservation.BestOption.RoomList}"
 		          VerticalScrollBarVisibility="Auto">
             <DataGrid.Columns>
                 <DataGridTextColumn Width="50"

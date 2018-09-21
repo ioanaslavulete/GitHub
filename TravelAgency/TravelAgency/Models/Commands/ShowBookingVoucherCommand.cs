@@ -21,7 +21,7 @@ namespace TravelAgency.Models.Commands
 
         public bool CanExecute(object parameter)
         {
-            return _bookingViewModel.Reservation.Hotel != null;
+            return _bookingViewModel.SelectedOption != null;
         }
 
         public void Execute(object parameter)

@@ -194,7 +194,7 @@ namespace TravelAgency.ViewModels
 
         public void AddHotel()
         {
-            Hotel newHotel = new Hotel(_hotel.Id, _hotel.Name, _hotel.Location, _hotel.RoomList, _hotel.NumberOfStars, new BestOption());
+            Hotel newHotel = new Hotel(_hotel.Id, _hotel.Name, _hotel.Location, _hotel.RoomList, _hotel.NumberOfStars);
             _hotelRepository.Add(newHotel);
             _locationRepository.Add(_hotel.Location);
 

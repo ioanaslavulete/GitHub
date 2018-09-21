@@ -1,4 +1,6 @@
-﻿namespace TravelAgency.Models
+﻿using TravelAgency.ViewModels;
+
+namespace TravelAgency.Models
 {
     public class Reservation
     {
@@ -14,12 +16,13 @@
             _reservationPeriod = new ReservationPeriod();
         }
 
-        public Reservation(Customer owner, Hotel hotel, ReservationPeriod reservationPeriod, string numberOfPersons)
+        public Reservation(Customer owner, Hotel hotel, ReservationPeriod reservationPeriod, string numberOfPersons, Option bestOption)
         {
             Owner = new Customer(owner.Id, owner.FirstName, owner.LastName, owner.Email, owner.PhoneNumber);
-            Hotel = new Hotel(hotel.Id, hotel.Name, hotel.Location, hotel.RoomList, hotel.NumberOfStars, hotel.BestOption);
+            Hotel = new Hotel(hotel.Id, hotel.Name, hotel.Location, hotel.RoomList, hotel.NumberOfStars);
             ReservationPeriod = new ReservationPeriod(reservationPeriod.CheckIn, reservationPeriod.CheckOut);
             NumberOfPersons = numberOfPersons;
+			BestOption = bestOption;
         }
 
         public string NumberOfPersons
@@ -54,5 +57,7 @@
                 _hotel = value;
             }
         }
-    }
+
+		public Option BestOption { get; set; }
+	}
 }

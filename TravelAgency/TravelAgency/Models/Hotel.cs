@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
@@ -14,17 +15,15 @@ namespace TravelAgency.Models
         private ObservableCollection<Room> _roomList;
         private ObservableCollection<Room> _availableRoomsList;
         private string _numberOfStars;
-        private BestOption _bestOption;
 
         public Hotel()
         {
             _location = new Location();
             _roomList = new ObservableCollection<Room>();
             _availableRoomsList = new ObservableCollection<Room>();
-            _bestOption = new BestOption();
         }
 
-        public Hotel(string id, string name, Location location, ObservableCollection<Room> roomList, string numberOfStars, BestOption bestOption)
+        public Hotel(string id, string name, Location location, ObservableCollection<Room> roomList, string numberOfStars)
         {
             _id = id;
             _name = name;
@@ -32,7 +31,6 @@ namespace TravelAgency.Models
             _roomList = roomList;
             _numberOfStars = numberOfStars;
             _availableRoomsList = new ObservableCollection<Room>();
-            _bestOption = new BestOption(bestOption.Rooms);
         }
 
         public string Id
@@ -77,7 +75,6 @@ namespace TravelAgency.Models
             set
             {
                 _roomList = value;
-
             }
         }
         public ObservableCollection<Room> AvailableRoomsList
@@ -91,18 +88,7 @@ namespace TravelAgency.Models
                 _availableRoomsList = value;
             }
         }
-        public BestOption BestOption
-        {
-            get
-            {
-                return _bestOption;
-            }
-            set
-            {
-                _bestOption = value;
-            }
-        }
-
+       
         public void Add(Room newRoom)
         {
             _roomList.Add(newRoom);
@@ -127,52 +113,53 @@ namespace TravelAgency.Models
             return false;
         }
 
-        private void AddToAvailableRoomList(Room room)
+		public ObservableCollection<Room> GetBestOptionFor(Reservation reservation)
+		{
+			var list = new ObservableCollection<Room>();
+
+			List<Room> newList = new List<Room>();
+			foreach (Room room in _availableRoomsList)
+				newList.Add(room);
+
+			var descendingList = newList.OrderByDescending(o => o.NumberOfPersons).ThenBy(o => o.Price).ToList();
+
+			int numberOfPersons = int.Parse(reservation.NumberOfPersons);
+
+			foreach (Room room in descendingList)
+			{
+				int roomCapacity = int.Parse(room.NumberOfPersons);
+				if (numberOfPersons >= roomCapacity)
+				{
+					list.Add(room);
+					numberOfPersons -= roomCapacity;
+					newList.Remove(room);
+				}
+			}
+
+			if (numberOfPersons > 0)
+			{
+				var ascendingList = newList.OrderBy(o => o.NumberOfPersons).ThenBy(o => o.Price).ToList();
+
+				foreach (Room room in ascendingList)
+				{
+					int roomCapacity = int.Parse(room.NumberOfPersons);
+					if (numberOfPersons < roomCapacity)
+					{
+						list.Add(room);
+						return list;
+					}
+				}
+			}
+
+			if (numberOfPersons > 0)
+				list.Clear();
+
+			return list;
+		}
+
+		private void AddToAvailableRoomList(Room room)
         {
             _availableRoomsList.Add(room);
-
-        }
-
-        public void GetBestOptionFor(Reservation reservation)
-        {
-            _bestOption.Rooms.Clear();
-
-            List<Room> newList = new List<Room>();
-            foreach (Room room in _availableRoomsList)
-                newList.Add(room);
-
-            var descendingList = newList.OrderByDescending(o => o.NumberOfPersons).ThenBy(o=>o.Price).ToList();
-
-            int numberOfPersons = int.Parse(reservation.NumberOfPersons);
-
-            foreach (Room room in descendingList)
-            {
-                int roomCapacity = int.Parse(room.NumberOfPersons);
-                if (numberOfPersons >= roomCapacity)
-                {
-                    _bestOption.Rooms.Add(room);
-                    numberOfPersons -= roomCapacity;
-                    newList.Remove(room);
-                }
-            }
-
-            if (numberOfPersons > 0)
-            {
-                var ascendingList = newList.OrderBy(o => o.NumberOfPersons).ThenBy(o=>o.Price).ToList();
-
-                foreach (Room room in ascendingList)
-                {
-                    int roomCapacity = int.Parse(room.NumberOfPersons);
-                    if (numberOfPersons < roomCapacity)
-                    {
-                        _bestOption.Rooms.Add(room);
-                        return;
-                    }
-                }
-            }
-
-            if (numberOfPersons > 0)
-                _bestOption.Rooms.Clear();
 
         }
 
