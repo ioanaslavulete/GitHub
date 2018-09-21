@@ -1,39 +1,42 @@
-﻿using TravelAgency.Models;
+﻿using System.ComponentModel;
+using System.Runtime.CompilerServices;
+using TravelAgency.Models;
 using TravelAgency.Models.Commands;
 using TravelAgency.Services;
 
 namespace TravelAgency.ViewModels
 {
-    public class ReservationsViewModel
-	{
-		private ReservationRepository _reservationRepository;
+    public class ReservationsViewModel : INotifyPropertyChanged
+    {
+        private ReservationRepository _reservationRepository;
         private Reservation _selectedReservation;
         private CancelReservationCommand _cancelReservationCommand;
 
         public ReservationsViewModel()
-		{
-			_reservationRepository = DataManagementService.Instance.MainRepository.ReservationRepository;
+        {
+            _reservationRepository = DataManagementService.Instance.MainRepository.ReservationRepository;
             _cancelReservationCommand = new CancelReservationCommand(this);
-		}
+        }
 
-		public ReservationRepository ReservationRepository
-		{
-			get
-			{
-				return _reservationRepository;
-			}
+        public ReservationRepository ReservationRepository
+        {
+            get
+            {
+                return _reservationRepository;
+            }
 
-			set
-			{
-				_reservationRepository = value;
-			}
-		}
+            set
+            {
+                _reservationRepository = value;
+            }
+        }
         public Reservation SelectedReservation
         {
             get { return _selectedReservation; }
             set
             {
                 _selectedReservation = value;
+                OnPropertyChanged();
             }
         }
         public CancelReservationCommand CancelReservationCommand
@@ -47,12 +50,21 @@ namespace TravelAgency.ViewModels
 
         public void CancelReservation()
         {
-            foreach(Room room in _selectedReservation.BestOption.RoomList)
+            foreach (Room room in _selectedReservation.BestOption.RoomList)
             {
                 room.Delete(_selectedReservation.ReservationPeriod);
             }
             _reservationRepository.Delete(_selectedReservation);
             DataManagementService.Instance.SaveData();
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+        private void OnPropertyChanged([CallerMemberName] string caller = "")
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(caller));
+            }
         }
 
     }

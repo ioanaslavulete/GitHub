@@ -1,8 +1,10 @@
-﻿using TravelAgency.ViewModels;
+﻿using System.ComponentModel;
+using System.Runtime.CompilerServices;
+using TravelAgency.ViewModels;
 
 namespace TravelAgency.Models
 {
-    public class Reservation
+    public class Reservation : INotifyPropertyChanged
     {
         private ReservationPeriod _reservationPeriod;
         private string _numberOfPersons;
@@ -47,6 +49,7 @@ namespace TravelAgency.Models
             set
             {
                 _owner = value;
+                OnPropertyChanged();
             }
         }
         public Hotel Hotel
@@ -57,7 +60,15 @@ namespace TravelAgency.Models
                 _hotel = value;
             }
         }
-
 		public Option BestOption { get; set; }
-	}
+
+        public event PropertyChangedEventHandler PropertyChanged;
+        private void OnPropertyChanged([CallerMemberName] string caller = "")
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(caller));
+            }
+        }
+    }
 }

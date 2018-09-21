@@ -3,38 +3,79 @@
   <HotelRepository>
     <HotelList>
       <Hotel>
-        <Id>5</Id>
-        <Name>5</Name>
+        <Id>1</Id>
+        <Name>Ramada</Name>
         <NumberOfStars>5</NumberOfStars>
         <Location>
-          <CityName>5</CityName>
-          <CountryName>5</CountryName>
-          <FullName>5, 5</FullName>
+          <CityName>Craiova</CityName>
+          <CountryName>Romania</CountryName>
+          <FullName>Craiova, Romania</FullName>
         </Location>
         <RoomList>
           <Room>
-            <Price>1</Price>
-            <NumberOfPersons>1</NumberOfPersons>
+            <Price>100</Price>
+            <NumberOfPersons>2</NumberOfPersons>
+            <RoomViewType>Street</RoomViewType>
+            <ReservedPeriodList>
+              <ReservationPeriod>
+                <CheckIn>2018-09-21T00:00:00</CheckIn>
+                <CheckOut>2018-09-24T00:00:00</CheckOut>
+              </ReservationPeriod>
+              <ReservationPeriod>
+                <CheckIn>2018-10-01T00:00:00</CheckIn>
+                <CheckOut>2018-10-02T00:00:00</CheckOut>
+              </ReservationPeriod>
+            </ReservedPeriodList>
+          </Room>
+          <Room>
+            <Price>120</Price>
+            <NumberOfPersons>2</NumberOfPersons>
+            <RoomViewType>Street</RoomViewType>
+            <ReservedPeriodList>
+              <ReservationPeriod>
+                <CheckIn>2018-09-21T00:00:00</CheckIn>
+                <CheckOut>2018-09-24T00:00:00</CheckOut>
+              </ReservationPeriod>
+            </ReservedPeriodList>
+          </Room>
+          <Room>
+            <Price>150</Price>
+            <NumberOfPersons>2</NumberOfPersons>
             <RoomViewType>Sea</RoomViewType>
             <ReservedPeriodList />
           </Room>
           <Room>
-            <Price>3</Price>
-            <NumberOfPersons>1</NumberOfPersons>
+            <Price>170</Price>
+            <NumberOfPersons>5</NumberOfPersons>
             <RoomViewType>Sea</RoomViewType>
-            <ReservedPeriodList />
+            <ReservedPeriodList>
+              <ReservationPeriod>
+                <CheckIn>2018-09-27T00:00:00</CheckIn>
+                <CheckOut>2018-09-29T00:00:00</CheckOut>
+              </ReservationPeriod>
+              <ReservationPeriod>
+                <CheckIn>2018-10-01T00:00:00</CheckIn>
+                <CheckOut>2018-10-02T00:00:00</CheckOut>
+              </ReservationPeriod>
+            </ReservedPeriodList>
           </Room>
           <Room>
-            <Price>2</Price>
-            <NumberOfPersons>1</NumberOfPersons>
+            <Price>200</Price>
+            <NumberOfPersons>5</NumberOfPersons>
             <RoomViewType>Sea</RoomViewType>
             <ReservedPeriodList />
           </Room>
         </RoomList>
         <AvailableRoomsList>
           <Room>
-            <Price>3</Price>
-            <NumberOfPersons>1</NumberOfPersons>
+            <Price>150</Price>
+            <NumberOfPersons>2</NumberOfPersons>
+            <RoomViewType>Sea</RoomViewType>
+            <ReservedPeriodList />
+          </Room>
+          <Room>
+            <Price>200</Price>
+            <NumberOfPersons>5</NumberOfPersons>
             <RoomViewType>Sea</RoomViewType>
             <ReservedPeriodList />
           </Room>
@@ -45,9 +86,9 @@
   <LocationRepository>
     <LocationList>
       <Location>
-        <CityName>5</CityName>
-        <CountryName>5</CountryName>
-        <FullName>5, 5</FullName>
+        <CityName>Craiova</CityName>
+        <CountryName>Romania</CountryName>
+        <FullName>Craiova, Romania</FullName>
       </Location>
     </LocationList>
   </LocationRepository>

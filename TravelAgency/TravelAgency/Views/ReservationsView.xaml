@@ -13,10 +13,9 @@
 		<viewModel:ReservationsViewModel x:Key="ReservationViewModel" />
 	</UserControl.Resources>
 
-	<Grid DataContext="{Binding Source={StaticResource ReservationViewModel}}">
-        
-        
-		<DataGrid Width="800"
+    <Grid DataContext="{Binding Source={StaticResource ReservationViewModel}}">
+
+        <DataGrid Width="800"
 		          Height="300"
 		          AutoGenerateColumns="False"
                   HeadersVisibility="Column"
