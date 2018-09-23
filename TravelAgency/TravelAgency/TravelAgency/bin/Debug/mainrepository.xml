@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MainRepository xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <HotelRepository>
+    <HotelList>
+      <Hotel>
+        <Id>1</Id>
+        <Name>1</Name>
+        <NumberOfStars>1</NumberOfStars>
+        <Location>
+          <CityName>1</CityName>
+          <CountryName>1</CountryName>
+          <FullName>1, 1</FullName>
+        </Location>
+        <RoomList>
+          <Room>
+            <Price>2</Price>
+            <NumberOfPersons>2</NumberOfPersons>
+            <RoomViewType>Sea</RoomViewType>
+            <ReservedPeriodList>
+              <ReservationPeriod>
+                <CheckIn>2018-09-24T00:00:00</CheckIn>
+                <CheckOut>2018-09-25T00:00:00</CheckOut>
+              </ReservationPeriod>
+            </ReservedPeriodList>
+          </Room>
+          <Room>
+            <Price>2</Price>
+            <NumberOfPersons>2</NumberOfPersons>
+            <RoomViewType>Sea</RoomViewType>
+            <ReservedPeriodList />
+          </Room>
+          <Room>
+            <RoomViewType>Sea</RoomViewType>
+            <ReservedPeriodList />
+          </Room>
+          <Room>
+            <RoomViewType>Sea</RoomViewType>
+            <ReservedPeriodList />
+          </Room>
+        </RoomList>
+        <AvailableRoomsList>
+          <Room>
+            <Price>2</Price>
+            <NumberOfPersons>2</NumberOfPersons>
+            <RoomViewType>Sea</RoomViewType>
+            <ReservedPeriodList />
+          </Room>
+          <Room>
+            <RoomViewType>Sea</RoomViewType>
+            <ReservedPeriodList />
+          </Room>
+          <Room>
+            <RoomViewType>Sea</RoomViewType>
+            <ReservedPeriodList />
+          </Room>
+        </AvailableRoomsList>
+      </Hotel>
+    </HotelList>
+  </HotelRepository>
+  <LocationRepository>
+    <LocationList>
+      <Location>
+        <CityName>1</CityName>
+        <CountryName>1</CountryName>
+        <FullName>1, 1</FullName>
+      </Location>
+    </LocationList>
+  </LocationRepository>
+  <ReservationRepository>
+    <ReservationList />
+    <HotelReservationList />
+  </ReservationRepository>
+</MainRepository>

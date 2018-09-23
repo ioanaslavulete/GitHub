@@ -1,0 +1,165 @@
+﻿<UserControl x:Class="TravelAgency.Views.HotelBooksRoomsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:TravelAgency.Views"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             xmlns:viewModel="clr-namespace:TravelAgency.ViewModels"
+             mc:Ignorable="d" 
+             Background="White"  
+             >
+
+    <UserControl.Resources>
+        <viewModel:HotelBooksRoomsViewModel x:Key="HotelBooksRoomsViewModel" />
+    </UserControl.Resources>
+
+    <Grid DataContext="{Binding Source={StaticResource HotelBooksRoomsViewModel}}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Label Grid.Row="0"
+		       Grid.Column="0"
+		       Style="{StaticResource HeadingLeabelStyle}">
+            Hotel books a room
+        </Label>
+
+        <StackPanel Grid.Row="1"
+		            Grid.Column="0"
+		            VerticalAlignment="Center"
+		            Orientation="Horizontal">
+            <Label Width="80" Margin="5,0,0,0">
+                Hotel Name
+            </Label>
+            <TextBox Margin="5,0,0,0"
+			         Style="{StaticResource NormalTextBoxStyle}"
+                     Text="{Binding SearchedName , Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}"
+			         />
+        </StackPanel>
+
+        <Button Grid.Row="1"
+                Grid.Column="1"
+                Width="100"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Center"
+                Margin="10,10,0,10"
+                Command="{Binding SearchHotelCommand}">
+            Search hotel
+        </Button>
+
+        <StackPanel Grid.Row="2"
+		            Grid.Column="0"
+		            VerticalAlignment="Center"
+		            Orientation="Horizontal">
+            <Label Width="80" Margin="5,0,0,0">
+                Check In
+            </Label>
+            <DatePicker Width="120"
+			            Height="26"
+			            Margin="5,0,0,0"
+			            DisplayDateStart="{x:Static sys:DateTime.Today}"
+			            SelectedDate="{Binding HotelReservation.ReservationPeriod.CheckIn,
+			                                   Mode=OneWayToSource}"
+			            Validation.ErrorTemplate="{x:Null}" />
+        </StackPanel>
+
+        <StackPanel Grid.Row="2"
+		            Grid.Column="1"
+		            VerticalAlignment="Center"
+		            Orientation="Horizontal">
+            <Label Width="80" Margin="5,0,0,0">
+                Check Out
+            </Label>
+            <DatePicker Width="120"
+			            Height="26"
+			            Margin="5,0,0,0"
+			            DisplayDateStart="{x:Static sys:DateTime.Today}"
+			            SelectedDate="{Binding HotelReservation.ReservationPeriod.CheckOut,
+			                                   Mode=OneWayToSource}"
+			            Validation.ErrorTemplate="{x:Null}" />
+        </StackPanel>
+
+        <StackPanel Grid.Row="3" Grid.Column="0" HorizontalAlignment="Left">
+            <Label>Hotels</Label>
+            <DataGrid MaxHeight="150"                      
+                      Margin="5,0,5,0"
+                      HorizontalAlignment="Left"
+			          AutoGenerateColumns="False"
+			          HeadersVisibility="Column"
+			          HorizontalScrollBarVisibility="Disabled"
+			          ItemsSource="{Binding SearchHotelList}"
+			          SelectedItem="{Binding Hotel,
+			                                 Mode=OneWayToSource,
+			                                 UpdateSourceTrigger=PropertyChanged}"
+			          VerticalScrollBarVisibility="Auto">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Width="140"
+					                    Binding="{Binding Name}"
+					                    Header="Hotel"
+					                    IsReadOnly="True" />
+                    <DataGridTextColumn Width="50"
+					                    Binding="{Binding NumberOfStars}"
+					                    Header="Stars"
+					                    IsReadOnly="True" />
+                    <DataGridTextColumn Width="150"
+					                    Binding="{Binding Location}"
+					                    Header="Location"
+					                    IsReadOnly="True" />
+                </DataGrid.Columns>
+            </DataGrid>
+        </StackPanel>
+
+        <StackPanel Grid.Row="3" Grid.Column="1" HorizontalAlignment="Left">
+            <Label>Rooms</Label>
+            <DataGrid MaxHeight="150"
+                      Grid.Row="3"
+                      Grid.Column="0"
+                      Margin="5,0,5,0"
+                      HorizontalAlignment="Left"
+			          AutoGenerateColumns="False"
+			          HeadersVisibility="Column"
+			          HorizontalScrollBarVisibility="Disabled"
+			          ItemsSource="{Binding Hotel.AvailableRoomsList}"
+			          SelectedItem="{Binding SelectedRoom,
+			                                 Mode=OneWayToSource,
+			                                 UpdateSourceTrigger=PropertyChanged}"
+			          VerticalScrollBarVisibility="Auto">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Width="100"
+					                    Binding="{Binding NumberOfPersons}"
+					                    Header="Room Capacity"
+					                    IsReadOnly="True" />
+                    <DataGridTextColumn Width="80"
+					                    Binding="{Binding RoomViewType}"
+					                    Header="Room View"
+					                    IsReadOnly="True" />
+                    <DataGridTextColumn Width="100"
+					                    Binding="{Binding Price}"
+					                    Header="Price"
+					                    IsReadOnly="True" />
+                </DataGrid.Columns>
+            </DataGrid>
+        </StackPanel>
+
+        <Button Grid.Row="5"
+                Grid.Column="1"
+                Width="100"
+                 HorizontalAlignment="Left"
+                VerticalAlignment="Center"
+                Margin="10,10,0,10"
+                Command="{Binding HotelBooksRoomCommand}">
+            Reserve
+        </Button>
+        
+    </Grid>
+</UserControl>
