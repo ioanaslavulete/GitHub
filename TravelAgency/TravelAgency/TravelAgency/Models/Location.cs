@@ -10,14 +10,16 @@ namespace TravelAgency.Models
         private string _countryName;
         private string _fullName;
 
+        public Location()
+        {
+            _cityName = string.Empty;
+            _countryName = string.Empty;
+        }
+
         public Location(string cityName, string countryName)
         {
             CityName = cityName;
             CountryName = countryName;
-        }
-
-        public Location()
-        {
         }
 
         public string CityName
@@ -70,8 +72,10 @@ namespace TravelAgency.Models
         public override bool Equals(object obj)
         {
             Location location = obj as Location;
+
             if (location == null)
                 return false;
+
             if (_fullName == location.FullName)
                 return true;
             else

@@ -22,7 +22,6 @@ namespace TravelAgency.ViewModels
 
         private HotelBooksRoomCommand _hotelBooksRoomCommand;
 
-
         public HotelBooksRoomsViewModel()
         {
             _hotelList = DataManagementService.Instance.MainRepository.HotelRepository.HotelList;

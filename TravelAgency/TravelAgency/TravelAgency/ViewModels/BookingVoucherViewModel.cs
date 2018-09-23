@@ -62,7 +62,6 @@ namespace TravelAgency.ViewModels
 
 			_reservationRepository.Add(_reservation);
 			DataManagementService.Instance.SaveData();
-			MessageBox.Show("Successful");
 		}
 	}
 }

@@ -28,10 +28,12 @@ namespace TravelAgency.ViewModels
             _hotelList = DataManagementService.Instance.MainRepository.HotelRepository.HotelList;
             _locationList = DataManagementService.Instance.MainRepository.LocationRepository.LocationList;
             _reservationList = DataManagementService.Instance.MainRepository.ReservationRepository.ReservationList;
+
             _reservation = new Reservation();
             _selectedLocation = new Location();
             _selectedOption = new Option();
             _availableOptions = new ObservableCollection<Option>();
+
             _checkAvailabilityCommand = new CheckAvailabilityCommand(this);
             _showBookingVoucherCommand = new ShowBookingVoucherCommand(this);
             _getCustomerInfoCommand = new GetCustomerInfoCommand(this);
@@ -99,6 +101,7 @@ namespace TravelAgency.ViewModels
                 _selectedOption = value;
             }
         }
+
         public CheckAvailabilityCommand CheckAvailabilityCommand
         {
             get
@@ -133,19 +136,18 @@ namespace TravelAgency.ViewModels
             }
         }
 
-
         public void CheckAvailability()
         {
             AvailableOptions.Clear();
 
             foreach (Hotel hotel in _hotelList)
             {
-                if (hotel.Location.Equals(_selectedLocation))
+                if (hotel.HasSameLocationAs(_selectedLocation))
                 {
                     if (hotel.HasRoomsAvailableIn(_reservation.ReservationPeriod))
                     {
-                        AvailableOptions.Add(new Option(hotel, hotel.GetBestOptionFor(_reservation)));
-
+                        Option option = new Option(hotel, hotel.GetBestOptionFor(_reservation));
+                        AvailableOptions.Add(option);
                     }
                 }
             }
@@ -177,10 +179,7 @@ namespace TravelAgency.ViewModels
                 }
                 if (found == false)
                     Reservation.Owner = new Customer();
-
             }
-
-
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

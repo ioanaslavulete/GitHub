@@ -191,7 +191,8 @@
 		        Height="20"
 		        HorizontalAlignment="Center"
 		        VerticalAlignment="Center"
-		        Command="{Binding ReserveRoomCommand}">
+		        Command="{Binding ReserveRoomCommand}"
+                Click="Button_Click">
             Finalize
         </Button>
 
