@@ -13,13 +13,13 @@ namespace TravelAgency.ViewModels
 	{
 		private ObservableCollection<IAccomodation> _hotelList;
 		private ObservableCollection<IAccomodation> _searchHotelList;
-		private ObservableCollection<Room> _roomsListForSelectedHotel;
-		private Hotel _hotel;
+		private ObservableCollection<IRoom> _roomsListForSelectedHotel;
+		private IAccomodation _hotel;
 		private SearchHotelCommand _searchHotelCommand;
 		private string _searchedName;
 		private HotelReservation _hotelReservation;
 		private ReservationRepository _reservationRepository;
-		private Room _selectedRoom;
+		private IRoom _selectedRoom;
 
 		private HotelBooksRoomCommand _hotelBooksRoomCommand;
 
@@ -30,14 +30,14 @@ namespace TravelAgency.ViewModels
 			_searchHotelList = new ObservableCollection<IAccomodation>();
 			_hotel = new Hotel();
 			_searchHotelCommand = new SearchHotelCommand(this);
-			_roomsListForSelectedHotel = new ObservableCollection<Room>();
+			_roomsListForSelectedHotel = new ObservableCollection<IRoom>();
 			_hotelReservation = new HotelReservation();
 			_selectedRoom = new Room();
 			_hotelBooksRoomCommand = new HotelBooksRoomCommand(this);
 		}
 
 
-		public Hotel Hotel
+		public IAccomodation Hotel
 		{
 			get { return _hotel; }
 			set
@@ -66,7 +66,7 @@ namespace TravelAgency.ViewModels
 				_searchHotelCommand = value;
 			}
 		}
-		public ObservableCollection<Room> RoomsListForSelectedHotel
+		public ObservableCollection<IRoom> RoomsListForSelectedHotel
 		{
 			get { return _roomsListForSelectedHotel; }
 			set
@@ -100,7 +100,7 @@ namespace TravelAgency.ViewModels
 				_hotelBooksRoomCommand = value;
 			}
 		}
-		public Room SelectedRoom
+		public IRoom SelectedRoom
 		{
 			get { return _selectedRoom; }
 			set
@@ -140,8 +140,6 @@ namespace TravelAgency.ViewModels
 				PropertyChanged(this, new PropertyChangedEventArgs(caller));
 			}
 		}
-
-
 	}
 }
 

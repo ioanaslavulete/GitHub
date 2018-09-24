@@ -2,6 +2,7 @@
 using System.Windows;
 using TravelAgency.Models;
 using TravelAgency.Models.Commands;
+using TravelAgency.Models.Interfaces;
 using TravelAgency.Services;
 
 namespace TravelAgency.ViewModels
@@ -57,7 +58,7 @@ namespace TravelAgency.ViewModels
 
 		public void ReserveRoom()
 		{
-			foreach (Room room in Reservation.BestOption.RoomList)
+			foreach (IRoom room in Reservation.BestOption.RoomList)
 				room.Add(_reservation.ReservationPeriod);
 
 			_reservationRepository.Add(_reservation);

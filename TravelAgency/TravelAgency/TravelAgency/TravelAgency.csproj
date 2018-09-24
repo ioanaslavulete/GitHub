@@ -60,6 +60,8 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Models\AccomodationFactory.cs" />
+    <Compile Include="Models\AccomodationType.cs" />
     <Compile Include="Models\Commands\AddHotelCommand.cs" />
     <Compile Include="Models\Commands\AddRoomCommand.cs" />
     <Compile Include="Models\Commands\CancelHotelReservationCommand.cs" />
@@ -70,7 +72,7 @@
     <Compile Include="Models\Commands\EditRoomCommand.cs" />
     <Compile Include="Models\Commands\GetCustomerInfoCommand.cs" />
     <Compile Include="Models\Commands\HotelBooksRoomCommand.cs" />
-    <Compile Include="Models\Commands\NewCustomerCommand.cs" />
+    <Compile Include="Models\Commands\EmptyCustomerFieldsCommand.cs" />
     <Compile Include="Models\Commands\ReserveRoomCommand.cs" />
     <Compile Include="Models\Commands\SaveHotelCommand.cs" />
     <Compile Include="Models\Commands\SaveRoomCommand.cs" />
@@ -81,6 +83,7 @@
     <Compile Include="Models\AccomodationRepository.cs" />
     <Compile Include="Models\HotelReservation.cs" />
     <Compile Include="Models\Interfaces\IAccomodation.cs" />
+    <Compile Include="Models\Interfaces\IRoom.cs" />
     <Compile Include="Models\Location.cs" />
     <Compile Include="Models\LocationRepository.cs" />
     <Compile Include="Models\MainRepository.cs" />

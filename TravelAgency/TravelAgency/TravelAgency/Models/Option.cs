@@ -10,9 +10,9 @@ namespace TravelAgency.Models
 	public class Option
 	{
 		private IAccomodation _hotel;
-		private ObservableCollection<Room> _roomList;
+		private ObservableCollection<IRoom> _roomList;
 
-		public Option(IAccomodation hotel, ObservableCollection<Room> roomList)
+		public Option(IAccomodation hotel, ObservableCollection<IRoom> roomList)
 		{
 			this._hotel = hotel;
 			this._roomList = roomList;
@@ -21,7 +21,7 @@ namespace TravelAgency.Models
 		public Option()
 		{
 			_hotel = new Hotel();
-			_roomList = new ObservableCollection<Room>();
+			_roomList = new ObservableCollection<IRoom>();
 		}
 
 		public IAccomodation Hotel
@@ -36,7 +36,7 @@ namespace TravelAgency.Models
 				_hotel = value;
 			}
 		}
-		public ObservableCollection<Room> RoomList
+		public ObservableCollection<IRoom> RoomList
 		{
 			get
 			{

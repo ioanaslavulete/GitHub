@@ -168,6 +168,16 @@ namespace TravelAgency.ViewModels
 			}
 		}
 
+		public void GetCustomerInfo()
+		{
+			Reservation.Owner = _reservationRepository.GetOwnerWithId(_reservation.Owner.Id);
+		}
+
+		public void EmptyCustomerFields()
+		{
+			Reservation.Owner = new Customer();
+		}
+
 		public void ShowBookingVoucherView()
 		{
 			BookingVoucherView bookingVoucherView = new BookingVoucherView();
@@ -180,16 +190,6 @@ namespace TravelAgency.ViewModels
 			Reservation = new Reservation();
 
 			AvailableOptions.Clear();
-		}
-
-		public void GetCustomerInfo()
-		{
-			Reservation.Owner = _reservationRepository.GetOwnerWithId(_reservation.Owner.Id);
-		}
-
-		public void EmptyCustomerFields()
-		{
-			Reservation.Owner = new Customer();
 		}
 
 		public event PropertyChangedEventHandler PropertyChanged;

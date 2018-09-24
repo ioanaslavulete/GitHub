@@ -2,12 +2,13 @@
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using TravelAgency.Models.Interfaces;
 
 namespace TravelAgency.Models
 {
 	[Serializable]
-	public class Room : INotifyPropertyChanged
-    {
+	public class Room : INotifyPropertyChanged, IRoom
+	{
         private string _price;
         private string _numberOfPersons;
         private RoomViewType _roomViewType;

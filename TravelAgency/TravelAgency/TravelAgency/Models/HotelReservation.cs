@@ -1,14 +1,15 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using TravelAgency.Models.Interfaces;
 
 namespace TravelAgency.Models
 {
 	[Serializable]
 	public class HotelReservation : INotifyPropertyChanged
     {
-        private Hotel _hotel;
-        private Room _room;
+        private IAccomodation _hotel;
+        private IRoom _room;
         private ReservationPeriod _reservationPeriod;
 
         public HotelReservation()
@@ -18,14 +19,14 @@ namespace TravelAgency.Models
             _room = new Room();
         }
 
-        public HotelReservation(Hotel hotel, ReservationPeriod reservationPeriod, Room room)
+        public HotelReservation(IAccomodation hotel, ReservationPeriod reservationPeriod, IRoom room)
         {
             _hotel = hotel;
             _reservationPeriod = reservationPeriod;
             _room = room;
         }
 
-        public Hotel Hotel
+        public IAccomodation Hotel
         {
             get { return _hotel; }
             set
@@ -43,7 +44,7 @@ namespace TravelAgency.Models
                 OnPropertyChanged();
             }
         }
-        public Room Room
+        public IRoom Room
         {
             get { return _room; }
             set

@@ -15,11 +15,15 @@ namespace TravelAgency.ViewModels
 	{
 		private AccomodationRepository _hotelRepository;
 		private LocationRepository _locationRepository;
-		private Hotel _hotel;
-		private Hotel _selectedHotel;
-		private Room _room;
-		private Room _selectedRoom;
+		private IAccomodation _accomodation;
+		private IAccomodation _selectedAccomodation;
+		private IRoom _room;
+		private IRoom _selectedRoom;
 		private int _numberOfRooms;
+
+		private AccomodationType _acomodationType;
+		private AccomodationFactory _accomodationFactory;
+
 		private AddHotelCommand _addHotelCommand;
 		private DeleteHotelCommand _deleteHotelCommand;
 		private EditHotelCommand _editHotelCommand;
@@ -32,10 +36,14 @@ namespace TravelAgency.ViewModels
 		{
 			_hotelRepository = DataManagementService.Instance.MainRepository.AccomodationRepository;
 			_locationRepository = DataManagementService.Instance.MainRepository.LocationRepository;
-			_hotel = new Hotel();
-			_selectedHotel = new Hotel();
+
+			_accomodationFactory = new AccomodationFactory();
+			_accomodation = _accomodationFactory.BuildAccomodation(_acomodationType);
+			_selectedAccomodation = _accomodationFactory.BuildAccomodation(_acomodationType);
+
 			_room = new Room();
 			_selectedRoom = new Room();
+
 			_addHotelCommand = new AddHotelCommand(this);
 			_deleteHotelCommand = new DeleteHotelCommand(this);
 			_editHotelCommand = new EditHotelCommand(this);
@@ -53,28 +61,28 @@ namespace TravelAgency.ViewModels
 				_hotelRepository = value;
 			}
 		}
-		public Hotel Hotel
+		public IAccomodation Hotel
 		{
-			get { return _hotel; }
+			get { return _accomodation; }
 			set
 			{
-				_hotel = value;
+				_accomodation = value;
 				OnPropertyChanged();
 			}
 		}
-		public Hotel SelectedHotel
+		public IAccomodation SelectedHotel
 		{
 			get
 			{
-				return _selectedHotel;
+				return _selectedAccomodation;
 			}
 			set
 			{
-				_selectedHotel = value;
+				_selectedAccomodation = value;
 				OnPropertyChanged();
 			}
 		}
-		public Room Room
+		public IRoom Room
 		{
 			get
 			{
@@ -86,7 +94,7 @@ namespace TravelAgency.ViewModels
 				OnPropertyChanged();
 			}
 		}
-		public Room SelectedRoom
+		public IRoom SelectedRoom
 		{
 			get
 			{
@@ -116,6 +124,22 @@ namespace TravelAgency.ViewModels
 				return Enum.GetValues(typeof(RoomViewType)).Cast<RoomViewType>().ToList<RoomViewType>();
 			}
 		}
+		public AccomodationType AcomodationType
+		{
+			get
+			{
+				return _acomodationType;
+			}
+
+			set
+			{
+				_acomodationType = value;
+				Hotel = _accomodationFactory.BuildAccomodation(_acomodationType);
+				SelectedHotel = _accomodationFactory.BuildAccomodation(_acomodationType);
+				OnPropertyChanged();
+			}
+		}
+
 		public AddHotelCommand AddHotelCommand
 		{
 			get
@@ -194,21 +218,20 @@ namespace TravelAgency.ViewModels
 			}
 		}
 
-		public void AddHotel()
+		public void AddAccomodation()
 		{
-			Hotel newHotel = new Hotel(_hotel.Id, _hotel.Name, _hotel.Location, _hotel.RoomList, _hotel.NumberOfStars);
-			_hotelRepository.Add(newHotel);
-			_locationRepository.Add(_hotel.Location);
+			_hotelRepository.Add(_accomodation);
+			_locationRepository.Add(_accomodation.Location);
 
 			DataManagementService.Instance.SaveData();
 			ClearHotelFields();
 			ClearRoomFields();
 		}
 
-		public void DeleteHotel()
+		public void DeleteAccomodation()
 		{
-			_locationRepository.Delete(_selectedHotel.Location, _hotelRepository);
-			_hotelRepository.Delete(_selectedHotel);
+			_locationRepository.Delete(_selectedAccomodation.Location, _hotelRepository);
+			_hotelRepository.Delete(_selectedAccomodation);
 			DataManagementService.Instance.SaveData();
 		}
 
@@ -228,8 +251,8 @@ namespace TravelAgency.ViewModels
 		{
 			for (int i = 1; i <= NumberOfRooms; i++)
 			{
-				Room newRoom = new Room(_room.Price, _room.NumberOfPersons, _room.RoomViewType);
-				_hotel.Add(newRoom);
+				IRoom newRoom = new Room(_room.Price, _room.NumberOfPersons, _room.RoomViewType);
+				_accomodation.Add(newRoom);
 			}
 			DataManagementService.Instance.SaveData();
 			ClearRoomFields();

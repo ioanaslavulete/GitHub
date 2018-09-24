@@ -31,7 +31,6 @@ namespace TravelAgency.Models
 			PhoneNumber = phoneNumber;
 		}
 
-
 		public string Id
 		{
 			get { return _id; }

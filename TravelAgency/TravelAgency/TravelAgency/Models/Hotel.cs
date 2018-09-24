@@ -14,25 +14,25 @@ namespace TravelAgency.Models
         private string _id;
         private string _name;
         private Location _location;
-        private ObservableCollection<Room> _roomList;
-        private ObservableCollection<Room> _availableRoomsList;
+        private ObservableCollection<IRoom> _roomList;
+        private ObservableCollection<IRoom> _availableRoomsList;
         private string _numberOfStars;
 
         public Hotel()
         {
             _location = new Location();
-            _roomList = new ObservableCollection<Room>();
-            _availableRoomsList = new ObservableCollection<Room>();
+            _roomList = new ObservableCollection<IRoom>();
+            _availableRoomsList = new ObservableCollection<IRoom>();
         }
 
-        public Hotel(string id, string name, Location location, ObservableCollection<Room> roomList, string numberOfStars)
+        public Hotel(string id, string name, Location location, ObservableCollection<IRoom> roomList, string numberOfStars)
         {
             _id = id;
             _name = name;
             _location = new Location(location.CityName, location.CountryName);
             _roomList = roomList;
             _numberOfStars = numberOfStars;
-            _availableRoomsList = new ObservableCollection<Room>();
+            _availableRoomsList = new ObservableCollection<IRoom>();
         }
 
         public string Id
@@ -71,7 +71,7 @@ namespace TravelAgency.Models
                 OnPropertyChanged();
             }
         }
-        public ObservableCollection<Room> RoomList
+        public ObservableCollection<IRoom> RoomList
         {
             get { return _roomList; }
             set
@@ -79,7 +79,7 @@ namespace TravelAgency.Models
                 _roomList = value;
             }
         }
-        public ObservableCollection<Room> AvailableRoomsList
+        public ObservableCollection<IRoom> AvailableRoomsList
         {
             get
             {
@@ -91,7 +91,7 @@ namespace TravelAgency.Models
             }
         }
 
-        public void Add(Room newRoom)
+        public void Add(IRoom newRoom)
         {
             _roomList.Add(newRoom);
         }
@@ -106,20 +106,20 @@ namespace TravelAgency.Models
                 return false;
         }
 
-        public ObservableCollection<Room> GetBestOptionFor(Reservation reservation)
+        public ObservableCollection<IRoom> GetBestOptionFor(Reservation reservation)
         {
-            ObservableCollection<Room> bestOptionList = new ObservableCollection<Room>();
+            ObservableCollection<IRoom> bestOptionList = new ObservableCollection<IRoom>();
 
             // Store rooms in a new list so they can be ordered (observable collection does not support OrderBy
-            List<Room> newList = new List<Room>();
-            foreach (Room room in _availableRoomsList)
+            List<IRoom> newList = new List<IRoom>();
+            foreach (IRoom room in _availableRoomsList)
                 newList.Add(room);
 
-            List<Room> descendingList = newList.OrderByDescending(o => o.NumberOfPersons).ThenBy(o => o.Price).ToList();
+            List<IRoom> descendingList = newList.OrderByDescending(o => o.NumberOfPersons).ThenBy(o => o.Price).ToList();
 
             int numberOfPersons = int.Parse(reservation.NumberOfPersons);
 
-            foreach (Room room in descendingList)
+            foreach (IRoom room in descendingList)
             {
                 int roomCapacity = int.Parse(room.NumberOfPersons);
                 if (numberOfPersons >= roomCapacity)
@@ -132,9 +132,9 @@ namespace TravelAgency.Models
 
             if (numberOfPersons > 0)
             {
-                List<Room> ascendingList = newList.OrderBy(o => o.NumberOfPersons).ThenBy(o => o.Price).ToList();
+                List<IRoom> ascendingList = newList.OrderBy(o => o.NumberOfPersons).ThenBy(o => o.Price).ToList();
 
-                foreach (Room room in ascendingList)
+                foreach (IRoom room in ascendingList)
                 {
                     int roomCapacity = int.Parse(room.NumberOfPersons);
                     if (numberOfPersons < roomCapacity)
@@ -157,7 +157,7 @@ namespace TravelAgency.Models
             return _location.Equals(selectedLocation);
         }
 
-        private void AddToAvailableRoomList(Room room)
+        private void AddToAvailableRoomList(IRoom room)
         {
             _availableRoomsList.Add(room);
         }
@@ -167,7 +167,7 @@ namespace TravelAgency.Models
             _availableRoomsList.Clear();
             if (_roomList.Count > 0)
             {
-                foreach (Room room in _roomList)
+                foreach (IRoom room in _roomList)
                 {
                     if (room.IsAvailableIn(reservationPeriod))
                         AddToAvailableRoomList(room);

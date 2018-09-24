@@ -22,7 +22,7 @@ namespace TravelAgency.Models.Commands
 
         public void Execute(object parameter)
         {
-            _hotelViewModel.AddHotel();
+            _hotelViewModel.AddAccomodation();
         }
     }
 }
