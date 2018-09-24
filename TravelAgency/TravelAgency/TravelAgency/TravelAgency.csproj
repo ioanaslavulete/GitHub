@@ -64,6 +64,7 @@
     <Compile Include="Models\AccomodationType.cs" />
     <Compile Include="Models\Commands\AddHotelCommand.cs" />
     <Compile Include="Models\Commands\AddRoomCommand.cs" />
+    <Compile Include="Models\Commands\AddRoomToReservationCommand.cs" />
     <Compile Include="Models\Commands\CancelHotelReservationCommand.cs" />
     <Compile Include="Models\Commands\CheckAvailabilityCommand.cs" />
     <Compile Include="Models\Commands\DeleteHotelCommand.cs" />
@@ -87,6 +88,8 @@
     <Compile Include="Models\Location.cs" />
     <Compile Include="Models\LocationRepository.cs" />
     <Compile Include="Models\MainRepository.cs" />
+    <Compile Include="Models\Price.cs" />
+    <Compile Include="Models\CurrencyType.cs" />
     <Compile Include="Models\Reservation.cs" />
     <Compile Include="Models\ReservationPeriod.cs" />
     <Compile Include="Models\ReservationRepository.cs" />

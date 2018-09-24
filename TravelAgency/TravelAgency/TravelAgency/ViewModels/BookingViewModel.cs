@@ -1,4 +1,5 @@
-﻿using System.Collections.ObjectModel;
+﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using TravelAgency.Models;
@@ -18,12 +19,17 @@ namespace TravelAgency.ViewModels
         private ObservableCollection<Location> _locationList;
         private ObservableCollection<Option> _availableOptions;
         private Option _selectedOption;
+        private RoomFactory _roomFactory;
+        private RoomType _roomType;
+        private ObservableCollection<IRoom> _roomsToReserve;
+        private IRoom _selectedRoom;
 
         private CheckAvailabilityCommand _checkAvailabilityCommand;
         private ShowBookingVoucherCommand _showBookingVoucherCommand;
         private GetCustomerInfoCommand _getCustomerInfoCommand;
         private ReservationRepository _reservationRepository;
         private EmptyCustomerFieldsCommand _newCustomerCommand;
+        private AddRoomToReservationCommand _addRoomToReservationCommand;
 
         public BookingViewModel()
         {
@@ -36,10 +42,15 @@ namespace TravelAgency.ViewModels
             _selectedOption = new Option();
             _availableOptions = new ObservableCollection<Option>();
 
+            _roomsToReserve = new ObservableCollection<IRoom>();
+            _roomFactory = new RoomFactory();
+            _selectedRoom = _roomFactory.BuildRoom(_roomType);
+
             _checkAvailabilityCommand = new CheckAvailabilityCommand(this);
             _showBookingVoucherCommand = new ShowBookingVoucherCommand(this);
             _getCustomerInfoCommand = new GetCustomerInfoCommand(this);
             _newCustomerCommand = new EmptyCustomerFieldsCommand(this);
+            _addRoomToReservationCommand = new AddRoomToReservationCommand(this);
         }
 
         public ObservableCollection<Location> LocationList
@@ -102,8 +113,27 @@ namespace TravelAgency.ViewModels
             set
             {
                 _selectedOption = value;
+                OnPropertyChanged();
             }
         }
+
+        public ObservableCollection<IRoom> RoomsToReserve
+        {
+            get { return _roomsToReserve; }
+            set
+            {
+                _roomsToReserve = value;
+            }
+        }
+        public IRoom SelectedRoom
+        {
+            get { return _selectedRoom; }
+            set
+            {
+                _selectedRoom = value;
+            }
+        }
+
 
         public CheckAvailabilityCommand CheckAvailabilityCommand
         {
@@ -150,6 +180,14 @@ namespace TravelAgency.ViewModels
                 _newCustomerCommand = value;
             }
         }
+        public AddRoomToReservationCommand AddRoomToReservationCommand
+        {
+            get { return _addRoomToReservationCommand; }
+            set
+            {
+                _addRoomToReservationCommand = value;
+            }
+        }
 
         public void CheckAvailability()
         {
@@ -162,6 +200,7 @@ namespace TravelAgency.ViewModels
                     if (accomodation.HasRoomsAvailableIn(_reservation.ReservationPeriod))
                     {
                         Option option = new Option(accomodation, accomodation.GetBestOptionFor(_reservation));
+                        option.ComputeTotalPriceFor(_reservation.ReservationPeriod);
                         AvailableOptions.Add(option);
                     }
                 }
@@ -183,13 +222,23 @@ namespace TravelAgency.ViewModels
             BookingVoucherView bookingVoucherView = new BookingVoucherView();
             BookingVoucherViewModel bookingVoucherViewModel = new BookingVoucherViewModel();
 
+            if (_roomsToReserve.Count != 0)
+            {
+                _selectedOption.RoomList = _roomsToReserve;
+            }
+           
             bookingVoucherViewModel.Reservation = new Reservation(_reservation.Owner, _selectedOption.Hotel, _reservation.ReservationPeriod, _reservation.NumberOfPersons, _selectedOption);
             bookingVoucherView.DataContext = bookingVoucherViewModel;
-
+           
             bookingVoucherView.Show();
             Reservation = new Reservation();
+            
+            AvailableOptions.Clear();                        
+        }
 
-            AvailableOptions.Clear();
+        public void AddRoomToReservation()
+        {
+            _roomsToReserve.Add(_selectedRoom);
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

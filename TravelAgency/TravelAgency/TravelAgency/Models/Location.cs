@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using System.Text.RegularExpressions;
 
 namespace TravelAgency.Models
 {
 	[Serializable]
-	public class Location : INotifyPropertyChanged
+	public class Location : INotifyPropertyChanged, IDataErrorInfo
     {
         private string _cityName;
         private string _countryName;
@@ -61,6 +62,7 @@ namespace TravelAgency.Models
         {
             return FullName;
         }
+
 		[field:NonSerialized]
 		public event PropertyChangedEventHandler PropertyChanged;
         private void OnPropertyChanged([CallerMemberName] string caller = "")
@@ -68,6 +70,39 @@ namespace TravelAgency.Models
             if (PropertyChanged != null)
             {
                 PropertyChanged(this, new PropertyChangedEventArgs(caller));
+            }
+        }
+
+
+        public string Error
+        {
+            get
+            {
+                return null;
+            }
+        }
+
+        public string this[string propertyName]
+        {
+            get
+            {
+                string error = string.Empty;
+                string acceptsOnlyLettersAndSpaces = "^[A-Za-z ]+$";
+
+                if (propertyName == "CityName")
+                {
+                    if (string.IsNullOrEmpty(CityName) || Regex.IsMatch(CityName, acceptsOnlyLettersAndSpaces) == false)
+                        error = "✘";
+                }
+
+                if (propertyName == "CountryName")
+                {
+                    if (string.IsNullOrEmpty(CountryName) || Regex.IsMatch(CountryName, acceptsOnlyLettersAndSpaces) == false)
+                        error = "✘";
+                }
+
+                return error;
+
             }
         }
 

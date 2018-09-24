@@ -9,7 +9,7 @@ namespace TravelAgency.Models
 	[Serializable]
 	public class Room : INotifyPropertyChanged, IRoom
 	{
-        private string _price;
+        private Price _price;
         private string _numberOfPersons;
         private RoomViewType _roomViewType;
         private ObservableCollection<ReservationPeriod> _reservedPeriodList;
@@ -17,9 +17,10 @@ namespace TravelAgency.Models
         public Room()
         {
             _reservedPeriodList = new ObservableCollection<ReservationPeriod>();
+            _price = new Price();
         }
 
-        public Room(string price, string numberOfPersons, RoomViewType roomViewType)
+        public Room(Price price, string numberOfPersons, RoomViewType roomViewType)
         {
             _price = price;
             _numberOfPersons = numberOfPersons;
@@ -27,7 +28,7 @@ namespace TravelAgency.Models
             _reservedPeriodList = new ObservableCollection<ReservationPeriod>();
         }
 
-        public string Price
+        public Price Price
         {
             get { return _price; }
             set

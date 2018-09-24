@@ -16,6 +16,7 @@ namespace TravelAgency.Models.Interfaces
 		ObservableCollection<IRoom> GetBestOptionFor(Reservation reservation);
 		bool HasRoomsAvailableIn(ReservationPeriod reservationPeriod);
 		bool HasSameLocationAs(Location selectedLocation);
+        bool IsValid();
 
 		event PropertyChangedEventHandler PropertyChanged;
 	}

@@ -11,17 +11,20 @@ namespace TravelAgency.Models
 	{
 		private IAccomodation _hotel;
 		private ObservableCollection<IRoom> _roomList;
+        private Price _totalPrice;
 
-		public Option(IAccomodation hotel, ObservableCollection<IRoom> roomList)
+        public Option(IAccomodation hotel, ObservableCollection<IRoom> roomList)
 		{
 			this._hotel = hotel;
 			this._roomList = roomList;
+            _totalPrice = new Price();
 		}
 
 		public Option()
 		{
 			_hotel = new Hotel();
 			_roomList = new ObservableCollection<IRoom>();
+            _totalPrice = new Price();
 		}
 
 		public IAccomodation Hotel
@@ -56,10 +59,31 @@ namespace TravelAgency.Models
 				string result = "";
 				foreach (Room room in _roomList)
 				{
-					result += string.Format(room.NumberOfPersons + " persons" + " - " + room.Price + " ron/night" + "\n");
+					result += string.Format(room.NumberOfPersons + " persons" + " - " + room.Price  + "\n");
 				}
 				return result;
 			}
 		}
-	}
+
+        public Price TotalPrice
+        {
+            get { return _totalPrice; }
+            set
+            {
+                _totalPrice = value;
+            }
+        }
+
+        public void ComputeTotalPriceFor(ReservationPeriod reservationPeriod)
+        {
+            double sum = 0;
+            foreach (Room room in _roomList)
+            {
+                double roomPrice = double.Parse(room.Price.Value);
+                sum += roomPrice * (reservationPeriod.CheckOut.Day - reservationPeriod.CheckIn.Day);
+                _totalPrice.Currency = room.Price.Currency;
+            }
+            _totalPrice.Value = "" + sum;
+        }
+    }
 }

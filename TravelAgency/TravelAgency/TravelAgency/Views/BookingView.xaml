@@ -20,7 +20,8 @@
 			<RowDefinition Height="40" />
 			<RowDefinition Height="40" />
 			<RowDefinition Height="40" />
-			<RowDefinition Height="40" />
+			<RowDefinition Height="*" />
+			<RowDefinition Height="*" />
 			<RowDefinition Height="*" />
 		</Grid.RowDefinitions>
 
@@ -162,18 +163,6 @@
 			                                 UpdateSourceTrigger=PropertyChanged}" />
 		</StackPanel>
 
-		<StackPanel Grid.Row="4"
-		            Grid.Column="1"
-		            VerticalAlignment="Center"
-		            Orientation="Horizontal">
-			<Label Width="80" Margin="5,0,0,0">
-				Room View:
-			</Label>
-			<ComboBox Width="100"
-			          Height="20"
-			          Margin="5,0,0,0" />
-		</StackPanel>
-
 		<StackPanel Grid.Row="5"
 		            Grid.Column="0"
 		            VerticalAlignment="Center"
@@ -194,16 +183,6 @@
 		            VerticalAlignment="Center"
 		            Orientation="Horizontal">
 			<Label Width="80" Margin="5,0,0,0">
-				Rooms
-			</Label>
-			<TextBox Margin="5,0,0,0" Style="{StaticResource NormalTextBoxStyle}" />
-		</StackPanel>
-
-		<StackPanel Grid.Row="6"
-		            Grid.Column="0"
-		            VerticalAlignment="Center"
-		            Orientation="Horizontal">
-			<Label Width="80" Margin="5,0,0,0">
 				Check Out
 			</Label>
 			<DatePicker Width="120"
@@ -214,7 +193,7 @@
 			            Validation.ErrorTemplate="{x:Null}" />
 		</StackPanel>
 
-		<StackPanel Grid.Row="6"
+		<StackPanel Grid.Row="4"
 		            Grid.Column="1"
 		            VerticalAlignment="Center"
 		            Orientation="Horizontal">
@@ -227,7 +206,7 @@
 			                        UpdateSourceTrigger=PropertyChanged}" />
 		</StackPanel>
 
-		<Button Grid.Row="6"
+		<Button Grid.Row="5"
 		        Grid.Column="2"
 		        Width="100"
 		        Margin="10,0,0,0"
@@ -238,7 +217,7 @@
 			Check Availability
 		</Button>
 
-		<StackPanel Grid.Row="7" Grid.ColumnSpan="3">
+		<StackPanel Grid.Row="6" Grid.ColumnSpan="3">
 			<Label>Best Options</Label>
 			<DataGrid MaxHeight="150"
 			          Margin="5,0,5,0"
@@ -266,7 +245,9 @@
 					<DataGridTextColumn Width="200"
 					                    Binding="{Binding Result}"
 					                    Header="Best option for you" />
-					<DataGridTextColumn Width="100" Header="Total Price" />
+					<DataGridTextColumn Width="100" 
+                                        Header="Total Price" 
+                                        Binding="{Binding TotalPrice.FullPrice}"/>
 					<DataGridTextColumn Width="150"
 					                    Binding="{Binding Hotel.AvailableRoomsList.Count}"
 					                    Header="Available Rooms" />
@@ -274,7 +255,69 @@
 			</DataGrid>
 		</StackPanel>
 
-		<Button Grid.Row="7"
+        <StackPanel Grid.Row="7">
+            <Label>Available rooms</Label>
+            <DataGrid MaxHeight="100"
+			          Margin="5,0,5,0"
+			          AutoGenerateColumns="False"
+			          HeadersVisibility="Column"
+			          HorizontalScrollBarVisibility="Disabled"
+                      VerticalScrollBarVisibility="Auto"
+                      x:Name="dataGrid"
+                      ItemsSource="{Binding SelectedOption.Hotel.AvailableRoomsList}"
+                      SelectedItem="{Binding SelectedRoom,
+                                               Mode=OneWayToSource,
+                                               UpdateSourceTrigger=PropertyChanged}">
+                <DataGrid.Columns>
+
+                    <DataGridTextColumn Width="50"
+                                        Header="Price"
+                                        Binding="{Binding Price.FullPrice}"/>
+                    <DataGridTextColumn Width="100"
+                                        Header="Capacity"
+                                        Binding="{Binding NumberOfPersons}"/>
+                    <DataGridTextColumn Width="70"
+                                        Header="Room View"
+                                        Binding="{Binding RoomViewType}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </StackPanel>
+
+        <Button Grid.Row="8"
+                Width="100"
+                VerticalAlignment="Bottom"
+                HorizontalAlignment="Left"
+                Command="{Binding AddRoomToReservationCommand}"
+                CommandParameter="{Binding SelectedRoom}">
+            Add
+        </Button>
+
+        <StackPanel Grid.Row="7" 
+                    Grid.Column="1">
+            <Label>Reserved Rooms</Label>
+            <DataGrid MaxHeight="150"
+			          Margin="5,0,5,0"
+			          AutoGenerateColumns="False"
+			          HeadersVisibility="Column"
+			          HorizontalScrollBarVisibility="Disabled"
+                      VerticalScrollBarVisibility="Auto"
+                      ItemsSource="{Binding RoomsToReserve}">
+                <DataGrid.Columns>
+
+                    <DataGridTextColumn Width="50"
+                                        Header="Price"
+                                        Binding="{Binding Price.FullPrice}"/>
+                    <DataGridTextColumn Width="100"
+                                        Header="Capacity"
+                                        Binding="{Binding NumberOfPersons}"/>
+                    <DataGridTextColumn Width="100"
+                                        Header="Room View"
+                                        Binding="{Binding RoomViewType}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </StackPanel>
+
+        <Button Grid.Row="8"
 		        Grid.Column="2"
 		        Width="100"
 		        Height="20"

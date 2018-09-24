@@ -127,6 +127,13 @@ namespace TravelAgency.ViewModels
 				return Enum.GetValues(typeof(RoomViewType)).Cast<RoomViewType>().ToList<RoomViewType>();
 			}
 		}
+        public List<CurrencyType> CurrencyTypeList
+        {
+            get
+            {
+                return Enum.GetValues(typeof(CurrencyType)).Cast<CurrencyType>().ToList<CurrencyType>();
+            }
+        }
 		public AccomodationType AcomodationType
 		{
 			get

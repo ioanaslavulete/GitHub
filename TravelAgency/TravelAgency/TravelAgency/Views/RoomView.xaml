@@ -6,7 +6,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:viewModels="clr-namespace:TravelAgency.ViewModels"
              d:DesignHeight="150"
-             d:DesignWidth="300"
+             d:DesignWidth="380"
              mc:Ignorable="d">
 
 	<Grid>
@@ -21,11 +21,12 @@
 		            Margin="62,0,0,0"
 		            VerticalAlignment="Center"
 		            Orientation="Horizontal">
-			<Label>Price</Label>
-			<Label>Persons</Label>
-			<Label Margin="15,0,0,0">Room View</Label>
-			<Label Margin="10,0,0,0">Multiple</Label>
-		</StackPanel>
+            <Label>Price</Label>
+            <Label Margin="15,0,0,0">Currency</Label>
+            <Label Margin="10,0,0,0">Persons</Label>
+            <Label Margin="8,0,0,0">Room View</Label>
+            <Label Margin="15,0,0,0">Multiple</Label>
+        </StackPanel>
 
 		<StackPanel Grid.Row="1"
 		            VerticalAlignment="Top"
@@ -36,21 +37,29 @@
 
 			<TextBox Width="40"
 			         Height="20"
-			         Margin="5,0,0,0"
-			         Text="{Binding Room.Price,
+			         Margin="10,0,0,0"
+			         Text="{Binding Room.Price.Value,
 			                        Mode=TwoWay,
 			                        UpdateSourceTrigger=PropertyChanged}" />
 
-			<TextBox Width="40"
+            <ComboBox Width="60"
+                      Height="20"
+                      Margin="10,0,0,0"
+                      ItemsSource="{Binding CurrencyTypeList}"
+                      SelectedValue="{Binding Room.Price.Currency,
+                                               Mode=TwoWay,
+                                               UpdateSourceTrigger=PropertyChanged}"/>
+
+            <TextBox Width="40"
 			         Height="20"
-			         Margin="5,0,0,0"
+			         Margin="10,0,0,0"
 			         Text="{Binding Room.NumberOfPersons,
 			                        Mode=TwoWay,
 			                        UpdateSourceTrigger=PropertyChanged}" />
 
 			<ComboBox Width="100"
 			          Height="20"
-			          Margin="5,0,0,0"
+			          Margin="10,0,0,0"
 			          ItemsSource="{Binding RoomViewTypeList}"
 			          SelectedValue="{Binding Room.RoomViewType,
 			                                  Mode=TwoWay,
@@ -58,7 +67,7 @@
 
 			<TextBox Width="30"
 			         Height="20"
-			         Margin="5,0,0,0"
+			         Margin="10,0,0,0"
 			         Text="{Binding NumberOfRooms}" />
 		</StackPanel>
 
@@ -79,7 +88,7 @@
 			<DataGrid.Columns>
 
 				<DataGridTextColumn Width="50"
-				                    Binding="{Binding Price}"
+				                    Binding="{Binding Price.FullPrice}"
 				                    Header="Price" />
 				<DataGridTextColumn Width="120"
 				                    Binding="{Binding NumberOfPersons}"

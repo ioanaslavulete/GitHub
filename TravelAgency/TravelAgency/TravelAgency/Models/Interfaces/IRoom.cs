@@ -6,7 +6,7 @@ namespace TravelAgency.Models.Interfaces
 	public interface IRoom
 	{
 		string NumberOfPersons { get; set; }
-		string Price { get; set; }
+		Price Price { get; set; }
 		ObservableCollection<ReservationPeriod> ReservedPeriodList { get; set; }
 		RoomViewType RoomViewType { get; set; }
 

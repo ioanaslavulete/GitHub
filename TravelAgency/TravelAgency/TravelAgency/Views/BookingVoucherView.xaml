@@ -91,7 +91,7 @@
 		          VerticalScrollBarVisibility="Auto">
 			<DataGrid.Columns>
 				<DataGridTextColumn Width="50"
-				                    Binding="{Binding Price}"
+				                    Binding="{Binding Price.FullPrice}"
 				                    Header="Price" />
 				<DataGridTextColumn Width="120"
 				                    Binding="{Binding NumberOfPersons}"

@@ -34,9 +34,19 @@
 			<TextBox Width=" 100"
 			         Height="20"
 			         Margin="5,0,0,0"
+                     x:Name="HotelId"
 			         Text="{Binding Hotel.Id,
 			                        Mode=TwoWay,
-			                        UpdateSourceTrigger=PropertyChanged}" />
+			                        UpdateSourceTrigger=PropertyChanged,
+                                    ValidatesOnDataErrors=True}"
+                     Validation.ErrorTemplate="{x:Null}"/>
+            <Label Content="{Binding ElementName=HotelId,
+                                     Path=(Validation.Errors).CurrentItem.ErrorContent}"
+                   FontSize="15"
+                   FontWeight="Bold"
+                   Foreground="Red"
+                   >
+            </Label>
 			<Label Margin="5,0,0,0">Type</Label>
 			<ComboBox Width="100"
 			          Height="20"
@@ -55,9 +65,19 @@
 			<TextBox Width="100"
 			         Height="20"
 			         Margin="5,0,0,0"
+                     x:Name="HotelName"
 			         Text="{Binding Hotel.Name,
 			                        Mode=TwoWay,
-			                        UpdateSourceTrigger=PropertyChanged}" />
+			                        UpdateSourceTrigger=PropertyChanged,
+                                    ValidatesOnDataErrors=True}"
+                     Validation.ErrorTemplate="{x:Null}"/>
+            <Label Content="{Binding ElementName=HotelName,
+                                     Path=(Validation.Errors).CurrentItem.ErrorContent}"
+                   FontSize="15"
+                   FontWeight="Bold"
+                   Foreground="Red"
+                   >
+            </Label>
 		</StackPanel>
 
 		<StackPanel Grid.Row="2"
@@ -69,18 +89,38 @@
 			<TextBox Width="100"
 			         Height="20"
 			         Margin="5,0,0,0"
+                     x:Name="HotelCity"
 			         Text="{Binding Hotel.Location.CityName,
 			                        Mode=TwoWay,
-			                        UpdateSourceTrigger=PropertyChanged}" />
+			                        UpdateSourceTrigger=PropertyChanged,
+                                    ValidatesOnDataErrors=True}"
+                     Validation.ErrorTemplate="{x:Null}"/>
+            <Label Content="{Binding ElementName=HotelCity,
+                                     Path=(Validation.Errors).CurrentItem.ErrorContent}"
+                   FontSize="15"
+                   FontWeight="Bold"
+                   Foreground="Red"
+                   >
+            </Label>
 			<Label Width="52" Margin="5,0,0,0">
 				Country
 			</Label>
 			<TextBox Width="100"
 			         Height="20"
 			         Margin="5,0,0,0"
+                     x:Name="HotelCountry"
 			         Text="{Binding Hotel.Location.CountryName,
 			                        Mode=TwoWay,
-			                        UpdateSourceTrigger=PropertyChanged}" />
+			                        UpdateSourceTrigger=PropertyChanged,
+                                    ValidatesOnDataErrors=True}"
+                     Validation.ErrorTemplate="{x:Null}"/>
+            <Label Content="{Binding ElementName=HotelCountry,
+                                     Path=(Validation.Errors).CurrentItem.ErrorContent}"
+                   FontSize="15"
+                   FontWeight="Bold"
+                   Foreground="Red"
+                   >
+            </Label>
 		</StackPanel>
 
 
@@ -96,10 +136,20 @@
 			<TextBox Width="100"
 			         Height="20"
 			         Margin="5,0,0,0"
+                     x:Name="HotelStars"
 			         Text="{Binding Hotel.NumberOfStars,
 			                        Mode=TwoWay,
-			                        UpdateSourceTrigger=PropertyChanged}" />
-			<Button Width="100"
+			                        UpdateSourceTrigger=PropertyChanged,
+                                    ValidatesOnDataErrors=True}"
+                      Validation.ErrorTemplate="{x:Null}"/>
+            <Label Content="{Binding ElementName=HotelStars,
+                                     Path=(Validation.Errors).CurrentItem.ErrorContent}"
+                   FontSize="15"
+                   FontWeight="Bold"
+                   Foreground="Red"
+                   >
+            </Label>
+            <Button Width="100"
 			        Margin="62,0,0,0"
 			        VerticalAlignment="Center"
 			        Command="{Binding AddHotelCommand}">
