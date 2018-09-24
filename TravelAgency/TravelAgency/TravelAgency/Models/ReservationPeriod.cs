@@ -1,23 +1,25 @@
 ﻿using System;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
 
 namespace TravelAgency.Models
 {
-	[Serializable]
-	public class ReservationPeriod
+    [Serializable]
+    public class ReservationPeriod : INotifyPropertyChanged
     {
         private DateTime _checkIn;
         private DateTime _checkOut;
 
         public ReservationPeriod(DateTime checkIn, DateTime checkOut)
         {
-            _checkIn = checkIn;
-            _checkOut = checkOut;
+            CheckIn = checkIn;
+            CheckOut = checkOut;
         }
 
         public ReservationPeriod()
         {
-            _checkIn = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day);
-            _checkOut = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day);
+            CheckIn = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day);
+            CheckOut = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day + 1);
         }
 
         public DateTime CheckIn
@@ -26,6 +28,8 @@ namespace TravelAgency.Models
             set
             {
                 _checkIn = value;
+                CheckOut = new DateTime(_checkIn.Year, _checkIn.Month, _checkIn.Day + 1);
+                OnPropertyChanged();
             }
         }
         public DateTime CheckOut
@@ -34,6 +38,7 @@ namespace TravelAgency.Models
             set
             {
                 _checkOut = value;
+                OnPropertyChanged();
             }
         }
 
@@ -64,6 +69,16 @@ namespace TravelAgency.Models
                 return this.CheckIn.Equals(res.CheckIn) && this.CheckOut.Equals(res.CheckOut);
             }
             return false;
+        }
+
+        [field: NonSerialized]
+        public event PropertyChangedEventHandler PropertyChanged;
+        private void OnPropertyChanged([CallerMemberName] string caller = "")
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(caller));
+            }
         }
     }
 }

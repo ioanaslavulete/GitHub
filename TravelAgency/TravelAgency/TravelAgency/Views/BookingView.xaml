@@ -185,8 +185,7 @@
 			            Height="26"
 			            Margin="5,0,0,0"
 			            DisplayDateStart="{x:Static sys:DateTime.Today}"
-			            SelectedDate="{Binding Reservation.ReservationPeriod.CheckIn,
-			                                   Mode=OneWayToSource}"
+			            SelectedDate="{Binding Reservation.ReservationPeriod.CheckIn}"
 			            Validation.ErrorTemplate="{x:Null}" />
 		</StackPanel>
 
@@ -210,9 +209,8 @@
 			<DatePicker Width="120"
 			            Height="26"
 			            Margin="5,0,0,0"
-			            DisplayDateStart="{x:Static sys:DateTime.Today}"
-			            SelectedDate="{Binding Reservation.ReservationPeriod.CheckOut,
-			                                   Mode=OneWayToSource}"
+			            DisplayDateStart="{Binding Reservation.ReservationPeriod.CheckIn}"
+			            SelectedDate="{Binding Reservation.ReservationPeriod.CheckOut}"
 			            Validation.ErrorTemplate="{x:Null}" />
 		</StackPanel>
 

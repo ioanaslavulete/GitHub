@@ -20,6 +20,8 @@ namespace TravelAgency.ViewModels
 		private IRoom _room;
 		private IRoom _selectedRoom;
 		private int _numberOfRooms;
+        private RoomFactory _roomFactory;
+        private RoomType _roomType;
 
 		private AccomodationType _acomodationType;
 		private AccomodationFactory _accomodationFactory;
@@ -41,10 +43,11 @@ namespace TravelAgency.ViewModels
 			_accomodation = _accomodationFactory.BuildAccomodation(_acomodationType);
 			_selectedAccomodation = _accomodationFactory.BuildAccomodation(_acomodationType);
 
-			_room = new Room();
-			_selectedRoom = new Room();
+            _roomFactory = new RoomFactory();
+            _room = _roomFactory.BuildRoom(_roomType);
+			_selectedRoom = _roomFactory.BuildRoom(_roomType);
 
-			_addHotelCommand = new AddHotelCommand(this);
+            _addHotelCommand = new AddHotelCommand(this);
 			_deleteHotelCommand = new DeleteHotelCommand(this);
 			_editHotelCommand = new EditHotelCommand(this);
 			_saveHotelCommand = new SaveHotelCommand(this);

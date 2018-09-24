@@ -91,6 +91,8 @@
     <Compile Include="Models\ReservationPeriod.cs" />
     <Compile Include="Models\ReservationRepository.cs" />
     <Compile Include="Models\Room.cs" />
+    <Compile Include="Models\RoomFactory.cs" />
+    <Compile Include="Models\RoomType.cs" />
     <Compile Include="Models\RoomViewType.cs" />
     <Compile Include="Models\Services\DataManagementService.cs" />
     <Compile Include="ViewModels\BookingViewModel.cs" />

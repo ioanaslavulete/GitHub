@@ -9,196 +9,196 @@ using TravelAgency.Views;
 
 namespace TravelAgency.ViewModels
 {
-	public class BookingViewModel : INotifyPropertyChanged
-	{
-		private Reservation _reservation;
-		private Location _selectedLocation;
-		private ObservableCollection<IAccomodation> _hotelList;
-		private ObservableCollection<IAccomodation> _availableHotels;
-		private ObservableCollection<Location> _locationList;
-		private ObservableCollection<Option> _availableOptions;
-		private Option _selectedOption;
+    public class BookingViewModel : INotifyPropertyChanged
+    {
+        private Reservation _reservation;
+        private Location _selectedLocation;
+        private ObservableCollection<IAccomodation> _hotelList;
+        private ObservableCollection<IAccomodation> _availableHotels;
+        private ObservableCollection<Location> _locationList;
+        private ObservableCollection<Option> _availableOptions;
+        private Option _selectedOption;
 
-		private CheckAvailabilityCommand _checkAvailabilityCommand;
-		private ShowBookingVoucherCommand _showBookingVoucherCommand;
-		private GetCustomerInfoCommand _getCustomerInfoCommand;
-		private ReservationRepository _reservationRepository;
-		private EmptyCustomerFieldsCommand _newCustomerCommand;
+        private CheckAvailabilityCommand _checkAvailabilityCommand;
+        private ShowBookingVoucherCommand _showBookingVoucherCommand;
+        private GetCustomerInfoCommand _getCustomerInfoCommand;
+        private ReservationRepository _reservationRepository;
+        private EmptyCustomerFieldsCommand _newCustomerCommand;
 
-		public BookingViewModel()
-		{
-			_hotelList = DataManagementService.Instance.MainRepository.AccomodationRepository.HotelList;
-			_locationList = DataManagementService.Instance.MainRepository.LocationRepository.LocationList;
-			_reservationRepository = DataManagementService.Instance.MainRepository.ReservationRepository;
+        public BookingViewModel()
+        {
+            _hotelList = DataManagementService.Instance.MainRepository.AccomodationRepository.HotelList;
+            _locationList = DataManagementService.Instance.MainRepository.LocationRepository.LocationList;
+            _reservationRepository = DataManagementService.Instance.MainRepository.ReservationRepository;
 
-			_reservation = new Reservation();
-			_selectedLocation = new Location();
-			_selectedOption = new Option();
-			_availableOptions = new ObservableCollection<Option>();
+            _reservation = new Reservation();
+            _selectedLocation = new Location();
+            _selectedOption = new Option();
+            _availableOptions = new ObservableCollection<Option>();
 
-			_checkAvailabilityCommand = new CheckAvailabilityCommand(this);
-			_showBookingVoucherCommand = new ShowBookingVoucherCommand(this);
-			_getCustomerInfoCommand = new GetCustomerInfoCommand(this);
-			_newCustomerCommand = new EmptyCustomerFieldsCommand(this);
-		}
+            _checkAvailabilityCommand = new CheckAvailabilityCommand(this);
+            _showBookingVoucherCommand = new ShowBookingVoucherCommand(this);
+            _getCustomerInfoCommand = new GetCustomerInfoCommand(this);
+            _newCustomerCommand = new EmptyCustomerFieldsCommand(this);
+        }
 
-		public ObservableCollection<Location> LocationList
-		{
-			get { return _locationList; }
-			set
-			{
-				_locationList = value;
-			}
-		}
-		public ObservableCollection<IAccomodation> HotelsList
-		{
-			get
-			{
-				return _availableHotels;
-			}
-			set
-			{
-				_availableHotels = value;
-			}
-		}
-		public Reservation Reservation
-		{
-			get
-			{
-				return _reservation;
-			}
-			set
-			{
-				_reservation = value;
-				OnPropertyChanged();
-			}
-		}
-		public Location SelectedLocation
-		{
-			get { return _selectedLocation; }
-			set
-			{
-				_selectedLocation = value;
-			}
-		}
-		public ObservableCollection<Option> AvailableOptions
-		{
-			get
-			{
-				return _availableOptions;
-			}
-			set
-			{
-				_availableOptions = value;
-			}
-		}
-		public Option SelectedOption
-		{
-			get
-			{
-				return _selectedOption;
-			}
+        public ObservableCollection<Location> LocationList
+        {
+            get { return _locationList; }
+            set
+            {
+                _locationList = value;
+            }
+        }
+        public ObservableCollection<IAccomodation> HotelsList
+        {
+            get
+            {
+                return _availableHotels;
+            }
+            set
+            {
+                _availableHotels = value;
+            }
+        }
+        public Reservation Reservation
+        {
+            get
+            {
+                return _reservation;
+            }
+            set
+            {
+                _reservation = value;
+                OnPropertyChanged();
+            }
+        }
+        public Location SelectedLocation
+        {
+            get { return _selectedLocation; }
+            set
+            {
+                _selectedLocation = value;
+            }
+        }
+        public ObservableCollection<Option> AvailableOptions
+        {
+            get
+            {
+                return _availableOptions;
+            }
+            set
+            {
+                _availableOptions = value;
+            }
+        }
+        public Option SelectedOption
+        {
+            get
+            {
+                return _selectedOption;
+            }
 
-			set
-			{
-				_selectedOption = value;
-			}
-		}
+            set
+            {
+                _selectedOption = value;
+            }
+        }
 
-		public CheckAvailabilityCommand CheckAvailabilityCommand
-		{
-			get
-			{
-				return _checkAvailabilityCommand;
-			}
-			set
-			{
-				_checkAvailabilityCommand = value;
-			}
-		}
-		public ShowBookingVoucherCommand ShowBookingVoucherCommand
-		{
-			get
-			{
-				return _showBookingVoucherCommand;
-			}
-			set
-			{
-				_showBookingVoucherCommand = value;
-			}
-		}
-		public GetCustomerInfoCommand GetCustomerInfoCommand
-		{
-			get
-			{
-				return _getCustomerInfoCommand;
-			}
-			set
-			{
-				_getCustomerInfoCommand = value;
-			}
-		}
-		public EmptyCustomerFieldsCommand EmptyCustomerFieldsCommand
-		{
-			get
-			{
-				return _newCustomerCommand;
-			}
+        public CheckAvailabilityCommand CheckAvailabilityCommand
+        {
+            get
+            {
+                return _checkAvailabilityCommand;
+            }
+            set
+            {
+                _checkAvailabilityCommand = value;
+            }
+        }
+        public ShowBookingVoucherCommand ShowBookingVoucherCommand
+        {
+            get
+            {
+                return _showBookingVoucherCommand;
+            }
+            set
+            {
+                _showBookingVoucherCommand = value;
+            }
+        }
+        public GetCustomerInfoCommand GetCustomerInfoCommand
+        {
+            get
+            {
+                return _getCustomerInfoCommand;
+            }
+            set
+            {
+                _getCustomerInfoCommand = value;
+            }
+        }
+        public EmptyCustomerFieldsCommand EmptyCustomerFieldsCommand
+        {
+            get
+            {
+                return _newCustomerCommand;
+            }
 
-			set
-			{
-				_newCustomerCommand = value;
-			}
-		}
+            set
+            {
+                _newCustomerCommand = value;
+            }
+        }
 
-		public void CheckAvailability()
-		{
-			AvailableOptions.Clear();
+        public void CheckAvailability()
+        {
+            AvailableOptions.Clear();
 
-			foreach (IAccomodation accomodation in _hotelList)
-			{
-				if (accomodation.HasSameLocationAs(_selectedLocation))
-				{
-					if (accomodation.HasRoomsAvailableIn(_reservation.ReservationPeriod))
-					{
-						Option option = new Option(accomodation, accomodation.GetBestOptionFor(_reservation));
-						AvailableOptions.Add(option);
-					}
-				}
-			}
-		}
+            foreach (IAccomodation accomodation in _hotelList)
+            {
+                if (accomodation.HasSameLocationAs(_selectedLocation))
+                {
+                    if (accomodation.HasRoomsAvailableIn(_reservation.ReservationPeriod))
+                    {
+                        Option option = new Option(accomodation, accomodation.GetBestOptionFor(_reservation));
+                        AvailableOptions.Add(option);
+                    }
+                }
+            }
+        }
 
-		public void GetCustomerInfo()
-		{
-			Reservation.Owner = _reservationRepository.GetOwnerWithId(_reservation.Owner.Id);
-		}
+        public void GetCustomerInfo()
+        {
+            Reservation.Owner = _reservationRepository.GetOwnerWithId(_reservation.Owner.Id);
+        }
 
-		public void EmptyCustomerFields()
-		{
-			Reservation.Owner = new Customer();
-		}
+        public void EmptyCustomerFields()
+        {
+            Reservation = new Reservation();
+        }
 
-		public void ShowBookingVoucherView()
-		{
-			BookingVoucherView bookingVoucherView = new BookingVoucherView();
-			BookingVoucherViewModel bookingVoucherViewModel = new BookingVoucherViewModel();
+        public void ShowBookingVoucherView()
+        {
+            BookingVoucherView bookingVoucherView = new BookingVoucherView();
+            BookingVoucherViewModel bookingVoucherViewModel = new BookingVoucherViewModel();
 
-			bookingVoucherViewModel.Reservation = new Reservation(_reservation.Owner, _selectedOption.Hotel, _reservation.ReservationPeriod, _reservation.NumberOfPersons, _selectedOption);
-			bookingVoucherView.DataContext = bookingVoucherViewModel;
+            bookingVoucherViewModel.Reservation = new Reservation(_reservation.Owner, _selectedOption.Hotel, _reservation.ReservationPeriod, _reservation.NumberOfPersons, _selectedOption);
+            bookingVoucherView.DataContext = bookingVoucherViewModel;
 
-			bookingVoucherView.Show();
-			Reservation = new Reservation();
+            bookingVoucherView.Show();
+            Reservation = new Reservation();
 
-			AvailableOptions.Clear();
-		}
+            AvailableOptions.Clear();
+        }
 
-		public event PropertyChangedEventHandler PropertyChanged;
-		private void OnPropertyChanged([CallerMemberName] string caller = "")
-		{
-			if (PropertyChanged != null)
-			{
-				PropertyChanged(this, new PropertyChangedEventArgs(caller));
-			}
-		}
-	}
+        public event PropertyChangedEventHandler PropertyChanged;
+        private void OnPropertyChanged([CallerMemberName] string caller = "")
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(caller));
+            }
+        }
+    }
 }
