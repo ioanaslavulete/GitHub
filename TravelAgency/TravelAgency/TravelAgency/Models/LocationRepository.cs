@@ -1,8 +1,10 @@
-﻿using System.Collections.ObjectModel;
+﻿using System;
+using System.Collections.ObjectModel;
 
 namespace TravelAgency.Models
 {
-    public class LocationRepository
+	[Serializable]
+	public class LocationRepository
     {
         private ObservableCollection<Location> _locationList;
 
@@ -30,7 +32,7 @@ namespace TravelAgency.Models
             _locationList.Add(newLocation);
         }
 
-        public void Delete(Location location, HotelRepository hotelRepository)
+        public void Delete(Location location, AccomodationRepository hotelRepository)
         {
            int locationCount = 0;
            foreach(Hotel hotel in hotelRepository.HotelList)

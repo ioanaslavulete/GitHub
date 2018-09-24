@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace TravelAgency.Models
 {
+	[Serializable]
 	public class ReservationRepository
 	{
 		private ObservableCollection<Reservation> _reservationList;

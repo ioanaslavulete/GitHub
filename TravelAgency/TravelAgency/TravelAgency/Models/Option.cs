@@ -1,8 +1,10 @@
-﻿using System.Collections.ObjectModel;
+﻿using System;
+using System.Collections.ObjectModel;
 using TravelAgency.Models;
 
 namespace TravelAgency.Models
 {
+	[Serializable]
 	public class Option
 	{
 		private Hotel _hotel;

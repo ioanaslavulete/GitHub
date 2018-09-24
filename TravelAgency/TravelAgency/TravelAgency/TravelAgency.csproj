@@ -77,8 +77,9 @@
     <Compile Include="Models\Commands\ShowBookingVoucherCommand.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\Hotel.cs" />
-    <Compile Include="Models\HotelRepository.cs" />
+    <Compile Include="Models\AccomodationRepository.cs" />
     <Compile Include="Models\HotelReservation.cs" />
+    <Compile Include="Models\Interfaces\IAccomodation.cs" />
     <Compile Include="Models\Location.cs" />
     <Compile Include="Models\LocationRepository.cs" />
     <Compile Include="Models\MainRepository.cs" />
@@ -201,5 +202,6 @@
   <ItemGroup>
     <Resource Include="Icons\hotelReserve.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

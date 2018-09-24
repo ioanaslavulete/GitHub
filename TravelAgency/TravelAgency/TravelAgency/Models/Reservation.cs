@@ -1,10 +1,12 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using TravelAgency.ViewModels;
 
 namespace TravelAgency.Models
 {
-    public class Reservation : INotifyPropertyChanged
+	[Serializable]
+	public class Reservation : INotifyPropertyChanged
     {
         private ReservationPeriod _reservationPeriod;
         private string _numberOfPersons;
@@ -61,8 +63,8 @@ namespace TravelAgency.Models
             }
         }
 		public Option BestOption { get; set; }
-
-        public event PropertyChangedEventHandler PropertyChanged;
+		[field:NonSerialized]
+		public event PropertyChangedEventHandler PropertyChanged;
         private void OnPropertyChanged([CallerMemberName] string caller = "")
         {
             if (PropertyChanged != null)

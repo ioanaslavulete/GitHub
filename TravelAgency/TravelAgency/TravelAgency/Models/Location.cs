@@ -1,10 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
 namespace TravelAgency.Models
 {
-    public class Location : INotifyPropertyChanged
+	[Serializable]
+	public class Location : INotifyPropertyChanged
     {
         private string _cityName;
         private string _countryName;
@@ -59,8 +61,8 @@ namespace TravelAgency.Models
         {
             return FullName;
         }
-
-        public event PropertyChangedEventHandler PropertyChanged;
+		[field:NonSerialized]
+		public event PropertyChangedEventHandler PropertyChanged;
         private void OnPropertyChanged([CallerMemberName] string caller = "")
         {
             if (PropertyChanged != null)

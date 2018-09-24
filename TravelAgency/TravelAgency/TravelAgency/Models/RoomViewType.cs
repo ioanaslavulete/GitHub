@@ -1,6 +1,9 @@
-﻿namespace TravelAgency.Models
+﻿using System;
+
+namespace TravelAgency.Models
 {
-    public enum RoomViewType
+	[Serializable]
+	public enum RoomViewType
     {
         Sea,
         Street,

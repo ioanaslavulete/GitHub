@@ -4,11 +4,13 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
+using TravelAgency.Models.Interfaces;
 
 namespace TravelAgency.Models
 {
-    public class Hotel : INotifyPropertyChanged
-    {
+	[Serializable]
+	public class Hotel : INotifyPropertyChanged, IAccomodation
+	{
         private string _id;
         private string _name;
         private Location _location;
@@ -173,7 +175,8 @@ namespace TravelAgency.Models
             }
         }
 
-        public event PropertyChangedEventHandler PropertyChanged;
+		[field:NonSerialized]
+		public event PropertyChangedEventHandler PropertyChanged;
         private void OnPropertyChanged([CallerMemberName] string caller = "")
         {
             if (PropertyChanged != null)

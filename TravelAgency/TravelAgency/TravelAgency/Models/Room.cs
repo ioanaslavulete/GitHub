@@ -5,7 +5,8 @@ using System.Runtime.CompilerServices;
 
 namespace TravelAgency.Models
 {
-    public class Room : INotifyPropertyChanged
+	[Serializable]
+	public class Room : INotifyPropertyChanged
     {
         private string _price;
         private string _numberOfPersons;
@@ -85,8 +86,8 @@ namespace TravelAgency.Models
         {
             _reservedPeriodList.Remove(reservationPeriod);
         }
-
-        public event PropertyChangedEventHandler PropertyChanged;
+		[field:NonSerialized]
+		public event PropertyChangedEventHandler PropertyChanged;
         private void OnPropertyChanged([CallerMemberName] string caller = "")
         {
             if (PropertyChanged != null)

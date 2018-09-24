@@ -1,24 +1,27 @@
-﻿namespace TravelAgency.Models
+﻿using System;
+
+namespace TravelAgency.Models
 {
+	[Serializable]
 	public class MainRepository
 	{
 		private ReservationRepository _reservationRepository;
-		private HotelRepository _hotelRepository;
+		private AccomodationRepository _accomodationRepository;
 		private LocationRepository _locationRepository;
 
 		public MainRepository()
 		{
-			_hotelRepository = new HotelRepository();
+			_accomodationRepository = new AccomodationRepository();
 			_locationRepository = new LocationRepository();
 			_reservationRepository = new ReservationRepository();
 		}
 
-		public HotelRepository HotelRepository
+		public AccomodationRepository AccomodationRepository
 		{
-			get { return _hotelRepository; }
+			get { return _accomodationRepository; }
 			set
 			{
-				_hotelRepository = value;
+				_accomodationRepository = value;
 			}
 		}
 		public LocationRepository LocationRepository

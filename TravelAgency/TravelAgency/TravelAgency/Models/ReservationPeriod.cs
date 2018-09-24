@@ -2,7 +2,8 @@
 
 namespace TravelAgency.Models
 {
-    public class ReservationPeriod
+	[Serializable]
+	public class ReservationPeriod
     {
         private DateTime _checkIn;
         private DateTime _checkOut;

@@ -1,6 +1,9 @@
-﻿namespace TravelAgency.Models
+﻿using System;
+
+namespace TravelAgency.Models
 {
-    public class Customer
+	[Serializable]
+	public class Customer
     {
         private string _id;
         private string _firstName;

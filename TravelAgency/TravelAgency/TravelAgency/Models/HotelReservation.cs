@@ -1,9 +1,11 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
 namespace TravelAgency.Models
 {
-    public class HotelReservation : INotifyPropertyChanged
+	[Serializable]
+	public class HotelReservation : INotifyPropertyChanged
     {
         private Hotel _hotel;
         private Room _room;
@@ -50,8 +52,8 @@ namespace TravelAgency.Models
                 OnPropertyChanged();
             }
         }
-
-        public event PropertyChangedEventHandler PropertyChanged;
+		[field:NonSerialized]
+		public event PropertyChangedEventHandler PropertyChanged;
         private void OnPropertyChanged([CallerMemberName] string caller = "")
         {
             if (PropertyChanged != null)
