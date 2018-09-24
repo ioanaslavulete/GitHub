@@ -318,3 +318,4 @@ C:\Users\itsix\Documents\GitHub\GitHub\TravelAgency\TravelAgency\TravelAgency\ob
 C:\Users\itsix\Documents\GitHub\GitHub\TravelAgency\TravelAgency\TravelAgency\obj\Debug\TravelAgency.csproj.GenerateResource.Cache
 C:\Users\itsix\Documents\GitHub\GitHub\TravelAgency\TravelAgency\TravelAgency\obj\Debug\TravelAgency.exe
 C:\Users\itsix\Documents\GitHub\GitHub\TravelAgency\TravelAgency\TravelAgency\obj\Debug\TravelAgency.pdb
+C:\Users\itsix\Documents\GitHub\GitHub\TravelAgency\TravelAgency\TravelAgency\obj\Debug\TravelAgency.csprojResolveAssemblyReference.cache

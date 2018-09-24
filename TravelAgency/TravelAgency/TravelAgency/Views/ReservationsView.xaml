@@ -7,101 +7,101 @@
              xmlns:viewModel="clr-namespace:TravelAgency.ViewModels"
              d:DesignHeight="500"
              d:DesignWidth="800"
-             mc:Ignorable="d"
-             Background="White">
+             Background="White"
+             mc:Ignorable="d">
 
 	<UserControl.Resources>
 		<viewModel:ReservationsViewModel x:Key="ReservationViewModel" />
 	</UserControl.Resources>
 
-    <Grid DataContext="{Binding Source={StaticResource ReservationViewModel}}">
+	<Grid DataContext="{Binding Source={StaticResource ReservationViewModel}}">
 
-        <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition/>
-        </Grid.RowDefinitions>
+		<Grid.RowDefinitions>
+			<RowDefinition />
+			<RowDefinition />
+		</Grid.RowDefinitions>
 
-        <Label>
-            Customer Reservations
-        </Label>
+		<Label>
+			Customer Reservations
+		</Label>
 
-        <Label Grid.Row="1">
-            Hotel Reservations
-        </Label>
-
-        <DataGrid Width="800"
+		<DataGrid Width="800"
 		          Height="100"
 		          AutoGenerateColumns="False"
-                  HeadersVisibility="Column"
+		          HeadersVisibility="Column"
 		          ItemsSource="{Binding ReservationRepository.ReservationList}"
-                  SelectedItem="{Binding SelectedReservation,
-			                                 Mode=OneWayToSource}">
+		          SelectedItem="{Binding SelectedReservation,
+		                                 Mode=OneWayToSource}">
 			<DataGrid.Columns>
-                <DataGridTextColumn Width="70"
+				<DataGridTextColumn Width="70"
 				                    Binding="{Binding Owner.Id}"
 				                    Header="ID" />
 				<DataGridTextColumn Width="100"
 				                    Binding="{Binding Owner.FirstName}"
 				                    Header="First Name" />
-                <DataGridTextColumn Width="100"
+				<DataGridTextColumn Width="100"
 				                    Binding="{Binding Owner.LastName}"
 				                    Header="Last Name" />
-                <DataGridTextColumn Width="70"
+				<DataGridTextColumn Width="70"
 				                    Binding="{Binding NumberOfPersons}"
 				                    Header="Persons" />
-                <DataGridTextColumn Width="100"
+				<DataGridTextColumn Width="100"
 				                    Binding="{Binding Hotel.Name}"
 				                    Header="Hotel" />
-                <DataGridTextColumn Width="100"
+				<DataGridTextColumn Width="100"
 				                    Binding="{Binding Hotel.Location.FullName}"
 				                    Header="Location" />
-                <DataGridTextColumn Width="65"
+				<DataGridTextColumn Width="65"
 				                    Binding="{Binding ReservationPeriod.CheckIn}"
 				                    Header="Check In" />
-                <DataGridTextColumn Width="65"
+				<DataGridTextColumn Width="65"
 				                    Binding="{Binding ReservationPeriod.CheckOut}"
 				                    Header="Check Out" />
 			</DataGrid.Columns>
 		</DataGrid>
 
-        <DataGrid Grid.Row="1"
-                  Width="800"
-                  Height="100"
-                  AutoGenerateColumns="False"
-                  HeadersVisibility="Column"
-                  ItemsSource="{Binding ReservationRepository.HotelReservationList}"
-                  SelectedItem="{Binding SelectedHotelReservation,
-                                            Mode=OneWayToSource}">
-            <DataGrid.Columns>
-                <DataGridTextColumn Width="100"
-                                    Header="Hotel"
-                                    Binding="{Binding Hotel.Name}"/>
-                <DataGridTextColumn Width="65"
-                                    Header="Check In"
-                                    Binding="{Binding ReservationPeriod.CheckIn}"/>
-                <DataGridTextColumn Width="65"
-                                    Header="Check Out"
-                                    Binding="{Binding ReservationPeriod.CheckOut}"/>
-            </DataGrid.Columns>
-            
-        </DataGrid>
+		<Button Width="120"
+		        Height="20"
+		        Margin="0,0,20,20"
+		        HorizontalAlignment="Right"
+		        VerticalAlignment="Bottom"
+		        Command="{Binding CancelReservationCommand}">
+			Cancel Reservation
+		</Button>
 
-        <Button Grid.Row="1"
-                Width="120"
-                Height="20"
-                VerticalAlignment="Bottom"
-                HorizontalAlignment="Right"
-                Command="{Binding CancelHotelReservationCommand}">
-            Cancel Reservation
-        </Button>
-        
-        <Button Width="120"
-                Height="20"
-                VerticalAlignment="Bottom"
-                HorizontalAlignment="Right"
-                Margin="0,0,20,20"
-                Command="{Binding CancelReservationCommand}">
-            Cancel Reservation
-        </Button>
+		<Label Grid.Row="1">
+			Hotel Reservations
+		</Label>
+
+		<DataGrid Grid.Row="1"
+		          Width="800"
+		          Height="100"
+		          AutoGenerateColumns="False"
+		          HeadersVisibility="Column"
+		          ItemsSource="{Binding ReservationRepository.HotelReservationList}"
+		          SelectedItem="{Binding SelectedHotelReservation,
+		                                 Mode=OneWayToSource}">
+			<DataGrid.Columns>
+				<DataGridTextColumn Width="100"
+				                    Binding="{Binding Hotel.Name}"
+				                    Header="Hotel" />
+				<DataGridTextColumn Width="65"
+				                    Binding="{Binding ReservationPeriod.CheckIn}"
+				                    Header="Check In" />
+				<DataGridTextColumn Width="65"
+				                    Binding="{Binding ReservationPeriod.CheckOut}"
+				                    Header="Check Out" />
+			</DataGrid.Columns>
+
+		</DataGrid>
+
+		<Button Grid.Row="1"
+		        Width="120"
+		        Height="20"
+		        HorizontalAlignment="Right"
+		        VerticalAlignment="Bottom"
+		        Command="{Binding CancelHotelReservationCommand}">
+			Cancel Reservation
+		</Button>
 	</Grid>
 </UserControl>

@@ -14,21 +14,22 @@ namespace TravelAgency.ViewModels
 		private Reservation _reservation;
 		private Location _selectedLocation;
 		private ObservableCollection<IAccomodation> _hotelList;
-		private ObservableCollection<Location> _locationList;
 		private ObservableCollection<IAccomodation> _availableHotels;
+		private ObservableCollection<Location> _locationList;
 		private ObservableCollection<Option> _availableOptions;
 		private Option _selectedOption;
+
 		private CheckAvailabilityCommand _checkAvailabilityCommand;
 		private ShowBookingVoucherCommand _showBookingVoucherCommand;
 		private GetCustomerInfoCommand _getCustomerInfoCommand;
-
-		private ObservableCollection<Reservation> _reservationList;
+		private ReservationRepository _reservationRepository;
+		private EmptyCustomerFieldsCommand _newCustomerCommand;
 
 		public BookingViewModel()
 		{
 			_hotelList = DataManagementService.Instance.MainRepository.AccomodationRepository.HotelList;
 			_locationList = DataManagementService.Instance.MainRepository.LocationRepository.LocationList;
-			_reservationList = DataManagementService.Instance.MainRepository.ReservationRepository.ReservationList;
+			_reservationRepository = DataManagementService.Instance.MainRepository.ReservationRepository;
 
 			_reservation = new Reservation();
 			_selectedLocation = new Location();
@@ -38,6 +39,7 @@ namespace TravelAgency.ViewModels
 			_checkAvailabilityCommand = new CheckAvailabilityCommand(this);
 			_showBookingVoucherCommand = new ShowBookingVoucherCommand(this);
 			_getCustomerInfoCommand = new GetCustomerInfoCommand(this);
+			_newCustomerCommand = new EmptyCustomerFieldsCommand(this);
 		}
 
 		public ObservableCollection<Location> LocationList
@@ -136,18 +138,30 @@ namespace TravelAgency.ViewModels
 				_getCustomerInfoCommand = value;
 			}
 		}
+		public EmptyCustomerFieldsCommand EmptyCustomerFieldsCommand
+		{
+			get
+			{
+				return _newCustomerCommand;
+			}
+
+			set
+			{
+				_newCustomerCommand = value;
+			}
+		}
 
 		public void CheckAvailability()
 		{
 			AvailableOptions.Clear();
 
-			foreach (Hotel hotel in _hotelList)
+			foreach (IAccomodation accomodation in _hotelList)
 			{
-				if (hotel.HasSameLocationAs(_selectedLocation))
+				if (accomodation.HasSameLocationAs(_selectedLocation))
 				{
-					if (hotel.HasRoomsAvailableIn(_reservation.ReservationPeriod))
+					if (accomodation.HasRoomsAvailableIn(_reservation.ReservationPeriod))
 					{
-						Option option = new Option(hotel, hotel.GetBestOptionFor(_reservation));
+						Option option = new Option(accomodation, accomodation.GetBestOptionFor(_reservation));
 						AvailableOptions.Add(option);
 					}
 				}
@@ -163,24 +177,19 @@ namespace TravelAgency.ViewModels
 			bookingVoucherView.DataContext = bookingVoucherViewModel;
 
 			bookingVoucherView.Show();
+			Reservation = new Reservation();
+
+			AvailableOptions.Clear();
 		}
 
 		public void GetCustomerInfo()
 		{
-			bool found = false;
-			if (_reservation.Owner.Id != string.Empty)
-			{
-				foreach (Reservation reservation in _reservationList)
-				{
-					if (reservation.Owner.Id == _reservation.Owner.Id)
-					{
-						found = true;
-						Reservation.Owner = new Customer(reservation.Owner.Id, reservation.Owner.FirstName, reservation.Owner.LastName, reservation.Owner.Email, reservation.Owner.PhoneNumber);
-					}
-				}
-				if (found == false)
-					Reservation.Owner = new Customer();
-			}
+			Reservation.Owner = _reservationRepository.GetOwnerWithId(_reservation.Owner.Id);
+		}
+
+		public void EmptyCustomerFields()
+		{
+			Reservation.Owner = new Customer();
 		}
 
 		public event PropertyChangedEventHandler PropertyChanged;

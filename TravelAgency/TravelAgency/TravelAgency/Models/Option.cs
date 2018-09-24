@@ -4,13 +4,15 @@ using TravelAgency.Models;
 
 namespace TravelAgency.Models
 {
+	using TravelAgency.Models.Interfaces;
+
 	[Serializable]
 	public class Option
 	{
-		private Hotel _hotel;
+		private IAccomodation _hotel;
 		private ObservableCollection<Room> _roomList;
 
-		public Option(Hotel hotel, ObservableCollection<Room> roomList)
+		public Option(IAccomodation hotel, ObservableCollection<Room> roomList)
 		{
 			this._hotel = hotel;
 			this._roomList = roomList;
@@ -22,7 +24,7 @@ namespace TravelAgency.Models
 			_roomList = new ObservableCollection<Room>();
 		}
 
-		public Hotel Hotel
+		public IAccomodation Hotel
 		{
 			get
 			{

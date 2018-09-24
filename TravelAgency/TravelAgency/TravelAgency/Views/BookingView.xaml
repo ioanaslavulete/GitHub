@@ -36,13 +36,15 @@
 			Reserve Room
 		</Label>
 
-		<CheckBox Grid.Row="1"
-		          Grid.Column="0"
-		          Margin="5,0,0,0"
-		          HorizontalAlignment="Left"
-		          VerticalAlignment="Center">
+		<Button Grid.Row="1"
+		        Grid.Column="0"
+		        Margin="10,0,0,0"
+		        HorizontalAlignment="Left"
+		        VerticalAlignment="Center"
+		        Command="{Binding EmptyCustomerFieldsCommand,
+		                          UpdateSourceTrigger=PropertyChanged}">
 			New Customer
-		</CheckBox>
+		</Button>
 
 		<StackPanel Grid.Row="1"
 		            Grid.Column="1"
@@ -53,7 +55,8 @@
 			</Label>
 			<TextBox Margin="5,0,0,0"
 			         Style="{StaticResource NormalTextBoxStyle}"
-			         Text="{Binding Reservation.Owner.Id, UpdateSourceTrigger=PropertyChanged}" />
+			         Text="{Binding Reservation.Owner.Id,
+			                        UpdateSourceTrigger=PropertyChanged}" />
 		</StackPanel>
 
 		<Button Grid.Row="1"
@@ -62,7 +65,7 @@
 		        Margin="10,10,0,10"
 		        HorizontalAlignment="Left"
 		        VerticalAlignment="Center"
-                Command="{Binding GetCustomerInfoCommand}">
+		        Command="{Binding GetCustomerInfoCommand}">
 			Get Info
 		</Button>
 
@@ -223,7 +226,6 @@
 			<TextBox Margin="5,0,0,0"
 			         Style="{StaticResource NormalTextBoxStyle}"
 			         Text="{Binding Reservation.NumberOfPersons,
-			                        Mode=OneWayToSource,
 			                        UpdateSourceTrigger=PropertyChanged}" />
 		</StackPanel>
 
@@ -233,7 +235,8 @@
 		        Margin="10,0,0,0"
 		        HorizontalAlignment="Left"
 		        VerticalAlignment="Center"
-		        Command="{Binding CheckAvailabilityCommand}">
+		        Command="{Binding CheckAvailabilityCommand,
+		                          UpdateSourceTrigger=PropertyChanged}">
 			Check Availability
 		</Button>
 

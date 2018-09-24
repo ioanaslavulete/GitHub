@@ -74,23 +74,22 @@
 		          ItemsSource="{Binding Hotel.RoomList}"
 		          SelectedItem="{Binding SelectedRoom,
 		                                 Mode=OneWayToSource}"
-		          VerticalScrollBarVisibility="Auto"
-                 >
+		          VerticalScrollBarVisibility="Auto">
 
-            <DataGrid.Columns>
-                
-                <DataGridTextColumn Width="50"
+			<DataGrid.Columns>
+
+				<DataGridTextColumn Width="50"
 				                    Binding="{Binding Price}"
 				                    Header="Price" />
-                <DataGridTextColumn Width="120"
+				<DataGridTextColumn Width="120"
 				                    Binding="{Binding NumberOfPersons}"
 				                    Header="Number of Persons" />
-                <DataGridTextColumn Width="120"
+				<DataGridTextColumn Width="120"
 				                    Binding="{Binding RoomViewType}"
 				                    Header="Room View" />
-            </DataGrid.Columns>
+			</DataGrid.Columns>
 
-        </DataGrid>
+		</DataGrid>
 
 		<StackPanel Grid.Row="3"
 		            Margin="10,0,0,0"

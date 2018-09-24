@@ -1,16 +1,20 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Input;
 using TravelAgency.ViewModels;
 
 namespace TravelAgency.Models.Commands
 {
-	public class GetCustomerInfoCommand : ICommand
+	public class EmptyCustomerFieldsCommand : ICommand
 	{
 		private BookingViewModel _bookingViewModel;
 
-		public GetCustomerInfoCommand(BookingViewModel bookingViewModel)
+		public EmptyCustomerFieldsCommand(BookingViewModel bookingViewModel)
 		{
-			_bookingViewModel = bookingViewModel;
+			this._bookingViewModel = bookingViewModel;
 		}
 
 		public event EventHandler CanExecuteChanged
@@ -21,12 +25,12 @@ namespace TravelAgency.Models.Commands
 
 		public bool CanExecute(object parameter)
 		{
-			return _bookingViewModel.Reservation.Owner.Id != string.Empty;
+			return _bookingViewModel.Reservation.Owner.HasFieldsFilled();
 		}
 
 		public void Execute(object parameter)
 		{
-			_bookingViewModel.GetCustomerInfo();
+			_bookingViewModel.EmptyCustomerFields();
 		}
 	}
 }

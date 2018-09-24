@@ -70,6 +70,7 @@
     <Compile Include="Models\Commands\EditRoomCommand.cs" />
     <Compile Include="Models\Commands\GetCustomerInfoCommand.cs" />
     <Compile Include="Models\Commands\HotelBooksRoomCommand.cs" />
+    <Compile Include="Models\Commands\NewCustomerCommand.cs" />
     <Compile Include="Models\Commands\ReserveRoomCommand.cs" />
     <Compile Include="Models\Commands\SaveHotelCommand.cs" />
     <Compile Include="Models\Commands\SaveRoomCommand.cs" />
