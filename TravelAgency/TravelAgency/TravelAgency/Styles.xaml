@@ -4,8 +4,8 @@
                     xmlns:dg="http://schemas.microsoft.com/wpf/2008/toolkit">
 
     <Style TargetType="TabItem" x:Key="TabItemStyle">
-        <Setter Property="Height" Value="70"></Setter>
-        <Setter Property="Width" Value="137"></Setter>
+        <Setter Property="Height" Value="75"></Setter>
+        <Setter Property="Width" Value="138"></Setter>
     </Style>
 
     <Style TargetType="TextBlock" x:Key="TabHeaderText">
@@ -13,7 +13,9 @@
         <Setter Property="FontSize" Value="15"></Setter>
         <Setter Property="FontWeight" Value="DemiBold"></Setter>
         <Setter Property="HorizontalAlignment" Value="Center"></Setter>
+        <Setter Property="Foreground" Value="Black" />
     </Style>
+
 
     <Style TargetType="Label" x:Key="HeadingLeabelStyle">
         <Setter Property="FontSize" Value="20"></Setter>

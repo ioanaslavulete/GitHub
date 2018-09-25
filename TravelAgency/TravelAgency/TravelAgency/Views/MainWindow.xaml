@@ -10,42 +10,79 @@
         Height="700"
         WindowStartupLocation="CenterScreen"
         mc:Ignorable="d" WindowStyle="None">
-	<Window.Resources>
-		<ResourceDictionary>
-			<ResourceDictionary.MergedDictionaries>
-				<ResourceDictionary Source="/TravelAgency;component/Styles.xaml" />
-			</ResourceDictionary.MergedDictionaries>
-		</ResourceDictionary>
-	</Window.Resources>
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/TravelAgency;component/Styles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
 
-    <Grid >
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                <GradientStop Color="#0081b9" Offset="0.0" />
+                <GradientStop Color="White" Offset="1.0" />
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <Grid.Background>
+                <LinearGradientBrush StartPoint="1,0.5" EndPoint="0,0.5">
+                    <GradientStop Color="#0081b9" Offset="0.0" />
+                    <GradientStop Color="White" Offset="1.0" />
+                </LinearGradientBrush>
+            </Grid.Background>
+            <Label 
+               HorizontalAlignment="Center"
+               VerticalAlignment="Center"
+               Foreground="White"
+               FontWeight="Bold"
+               FontFamily="Verdana"
+               FontSize="20"
+               >TRAVEL AGENCY</Label>
+        <Label Grid.Row="0"
+               HorizontalAlignment="Right"
+               VerticalAlignment="Center"
+               Foreground="White"
+               FontWeight="Bold"
+               FontFamily="Verdana"
+               Margin="0,0,10,0"
+               FontSize="20"
+               MouseDown="Label_MouseDown">X</Label>
+        </Grid>
         <TabControl Grid.Row="1" TabStripPlacement="Left">
             <TabItem Style="{StaticResource TabItemStyle}">
-				<TabItem.Header>
-					<StackPanel Orientation="Horizontal">
-						<Image Height="30" Source="..\Icons\book.png" />
-						<TextBlock VerticalAlignment="Center"
-						           Style="{StaticResource TabHeaderText}"
-						           Text="Book Now" />
-					</StackPanel>
-				</TabItem.Header>
-				<views:BookingView Width="800" Margin="20" />
-			</TabItem>
-			<TabItem Style="{StaticResource TabItemStyle}">
-				<TabItem.Header>
-					<StackPanel>
-						<StackPanel Orientation="Horizontal">
-							<Image Height="22"
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Height="30" Source="..\Icons\book.png" />
+                        <TextBlock VerticalAlignment="Center"
+						           Text="Book Now"
+                                   Style="{StaticResource TabHeaderText}"/>
+                    </StackPanel>
+                </TabItem.Header>
+                    <views:BookingView Width="800" Margin="20" />
+            </TabItem>
+            <TabItem Style="{StaticResource TabItemStyle}">
+                <TabItem.Header>
+                    <StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Image Height="22"
 							       Margin="0,0,2,0"
 							       Source="..\Icons\reservation.png" />
-							<TextBlock Style="{StaticResource TabHeaderText}" Text="Customer" />
-						</StackPanel>
-						<TextBlock Style="{StaticResource TabHeaderText}" Text="Reservations" />
-					</StackPanel>
-				</TabItem.Header>
-				<views:ReservationsView Margin="20"
-                                       />
-			</TabItem>
+                            <TextBlock Style="{StaticResource TabHeaderText}"
+                                       Text="Customer" />
+
+                        </StackPanel>
+                        <TextBlock Style="{StaticResource TabHeaderText}" Text="Reservations" />
+                    </StackPanel>
+                </TabItem.Header>
+                    <views:ReservationsView Margin="20" />
+            </TabItem>
             <TabItem Style="{StaticResource TabItemStyle}">
                 <TabItem.Header>
                     <StackPanel>
@@ -58,39 +95,38 @@
                         <TextBlock Style="{StaticResource TabHeaderText}" Text="Reservations" />
                     </StackPanel>
                 </TabItem.Header>
-                <views:HotelReservationsView Margin="20"
-                                       />
+                    <views:HotelReservationsView Margin="20" />
             </TabItem>
 
             <TabItem Style="{StaticResource TabItemStyle}">
-				<TabItem.Header>
-					<StackPanel>
-						<StackPanel Orientation="Horizontal">
-							<Image Height="24"
+                <TabItem.Header>
+                    <StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Image Height="24"
 							       Margin="0,0,2,0"
 							       Source="..\Icons\accomodation.png" />
-							<TextBlock Style="{StaticResource TabHeaderText}" Text="Accomodation" />
-						</StackPanel>
-						<TextBlock Style="{StaticResource TabHeaderText}" Text="Management" />
-					</StackPanel>
-				</TabItem.Header>
-				<views:HotelManagementView Margin="20"
+                            <TextBlock Style="{StaticResource TabHeaderText}" Text="Accomodation" />
+                        </StackPanel>
+                        <TextBlock Style="{StaticResource TabHeaderText}" Text="Management" />
+                    </StackPanel>
+                </TabItem.Header>
+                    <views:HotelManagementView Margin="20"
                                            VerticalAlignment="Top"/>
-			</TabItem>
-			<TabItem Style="{StaticResource TabItemStyle}">
-				<TabItem.Header>
-					<StackPanel>
-						<StackPanel Orientation="Horizontal">
-							<Image Height="24"
+            </TabItem>
+            <TabItem Style="{StaticResource TabItemStyle}">
+                <TabItem.Header>
+                    <StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Image Height="24"
 							       Margin="0,0,2,0"
 							       Source="..\Icons\hotelReserve.png" />
-							<TextBlock Style="{StaticResource TabHeaderText}" Text="Hotel Books" />
-						</StackPanel>
-						<TextBlock Style="{StaticResource TabHeaderText}" Text="Rooms" />
-					</StackPanel>
-				</TabItem.Header>
-				<views:HotelBooksRoomsView Margin="20" />
-			</TabItem>
-		</TabControl>
-	</Grid>
+                            <TextBlock Style="{StaticResource TabHeaderText}" Text="Hotel Books" />
+                        </StackPanel>
+                        <TextBlock Style="{StaticResource TabHeaderText}" Text="Rooms" />
+                    </StackPanel>
+                </TabItem.Header>
+                    <views:HotelBooksRoomsView Margin="20" />
+            </TabItem>
+        </TabControl>
+    </Grid>
 </Window>

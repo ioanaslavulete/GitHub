@@ -23,5 +23,10 @@ namespace TravelAgency.Views
         {
             InitializeComponent();
         }
+
+        private void Label_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            Application.Current.Shutdown(0);
+        }
     }
 }

@@ -388,3 +388,5 @@ C:\Users\itsix\Desktop\Ioana\GitHub\TravelAgency\TravelAgency\TravelAgency\obj\D
 C:\Users\itsix\Desktop\Ioana\GitHub\TravelAgency\TravelAgency\TravelAgency\obj\Debug\TravelAgency.pdb
 C:\Users\itsix\Desktop\Ioana\GitHub\TravelAgency\TravelAgency\TravelAgency\obj\Debug\Views\HotelReservationsView.g.cs
 C:\Users\itsix\Desktop\Ioana\GitHub\TravelAgency\TravelAgency\TravelAgency\obj\Debug\Views\HotelReservationsView.baml
+C:\Users\Cosmin\Documents\GitHub\GitHub\TravelAgency\TravelAgency\TravelAgency\obj\Debug\Views\HotelReservationsView.g.cs
+C:\Users\Cosmin\Documents\GitHub\GitHub\TravelAgency\TravelAgency\TravelAgency\obj\Debug\Views\HotelReservationsView.baml
