@@ -21,11 +21,11 @@
 			<RowDefinition />
 		</Grid.RowDefinitions>
 
-		<Label>
-			Customer Reservations
-		</Label>
+        <Label>
+            Customer Reservations
+        </Label>
 
-		<DataGrid Width="800"
+        <DataGrid Width="673"
 		          Height="100"
 		          AutoGenerateColumns="False"
 		          HeadersVisibility="Column"

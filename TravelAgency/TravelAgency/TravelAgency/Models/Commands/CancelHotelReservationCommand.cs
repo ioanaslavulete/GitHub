@@ -13,11 +13,18 @@ namespace TravelAgency.Models.Commands
             _reservationsViewModel = reservationsViewModel;
         }
 
-        public event EventHandler CanExecuteChanged;
+        public event EventHandler CanExecuteChanged
+        {
+            add { CommandManager.RequerySuggested += value; }
+            remove { CommandManager.RequerySuggested -= value; }
+        }
 
         public bool CanExecute(object parameter)
         {
-            return true;
+            if (_reservationsViewModel.SelectedHotelReservation != null)
+                return true;
+            else
+                return false;
         }
 
         public void Execute(object parameter)

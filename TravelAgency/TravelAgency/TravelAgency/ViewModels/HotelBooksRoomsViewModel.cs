@@ -117,8 +117,10 @@ namespace TravelAgency.ViewModels
 			{
 				foreach (Hotel hotel in _hotelList)
 				{
-					if (hotel.Name.ToLower().Contains(SearchedName.ToLower()))
-						_searchHotelList.Add(hotel);
+                    if (hotel.Name.ToLower().Contains(SearchedName.ToLower()))
+                        _searchHotelList.Add(hotel);
+                    else
+                        MessageBox.Show("This hotel name does not exist");
 				}
 			}
 		}

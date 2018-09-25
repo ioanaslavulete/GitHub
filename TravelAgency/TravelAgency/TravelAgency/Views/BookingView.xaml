@@ -55,9 +55,18 @@
 				Customer ID
 			</Label>
 			<TextBox Margin="5,0,0,0"
+                     x:Name="CustomerId"
 			         Style="{StaticResource NormalTextBoxStyle}"
 			         Text="{Binding Reservation.Owner.Id,
-			                        UpdateSourceTrigger=PropertyChanged}" />
+			                        UpdateSourceTrigger=PropertyChanged,
+                                    ValidatesOnDataErrors=True}"
+                     Validation.ErrorTemplate="{x:Null}"/>
+            <Label Content="{Binding ElementName=CustomerId,
+                                     Path=(Validation.Errors).CurrentItem.ErrorContent}"
+                   FontWeight="Bold"
+                   Foreground="Red"
+                   >
+            </Label>
 		</StackPanel>
 
 		<Button Grid.Row="1"
@@ -97,7 +106,17 @@
 
 			<TextBox Margin="5,0,0,0"
 			         Style="{StaticResource NormalTextBoxStyle}"
-			         Text="{Binding Reservation.Owner.FirstName}" />
+                     x:Name="CustomerFirstName"
+			         Text="{Binding Reservation.Owner.FirstName,
+                                    UpdateSourceTrigger=PropertyChanged,
+                                    ValidatesOnDataErrors=True}"
+                     Validation.ErrorTemplate="{x:Null}"/>
+            <Label Content="{Binding ElementName=CustomerFirstName,
+                                     Path=(Validation.Errors).CurrentItem.ErrorContent}"
+                   FontWeight="Bold"
+                   Foreground="Red"
+                   >
+            </Label>
 		</StackPanel>
 
 		<StackPanel Grid.Row="2"
@@ -110,8 +129,18 @@
 			</Label>
 
 			<TextBox Margin="5,0,0,0"
+                     x:Name="CustomerLastName"
 			         Style="{StaticResource NormalTextBoxStyle}"
-			         Text="{Binding Reservation.Owner.LastName}" />
+			         Text="{Binding Reservation.Owner.LastName,
+                                    UpdateSourceTrigger=PropertyChanged,
+                                     ValidatesOnDataErrors=True}" 
+                     Validation.ErrorTemplate="{x:Null}"/>
+            <Label Content="{Binding ElementName=CustomerLastName,
+                                     Path=(Validation.Errors).CurrentItem.ErrorContent}"
+                   FontWeight="Bold"
+                   Foreground="Red"
+                   >
+            </Label>
 		</StackPanel>
 
 		<StackPanel Grid.Row="3"
@@ -127,7 +156,9 @@
 			         Height="20"
 			         Margin="5,0,0,0"
 			         VerticalAlignment="Center"
-			         Text="{Binding Reservation.Owner.Email}" />
+			         Text="{Binding Reservation.Owner.Email,
+                            UpdateSourceTrigger=PropertyChanged,
+                            ValidatesOnDataErrors=True}" />
 		</StackPanel>
 
 		<StackPanel Grid.Row="3"
@@ -140,8 +171,18 @@
 			</Label>
 
 			<TextBox Margin="5,0,0,0"
+                     x:Name="CustomerPhone"
 			         Style="{StaticResource NormalTextBoxStyle}"
-			         Text="{Binding Reservation.Owner.PhoneNumber}" />
+			         Text="{Binding Reservation.Owner.PhoneNumber,
+                                    UpdateSourceTrigger=PropertyChanged,
+                                    ValidatesOnDataErrors=True}" 
+                     Validation.ErrorTemplate="{x:Null}"/>
+            <Label Content="{Binding ElementName=CustomerLastName,
+                                     Path=(Validation.Errors).CurrentItem.ErrorContent}"
+                   FontWeight="Bold"
+                   Foreground="Red"
+                   >
+            </Label>
 		</StackPanel>
 
 		<StackPanel Grid.Row="4"

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text.RegularExpressions;
 using System.Windows.Input;
 using TravelAgency.ViewModels;
 
@@ -21,8 +22,12 @@ namespace TravelAgency.Models.Commands
 
 		public bool CanExecute(object parameter)
 		{
-			return _bookingViewModel.Reservation.Owner.Id != string.Empty;
-		}
+            string acceptsOnlyNumbers = "^[0-9]+$";
+            if (Regex.IsMatch(_bookingViewModel.Reservation.Owner.Id, acceptsOnlyNumbers) == false || _bookingViewModel.Reservation.Owner.Id == null)
+                return false;
+            else
+                return true;
+        }
 
 		public void Execute(object parameter)
 		{

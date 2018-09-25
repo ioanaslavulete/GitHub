@@ -1,5 +1,7 @@
-﻿using System.ComponentModel;
+﻿using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using System.Windows;
 using TravelAgency.Models;
 using TravelAgency.Models.Commands;
 using TravelAgency.Services;
@@ -11,8 +13,10 @@ namespace TravelAgency.ViewModels
         private ReservationRepository _reservationRepository;
         private Reservation _selectedReservation;
         private HotelReservation _selectedHotelReservation;
+        private string _searchedCustomerId;
         private CancelReservationCommand _cancelReservationCommand;
         private CancelHotelReservationCommand _cancelHotelReservationCommand;
+
 
         public ReservationsViewModel()
         {
@@ -42,6 +46,25 @@ namespace TravelAgency.ViewModels
                 OnPropertyChanged();
             }
         }
+        public HotelReservation SelectedHotelReservation
+        {
+            get { return _selectedHotelReservation; }
+            set
+            {
+                _selectedHotelReservation = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public string SearchedCustomerId
+        {
+            get { return _searchedCustomerId; }
+            set
+            {
+                _searchedCustomerId = value;
+                OnPropertyChanged();
+            }
+        }
         public CancelReservationCommand CancelReservationCommand
         {
             get { return _cancelReservationCommand; }
@@ -58,23 +81,13 @@ namespace TravelAgency.ViewModels
                 _cancelHotelReservationCommand = value;
             }
         }
-        public HotelReservation SelectedHotelReservation
-        {
-            get { return _selectedHotelReservation; }
-            set
-            {
-                _selectedHotelReservation = value;
-                OnPropertyChanged();
-            }
-        }
-
         public void CancelReservation()
         {
             foreach (Room room in _selectedReservation.BestOption.RoomList)
             {
                 room.Delete(_selectedReservation.ReservationPeriod);
             }
-            
+
             _reservationRepository.Delete(_selectedReservation);
             DataManagementService.Instance.SaveData();
         }

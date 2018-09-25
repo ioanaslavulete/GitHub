@@ -68,8 +68,7 @@
 			            Height="26"
 			            Margin="5,0,0,0"
 			            DisplayDateStart="{x:Static sys:DateTime.Today}"
-			            SelectedDate="{Binding HotelReservation.ReservationPeriod.CheckIn,
-			                                   Mode=OneWayToSource}"
+			            SelectedDate="{Binding HotelReservation.ReservationPeriod.CheckIn}"
 			            Validation.ErrorTemplate="{x:Null}" />
 		</StackPanel>
 
@@ -83,9 +82,8 @@
 			<DatePicker Width="120"
 			            Height="26"
 			            Margin="5,0,0,0"
-			            DisplayDateStart="{x:Static sys:DateTime.Today}"
-			            SelectedDate="{Binding HotelReservation.ReservationPeriod.CheckOut,
-			                                   Mode=OneWayToSource}"
+			            DisplayDateStart="{Binding Reservation.ReservationPeriod.CheckIn}"
+			            SelectedDate="{Binding HotelReservation.ReservationPeriod.CheckOut}"
 			            Validation.ErrorTemplate="{x:Null}" />
 		</StackPanel>
 
