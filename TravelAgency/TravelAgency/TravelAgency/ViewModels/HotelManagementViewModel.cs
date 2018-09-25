@@ -7,7 +7,7 @@ using TravelAgency.Models;
 using TravelAgency.Models.Commands;
 using TravelAgency.Services;
 using TravelAgency.Models.Interfaces;
-
+using System.Windows;
 
 namespace TravelAgency.ViewModels
 {
@@ -230,12 +230,18 @@ namespace TravelAgency.ViewModels
 
 		public void AddAccomodation()
 		{
-			_hotelRepository.Add(_accomodation);
-			_locationRepository.Add(_accomodation.Location);
+            if (_hotelRepository.HasAccomodationWithId(_accomodation.Id) == false)
+            {
+                _hotelRepository.Add(_accomodation);
+                _locationRepository.Add(_accomodation.Location);
 
-			DataManagementService.Instance.SaveData();
-			ClearHotelFields();
-			ClearRoomFields();
+                DataManagementService.Instance.SaveData();
+                ClearHotelFields();
+                ClearRoomFields();
+            }
+            else
+                MessageBox.Show("This id already exists");
+			
 		}
 
 		public void DeleteAccomodation()

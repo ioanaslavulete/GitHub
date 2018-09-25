@@ -6,12 +6,13 @@ using System.Text.RegularExpressions;
 
 namespace TravelAgency.Models
 {
-	[Serializable]
-	public class Location : INotifyPropertyChanged, IDataErrorInfo
+    [Serializable]
+    public class Location : INotifyPropertyChanged, IDataErrorInfo
     {
         private string _cityName;
         private string _countryName;
         private string _fullName;
+
 
         public Location()
         {
@@ -63,8 +64,8 @@ namespace TravelAgency.Models
             return FullName;
         }
 
-		[field:NonSerialized]
-		public event PropertyChangedEventHandler PropertyChanged;
+        [field: NonSerialized]
+        public event PropertyChangedEventHandler PropertyChanged;
         private void OnPropertyChanged([CallerMemberName] string caller = "")
         {
             if (PropertyChanged != null)
@@ -91,13 +92,18 @@ namespace TravelAgency.Models
 
                 if (propertyName == "CityName")
                 {
-                    if (string.IsNullOrEmpty(CityName) || Regex.IsMatch(CityName, acceptsOnlyLettersAndSpaces) == false)
+                    if (string.IsNullOrEmpty(CityName))
+                        error = "";
+
+                   else if (Regex.IsMatch(CityName, acceptsOnlyLettersAndSpaces) == false)
                         error = "✘";
                 }
 
                 if (propertyName == "CountryName")
                 {
-                    if (string.IsNullOrEmpty(CountryName) || Regex.IsMatch(CountryName, acceptsOnlyLettersAndSpaces) == false)
+                    if (string.IsNullOrEmpty(CountryName))
+                        error = "";
+                    else if (Regex.IsMatch(CountryName, acceptsOnlyLettersAndSpaces) == false)
                         error = "✘";
                 }
 

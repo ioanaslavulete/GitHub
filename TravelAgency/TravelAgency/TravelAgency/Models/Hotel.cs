@@ -205,25 +205,32 @@ namespace TravelAgency.Models
 
                 if (propertyName == "Id")
                 {
-                    if((string.IsNullOrEmpty(Id)) || Regex.IsMatch(Id, acceptsOnlyNumbers) == false)
+                    if (string.IsNullOrEmpty(Id))
+                        error = "";
+                    else if(Regex.IsMatch(Id, acceptsOnlyNumbers) == false )
                         error = "✘";
                 }
 
                 if(propertyName == "Name")
                 {
-                    if(string.IsNullOrEmpty(Name) || Regex.IsMatch(Name, acceptsOnlyLettersAndSpaces) == false)
+                    if (string.IsNullOrEmpty(Name))
+                        error = "";
+                   else if(Regex.IsMatch(Name, acceptsOnlyLettersAndSpaces) == false)
                         error = "✘";
                 }
 
                 if(propertyName == "NumberOfStars")
                 {
-                    if (string.IsNullOrEmpty(NumberOfStars) || Regex.IsMatch(NumberOfStars, acceptsOnlyDigitsOneToFive) == false)
+                    if (string.IsNullOrEmpty(NumberOfStars))
+                        error = "";
+                   else if (Regex.IsMatch(NumberOfStars, acceptsOnlyDigitsOneToFive) == false)
                         error = "✘";
                 }
 
                 return error;
             }
         }
+
 
         [field:NonSerialized]
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -233,6 +240,14 @@ namespace TravelAgency.Models
             {
                 PropertyChanged(this, new PropertyChangedEventArgs(caller));
             }
+        }
+
+        public bool HasId(string id)
+        {
+            if (_id == id)
+                return true;
+            else
+                return false;
         }
     }
 }

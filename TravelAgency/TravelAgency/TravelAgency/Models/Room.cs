@@ -2,17 +2,19 @@
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using System.Text.RegularExpressions;
 using TravelAgency.Models.Interfaces;
 
 namespace TravelAgency.Models
 {
-	[Serializable]
-	public class Room : INotifyPropertyChanged, IRoom
-	{
+    [Serializable]
+    public class Room : INotifyPropertyChanged, IRoom, IDataErrorInfo
+    {
         private Price _price;
         private string _numberOfPersons;
         private RoomViewType _roomViewType;
         private ObservableCollection<ReservationPeriod> _reservedPeriodList;
+        string acceptsOnlyNumbers = "^[0-9]+$";
 
         public Room()
         {
@@ -88,14 +90,51 @@ namespace TravelAgency.Models
         {
             _reservedPeriodList.Remove(reservationPeriod);
         }
-		[field:NonSerialized]
-		public event PropertyChangedEventHandler PropertyChanged;
+        [field: NonSerialized]
+        public event PropertyChangedEventHandler PropertyChanged;
         private void OnPropertyChanged([CallerMemberName] string caller = "")
         {
             if (PropertyChanged != null)
             {
                 PropertyChanged(this, new PropertyChangedEventArgs(caller));
             }
+        }
+        public string Error
+        {
+            get
+            {
+                return null;
+            }
+        }
+
+        public string this[string propertyName]
+        {
+            get
+            {
+                string error = string.Empty;
+
+                if (propertyName == "Price")
+                {
+                    if (string.IsNullOrEmpty(Price.Value) || Regex.IsMatch(Price.Value, acceptsOnlyNumbers) == false)
+                        error = "";
+                }
+
+                if (propertyName == "NumberOfPersons")
+                {
+                    if (string.IsNullOrEmpty(NumberOfPersons) || Regex.IsMatch(NumberOfPersons, acceptsOnlyNumbers) == false)
+                        error = "";
+                }
+
+                return error;
+            }
+        }
+
+        public bool IsValid()
+        {
+            if (string.IsNullOrEmpty(Price.Value) || Regex.IsMatch(Price.Value, acceptsOnlyNumbers) == false || string.IsNullOrEmpty(NumberOfPersons) || Regex.IsMatch(NumberOfPersons, acceptsOnlyNumbers) == false)
+                return false;
+            else
+                return true;
         }
     }
 }

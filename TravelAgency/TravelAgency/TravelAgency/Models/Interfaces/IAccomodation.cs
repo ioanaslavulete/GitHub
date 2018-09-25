@@ -19,5 +19,7 @@ namespace TravelAgency.Models.Interfaces
         bool IsValid();
 
 		event PropertyChangedEventHandler PropertyChanged;
-	}
+
+        bool HasId(string id);
+    }
 }

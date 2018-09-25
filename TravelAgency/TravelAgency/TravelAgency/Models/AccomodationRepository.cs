@@ -32,5 +32,15 @@ namespace TravelAgency.Models
 		{
 			_accomodationList.Remove(selectedHotel);
 		}
-	}
+
+        public bool HasAccomodationWithId(string id)
+        {
+            foreach(IAccomodation accomodation in _accomodationList)
+            {
+                if (accomodation.HasId(id))
+                    return true;
+            }
+            return false;
+        }
+    }
 }

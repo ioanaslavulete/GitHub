@@ -15,5 +15,7 @@ namespace TravelAgency.Models.Interfaces
 		bool IsAvailableIn(ReservationPeriod reservationPeriod);
 
 		event PropertyChangedEventHandler PropertyChanged;
-	}
+
+        bool IsValid();
+    }
 }

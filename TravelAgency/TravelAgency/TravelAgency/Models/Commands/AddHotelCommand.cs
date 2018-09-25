@@ -21,6 +21,7 @@ namespace TravelAgency.Models.Commands
 
         public bool CanExecute(object parameter)
         {
+            
             return _hotelViewModel.Hotel.IsValid();
            
         }

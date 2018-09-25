@@ -224,7 +224,12 @@ namespace TravelAgency.ViewModels
 
             if (_roomsToReserve.Count != 0)
             {
-                _selectedOption.RoomList = _roomsToReserve;
+                ObservableCollection<IRoom> newList = new ObservableCollection<IRoom>();
+                foreach (IRoom room in _roomsToReserve)
+                {
+                    newList.Add(room);
+                }
+                _selectedOption.RoomList = newList;
             }
            
             bookingVoucherViewModel.Reservation = new Reservation(_reservation.Owner, _selectedOption.Hotel, _reservation.ReservationPeriod, _reservation.NumberOfPersons, _selectedOption);
@@ -233,7 +238,8 @@ namespace TravelAgency.ViewModels
             bookingVoucherView.Show();
             Reservation = new Reservation();
             
-            AvailableOptions.Clear();                        
+            AvailableOptions.Clear();
+            RoomsToReserve.Clear();
         }
 
         public void AddRoomToReservation()
