@@ -10,6 +10,11 @@
 
     <UserControl.Resources>
         <viewModel:BookingViewModel x:Key="BookingViewModel" />
+        <Color x:Key="Color1">#FF079A9A</Color>
+        <Color x:Key="Color2">White</Color>
+        <Color x:Key="Color3">#FF079A9A</Color>
+        <Color x:Key="Color4">White</Color>
+        <Color x:Key="Color5">#FFFAFAFA</Color>
     </UserControl.Resources>
 
     <Grid DataContext="{Binding Source={StaticResource BookingViewModel}}">
@@ -77,6 +82,12 @@
 		        VerticalAlignment="Center"
 		        Command="{Binding GetCustomerInfoCommand}"
                 >
+            <Button.BorderBrush>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black"/>
+                    <GradientStop Color="{DynamicResource Color1}"/>
+                </LinearGradientBrush>
+            </Button.BorderBrush>
             Get Info
         </Button>
 
@@ -111,7 +122,8 @@
 			         Text="{Binding Reservation.Owner.FirstName,
                                     UpdateSourceTrigger=PropertyChanged,
                                     ValidatesOnDataErrors=True}"
-                     Validation.ErrorTemplate="{x:Null}"/>
+                     Validation.ErrorTemplate="{x:Null}">
+            </TextBox>
             <Label Content="{Binding ElementName=CustomerFirstName,
                                      Path=(Validation.Errors).CurrentItem.ErrorContent}"
                    FontWeight="Bold"
@@ -157,6 +169,7 @@
 			         Height="20"
 			         Margin="5,0,0,0"
 			         VerticalAlignment="Center"
+                     Style="{StaticResource NormalTextBoxStyle}"
 			         Text="{Binding Reservation.Owner.Email,
                             UpdateSourceTrigger=PropertyChanged,
                             ValidatesOnDataErrors=True}" />
@@ -202,7 +215,8 @@
 			          ItemsSource="{Binding LocationList}"
 			          SelectedItem="{Binding SelectedLocation,
 			                                 Mode=OneWayToSource,
-			                                 UpdateSourceTrigger=PropertyChanged}"/>
+			                                 UpdateSourceTrigger=PropertyChanged}">
+            </ComboBox>
         </StackPanel>
 
         <StackPanel Grid.Row="5"
@@ -261,7 +275,7 @@
 
         <StackPanel Grid.Row="6" Grid.ColumnSpan="3">
             <Label>Best Options</Label>
-            <DataGrid MaxHeight="150"
+            <DataGrid MaxHeight="100"
 			          Margin="5,0,5,0"
 			          AutoGenerateColumns="False"
 			          HeadersVisibility="Column"
@@ -299,9 +313,9 @@
 
         <StackPanel Grid.Row="7">
             <Label>Available rooms</Label>
-            <DataGrid MaxHeight="150"
+            <DataGrid MaxHeight="100"
 			          Margin="5,0,5,0"
-                      Width="220"
+                      Width="250"
 			          AutoGenerateColumns="False"
                       HorizontalAlignment="Left"
 			          HeadersVisibility="Column"
@@ -320,7 +334,7 @@
                     <DataGridTextColumn Width="100"
                                         Header="Capacity"
                                         Binding="{Binding NumberOfPersons}"/>
-                    <DataGridTextColumn Width="70"
+                    <DataGridTextColumn Width="90"
                                         Header="Room View"
                                         Binding="{Binding RoomViewType}"/>
                 </DataGrid.Columns>
@@ -340,7 +354,7 @@
         <StackPanel Grid.Row="7" 
                     Grid.Column="1">
             <Label>Reserved Rooms</Label>
-            <DataGrid MaxHeight="150"
+            <DataGrid MaxHeight="100"
 			          Margin="5,0,5,0"
                       Width="250"
 			          AutoGenerateColumns="False"

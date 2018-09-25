@@ -36,8 +36,7 @@
             <Label Width="45" Margin="5,0,0,0">
                 Id
             </Label>
-            <TextBox Width=" 100"
-			         Height="20"
+            <TextBox Style="{StaticResource NormalTextBoxStyle}"
 			         Margin="5,0,0,0"
                      x:Name="HotelId"
 			         Text="{Binding Hotel.Id,
@@ -72,8 +71,7 @@
             <Label Width="45" Margin="5,0,0,0">
                 Name
             </Label>
-            <TextBox Width="100"
-			         Height="20"
+            <TextBox Style="{StaticResource NormalTextBoxStyle}"
 			         Margin="5,0,0,0"
                      x:Name="HotelName"
 			         Text="{Binding Hotel.Name,
@@ -96,8 +94,7 @@
             <Label Width="45" Margin="5,0,0,0">
                 City
             </Label>
-            <TextBox Width="100"
-			         Height="20"
+            <TextBox Style="{StaticResource NormalTextBoxStyle}"
 			         Margin="5,0,0,0"
                      x:Name="HotelCity"
 			         Text="{Binding Hotel.Location.CityName,
@@ -119,8 +116,7 @@
             <Label Width="52" Margin="5,0,0,0">
                 Country
             </Label>
-            <TextBox Width="100"
-			         Height="20"
+            <TextBox Style="{StaticResource NormalTextBoxStyle}"
 			         Margin="5,0,0,0"
                      x:Name="HotelCountry"
 			         Text="{Binding Hotel.Location.CountryName,
@@ -147,8 +143,7 @@
 			       VerticalAlignment="Center">
                 Stars
             </Label>
-            <TextBox Width="100"
-			         Height="20"
+            <TextBox Style="{StaticResource NormalTextBoxStyle}"
 			         Margin="5,0,0,0"
                      x:Name="HotelStars"
 			         Text="{Binding Hotel.NumberOfStars,

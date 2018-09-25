@@ -80,7 +80,7 @@
         <Button Width="120"
 		        Height="20"
 		        Margin="0,0,20,20"
-                Grid.Row="1"
+                Grid.Row="3"
                 Grid.Column="1"
 		        HorizontalAlignment="Right"
 		        VerticalAlignment="Bottom"
@@ -88,46 +88,70 @@
 			Cancel Reservation
 		</Button>
 
-		<Label Grid.Row="2"
-               Style="{StaticResource HeadingLeabelStyle}">
-			Hotel Reservations
-		</Label>
+        <Label Style="{StaticResource HeadingLeabelStyle}"
+               Grid.Row="2"
+		       Grid.Column="0">
+            Search Reservation
+        </Label>
 
-		<DataGrid Grid.Row="3"
-		          Width="232"
-		          MaxHeight="200"
+        <TextBox Margin="5,0,0,0"
+                 Grid.Row="2"
+                 Grid.Column="1"
+                 HorizontalAlignment="Left"
+			         Style="{StaticResource NormalTextBoxStyle}"
+			         Text="{Binding SearchedCustomerId,
+			                        Mode=OneWayToSource,
+			                        UpdateSourceTrigger=PropertyChanged}"/>
+        <Button Grid.Row="2"
+		        Grid.Column="1"
+		        Width="100"
+		        Margin="10,10,0,10"
+		        HorizontalAlignment="Center"
+		        VerticalAlignment="Center"
+		        Command="{Binding SearchCustomerReservationCommand}">
+            Search reservation
+        </Button>
+
+        <DataGrid Width="673"
+		          MaxHeight="300"
 		          AutoGenerateColumns="False"
 		          HeadersVisibility="Column"
-                  HorizontalAlignment="Left"
+                  Grid.Row="3"
+                  Grid.Column="0" Grid.ColumnSpan="2"
                   HorizontalScrollBarVisibility="Disabled"
                   VerticalScrollBarVisibility="Auto"
+                  HorizontalAlignment="Left"
                   VerticalAlignment="Top"
-		          ItemsSource="{Binding ReservationRepository.HotelReservationList}"
-		          SelectedItem="{Binding SelectedHotelReservation,
+		          ItemsSource="{Binding SearchCustomerReservationList}"
+		          SelectedItem="{Binding SelectedReservation,
 		                                 Mode=OneWayToSource}">
-			<DataGrid.Columns>
-				<DataGridTextColumn Width="100"
+            <DataGrid.Columns>
+                <DataGridTextColumn Width="70"
+				                    Binding="{Binding Owner.Id}"
+				                    Header="ID" />
+                <DataGridTextColumn Width="100"
+				                    Binding="{Binding Owner.FirstName}"
+				                    Header="First Name" />
+                <DataGridTextColumn Width="100"
+				                    Binding="{Binding Owner.LastName}"
+				                    Header="Last Name" />
+                <DataGridTextColumn Width="70"
+				                    Binding="{Binding NumberOfPersons}"
+				                    Header="Persons" />
+                <DataGridTextColumn Width="100"
 				                    Binding="{Binding Hotel.Name}"
 				                    Header="Hotel" />
-				<DataGridTextColumn Width="65"
+                <DataGridTextColumn Width="100"
+				                    Binding="{Binding Hotel.Location.FullName}"
+				                    Header="Location" />
+                <DataGridTextColumn Width="65"
 				                    Binding="{Binding ReservationPeriod.CheckIn}"
 				                    Header="Check In" />
-				<DataGridTextColumn Width="65"
+                <DataGridTextColumn Width="65"
 				                    Binding="{Binding ReservationPeriod.CheckOut}"
 				                    Header="Check Out" />
-			</DataGrid.Columns>
+            </DataGrid.Columns>
+        </DataGrid>
 
-		</DataGrid>
-
-		<Button Grid.Row="3"
-                Grid.Column="1"
-		        Width="120"
-		        Height="20"
-		        HorizontalAlignment="Right"
-		        VerticalAlignment="Bottom"
-                Margin="0,0,20,20"
-		        Command="{Binding CancelHotelReservationCommand}">
-			Cancel Reservation
-		</Button>
-	</Grid>
+    </Grid>
 </UserControl>

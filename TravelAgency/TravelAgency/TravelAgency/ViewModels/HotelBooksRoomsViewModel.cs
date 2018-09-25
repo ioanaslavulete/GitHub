@@ -119,10 +119,8 @@ namespace TravelAgency.ViewModels
 				{
                     if (hotel.Name.ToLower().Contains(SearchedName.ToLower()))
                         _searchHotelList.Add(hotel);
-                    else
-                        MessageBox.Show("This hotel name does not exist");
 				}
-			}
+            }
 		}
 
 		public void ReserveRoom()

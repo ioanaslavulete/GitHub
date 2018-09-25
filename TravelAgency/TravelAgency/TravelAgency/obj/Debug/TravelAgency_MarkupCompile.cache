@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\itsix\Desktop\Ioana\GitHub\TravelAgency\TravelAgency\TravelAgency\App.xaml
-101622329526
+11-60358360
 
-57-305464526
+601716508202
 151984215308
-Styles.xaml;Views\AddHotelView.xaml;Views\BookingView.xaml;Views\BookingVoucherView.xaml;Views\HotelBooksRoomsView.xaml;Views\HotelListView.xaml;Views\HotelManagementView.xaml;Views\MainWindow.xaml;Views\ReservationsView.xaml;Views\RoomView.xaml;
+Styles.xaml;Views\AddHotelView.xaml;Views\BookingView.xaml;Views\BookingVoucherView.xaml;Views\HotelBooksRoomsView.xaml;Views\HotelListView.xaml;Views\HotelManagementView.xaml;Views\HotelReservationsView.xaml;Views\MainWindow.xaml;Views\ReservationsView.xaml;Views\RoomView.xaml;
 
 False
 

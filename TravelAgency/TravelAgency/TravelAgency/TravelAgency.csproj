@@ -77,7 +77,9 @@
     <Compile Include="Models\Commands\ReserveRoomCommand.cs" />
     <Compile Include="Models\Commands\SaveHotelCommand.cs" />
     <Compile Include="Models\Commands\SaveRoomCommand.cs" />
+    <Compile Include="Models\Commands\SearchCustomerReservationCommand.cs" />
     <Compile Include="Models\Commands\SearchHotelCommand.cs" />
+    <Compile Include="Models\Commands\SearchHotelReservationCommand.cs" />
     <Compile Include="Models\Commands\ShowBookingVoucherCommand.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\Hotel.cs" />
@@ -121,6 +123,9 @@
     </Compile>
     <Compile Include="Views\HotelManagementView.xaml.cs">
       <DependentUpon>HotelManagementView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\HotelReservationsView.xaml.cs">
+      <DependentUpon>HotelReservationsView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -189,6 +194,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\HotelManagementView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\HotelReservationsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

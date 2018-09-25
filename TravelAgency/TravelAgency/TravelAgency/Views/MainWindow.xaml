@@ -7,7 +7,7 @@
         xmlns:views="clr-namespace:TravelAgency.Views"
         Title="MainWindow"
         Width="1000"
-        Height="600"
+        Height="700"
         WindowStartupLocation="CenterScreen"
         mc:Ignorable="d" WindowStyle="None">
 	<Window.Resources>
@@ -38,7 +38,7 @@
 							<Image Height="22"
 							       Margin="0,0,2,0"
 							       Source="..\Icons\reservation.png" />
-							<TextBlock Style="{StaticResource TabHeaderText}" Text="View" />
+							<TextBlock Style="{StaticResource TabHeaderText}" Text="Customer" />
 						</StackPanel>
 						<TextBlock Style="{StaticResource TabHeaderText}" Text="Reservations" />
 					</StackPanel>
@@ -46,7 +46,23 @@
 				<views:ReservationsView Margin="20"
                                        />
 			</TabItem>
-			<TabItem Style="{StaticResource TabItemStyle}">
+            <TabItem Style="{StaticResource TabItemStyle}">
+                <TabItem.Header>
+                    <StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Image Height="22"
+							       Margin="0,0,2,0"
+							       Source="..\Icons\reservation.png" />
+                            <TextBlock Style="{StaticResource TabHeaderText}" Text="Hotel" />
+                        </StackPanel>
+                        <TextBlock Style="{StaticResource TabHeaderText}" Text="Reservations" />
+                    </StackPanel>
+                </TabItem.Header>
+                <views:HotelReservationsView Margin="20"
+                                       />
+            </TabItem>
+
+            <TabItem Style="{StaticResource TabItemStyle}">
 				<TabItem.Header>
 					<StackPanel>
 						<StackPanel Orientation="Horizontal">

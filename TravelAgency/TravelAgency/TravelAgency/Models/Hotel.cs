@@ -9,8 +9,8 @@ using TravelAgency.Models.Interfaces;
 
 namespace TravelAgency.Models
 {
-	[Serializable]
-	public class Hotel : INotifyPropertyChanged, IAccomodation, IDataErrorInfo
+    [Serializable]
+    public class Hotel : INotifyPropertyChanged, IAccomodation, IDataErrorInfo
     {
         private string _id;
         private string _name;
@@ -18,6 +18,7 @@ namespace TravelAgency.Models
         private ObservableCollection<IRoom> _roomList;
         private ObservableCollection<IRoom> _availableRoomsList;
         private string _numberOfStars;
+
         string acceptsOnlyNumbers = "^[0-9]+$";
         string acceptsOnlyLettersAndSpaces = "^[A-Za-z ]+$";
         string acceptsOnlyDigitsOneToFive = "^[1-5]{1}$";
@@ -198,7 +199,7 @@ namespace TravelAgency.Models
 
         public string this[string propertyName]
         {
-            
+
             get
             {
                 string error = string.Empty;
@@ -207,23 +208,23 @@ namespace TravelAgency.Models
                 {
                     if (string.IsNullOrEmpty(Id))
                         error = "";
-                    else if(Regex.IsMatch(Id, acceptsOnlyNumbers) == false )
+                    else if (Regex.IsMatch(Id, acceptsOnlyNumbers) == false)
                         error = "✘";
                 }
 
-                if(propertyName == "Name")
+                if (propertyName == "Name")
                 {
                     if (string.IsNullOrEmpty(Name))
                         error = "";
-                   else if(Regex.IsMatch(Name, acceptsOnlyLettersAndSpaces) == false)
+                    else if (Regex.IsMatch(Name, acceptsOnlyLettersAndSpaces) == false)
                         error = "✘";
                 }
 
-                if(propertyName == "NumberOfStars")
+                if (propertyName == "NumberOfStars")
                 {
                     if (string.IsNullOrEmpty(NumberOfStars))
                         error = "";
-                   else if (Regex.IsMatch(NumberOfStars, acceptsOnlyDigitsOneToFive) == false)
+                    else if (Regex.IsMatch(NumberOfStars, acceptsOnlyDigitsOneToFive) == false)
                         error = "✘";
                 }
 
@@ -232,8 +233,8 @@ namespace TravelAgency.Models
         }
 
 
-        [field:NonSerialized]
-		public event PropertyChangedEventHandler PropertyChanged;
+        [field: NonSerialized]
+        public event PropertyChangedEventHandler PropertyChanged;
         private void OnPropertyChanged([CallerMemberName] string caller = "")
         {
             if (PropertyChanged != null)
