@@ -13,8 +13,6 @@ namespace TravelAgency.Models
         private string _lastName;
         private string _phoneNumber;
         private string _email;
-        string acceptsOnlyNumbers = "^[0-9]+$";
-        string acceptsOnlyLettersAndSpaces = "^[A-Za-z ]+$";
 
         public Customer()
         {
@@ -108,6 +106,8 @@ namespace TravelAgency.Models
             get
             {
                 string error = string.Empty;
+                string acceptsOnlyNumbers = "^[0-9]+$";
+                string acceptsOnlyLettersAndSpaces = "^[A-Za-z ]+$";
                 if (propertyName == "Id")
                 {
                     if (string.IsNullOrEmpty(Id))
@@ -148,6 +148,8 @@ namespace TravelAgency.Models
 
         public bool IsValid()
         {
+            string acceptsOnlyNumbers = "^[0-9]+$";
+            string acceptsOnlyLettersAndSpaces = "^[A-Za-z ]+$";
             if (string.IsNullOrEmpty(Id) || Regex.IsMatch(Id, acceptsOnlyNumbers) == false || string.IsNullOrEmpty(FirstName) || Regex.IsMatch(FirstName, acceptsOnlyLettersAndSpaces) == false
                 || string.IsNullOrEmpty(LastName) || Regex.IsMatch(LastName, acceptsOnlyLettersAndSpaces) == false || string.IsNullOrEmpty(PhoneNumber) ||
                 Regex.IsMatch(PhoneNumber, acceptsOnlyNumbers) == false || string.IsNullOrEmpty(Email))

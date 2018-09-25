@@ -8,53 +8,53 @@
              Background="White"
              mc:Ignorable="d">
 
-	<UserControl.Resources>
-		<viewModel:BookingViewModel x:Key="BookingViewModel" />
-	</UserControl.Resources>
+    <UserControl.Resources>
+        <viewModel:BookingViewModel x:Key="BookingViewModel" />
+    </UserControl.Resources>
 
-	<Grid DataContext="{Binding Source={StaticResource BookingViewModel}}">
-		<Grid.RowDefinitions>
-			<RowDefinition Height="40" />
-			<RowDefinition Height="40" />
-			<RowDefinition Height="40" />
-			<RowDefinition Height="40" />
-			<RowDefinition Height="40" />
-			<RowDefinition Height="40" />
-			<RowDefinition Height="*" />
-			<RowDefinition Height="*" />
-			<RowDefinition Height="*" />
-		</Grid.RowDefinitions>
+    <Grid DataContext="{Binding Source={StaticResource BookingViewModel}}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40" />
+            <RowDefinition Height="40" />
+            <RowDefinition Height="40" />
+            <RowDefinition Height="40" />
+            <RowDefinition Height="40" />
+            <RowDefinition Height="40" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
 
-		<Grid.ColumnDefinitions>
-			<ColumnDefinition Width="*" />
-			<ColumnDefinition Width="*" />
-			<ColumnDefinition Width="*" />
-		</Grid.ColumnDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
 
-		<Label Grid.Row="0"
+        <Label Grid.Row="0"
 		       Grid.Column="0"
 		       Style="{StaticResource HeadingLeabelStyle}">
-			Reserve Room
-		</Label>
+            Reserve Room
+        </Label>
 
-		<Button Grid.Row="1"
+        <Button Grid.Row="1"
 		        Grid.Column="0"
 		        Margin="10,0,0,0"
 		        HorizontalAlignment="Left"
 		        VerticalAlignment="Center"
 		        Command="{Binding EmptyCustomerFieldsCommand,
 		                          UpdateSourceTrigger=PropertyChanged}">
-			New Customer
-		</Button>
+            New Customer
+        </Button>
 
-		<StackPanel Grid.Row="1"
+        <StackPanel Grid.Row="1"
 		            Grid.Column="1"
 		            VerticalAlignment="Center"
 		            Orientation="Horizontal">
-			<Label Width="80" Margin="5,0,0,0">
-				Customer ID
-			</Label>
-			<TextBox Margin="5,0,0,0"
+            <Label Width="80" Margin="5,0,0,0">
+                Customer ID
+            </Label>
+            <TextBox Margin="5,0,0,0"
                      x:Name="CustomerId"
 			         Style="{StaticResource NormalTextBoxStyle}"
 			         Text="{Binding Reservation.Owner.Id,
@@ -67,44 +67,45 @@
                    Foreground="Red"
                    >
             </Label>
-		</StackPanel>
+        </StackPanel>
 
-		<Button Grid.Row="1"
+        <Button Grid.Row="1"
 		        Grid.Column="2"
 		        Width="100"
 		        Margin="10,10,0,10"
 		        HorizontalAlignment="Left"
 		        VerticalAlignment="Center"
-		        Command="{Binding GetCustomerInfoCommand}">
-			Get Info
-		</Button>
+		        Command="{Binding GetCustomerInfoCommand}"
+                >
+            Get Info
+        </Button>
 
-		<StackPanel Grid.Row="2"
+        <StackPanel Grid.Row="2"
 		            Grid.Column="0"
 		            VerticalAlignment="Center"
 		            Orientation="Horizontal">
-			<Label Width="50" Margin="5,0,0,0">
-				Title
-			</Label>
-			<ComboBox Width="75"
+            <Label Width="50" Margin="5,0,0,0">
+                Title
+            </Label>
+            <ComboBox Width="75"
 			          Height="20"
 			          Margin="5,0,0,0">
-				<ComboBoxItem>Mr.</ComboBoxItem>
-				<ComboBoxItem>Ms.</ComboBoxItem>
-				<ComboBoxItem>Mrs.</ComboBoxItem>
-			</ComboBox>
-		</StackPanel>
+                <ComboBoxItem>Mr.</ComboBoxItem>
+                <ComboBoxItem>Ms.</ComboBoxItem>
+                <ComboBoxItem>Mrs.</ComboBoxItem>
+            </ComboBox>
+        </StackPanel>
 
-		<StackPanel Grid.Row="2"
+        <StackPanel Grid.Row="2"
 		            Grid.Column="1"
 		            Orientation="Horizontal">
-			<Label Width="80"
+            <Label Width="80"
 			       Margin="5,0,0,0"
 			       VerticalAlignment="Center">
-				First Name
-			</Label>
+                First Name
+            </Label>
 
-			<TextBox Margin="5,0,0,0"
+            <TextBox Margin="5,0,0,0"
 			         Style="{StaticResource NormalTextBoxStyle}"
                      x:Name="CustomerFirstName"
 			         Text="{Binding Reservation.Owner.FirstName,
@@ -117,18 +118,18 @@
                    Foreground="Red"
                    >
             </Label>
-		</StackPanel>
+        </StackPanel>
 
-		<StackPanel Grid.Row="2"
+        <StackPanel Grid.Row="2"
 		            Grid.Column="2"
 		            Orientation="Horizontal">
-			<Label Width="80"
+            <Label Width="80"
 			       Margin="5,0,0,0"
 			       VerticalAlignment="Center">
-				Last Name
-			</Label>
+                Last Name
+            </Label>
 
-			<TextBox Margin="5,0,0,0"
+            <TextBox Margin="5,0,0,0"
                      x:Name="CustomerLastName"
 			         Style="{StaticResource NormalTextBoxStyle}"
 			         Text="{Binding Reservation.Owner.LastName,
@@ -141,36 +142,36 @@
                    Foreground="Red"
                    >
             </Label>
-		</StackPanel>
+        </StackPanel>
 
-		<StackPanel Grid.Row="3"
+        <StackPanel Grid.Row="3"
 		            Grid.Column="0"
 		            Orientation="Horizontal">
-			<Label Width="49"
+            <Label Width="49"
 			       Margin="5,7,0,7"
 			       VerticalAlignment="Center">
-				E-Mail
-			</Label>
+                E-Mail
+            </Label>
 
-			<TextBox Width="150"
+            <TextBox Width="150"
 			         Height="20"
 			         Margin="5,0,0,0"
 			         VerticalAlignment="Center"
 			         Text="{Binding Reservation.Owner.Email,
                             UpdateSourceTrigger=PropertyChanged,
                             ValidatesOnDataErrors=True}" />
-		</StackPanel>
+        </StackPanel>
 
-		<StackPanel Grid.Row="3"
+        <StackPanel Grid.Row="3"
 		            Grid.Column="1"
 		            Orientation="Horizontal">
-			<Label Width="80"
+            <Label Width="80"
 			       Margin="5,0,0,0"
 			       VerticalAlignment="Center">
-				Phone
-			</Label>
+                Phone
+            </Label>
 
-			<TextBox Margin="5,0,0,0"
+            <TextBox Margin="5,0,0,0"
                      x:Name="CustomerPhone"
 			         Style="{StaticResource NormalTextBoxStyle}"
 			         Text="{Binding Reservation.Owner.PhoneNumber,
@@ -183,71 +184,71 @@
                    Foreground="Red"
                    >
             </Label>
-		</StackPanel>
+        </StackPanel>
 
-		<StackPanel Grid.Row="4"
+        <StackPanel Grid.Row="4"
 		            Grid.Column="0"
 		            Orientation="Horizontal">
-			<Label Width="50"
+            <Label Width="50"
 			       Margin="5,7,0,7"
 			       VerticalAlignment="Center">
-				Place
-			</Label>
+                Place
+            </Label>
 
-			<ComboBox Width="150"
+            <ComboBox Width="150"
 			          Height="20"
 			          Margin="5,10,0,10"
 			          IsEditable="True"
 			          ItemsSource="{Binding LocationList}"
 			          SelectedItem="{Binding SelectedLocation,
 			                                 Mode=OneWayToSource,
-			                                 UpdateSourceTrigger=PropertyChanged}" />
-		</StackPanel>
+			                                 UpdateSourceTrigger=PropertyChanged}"/>
+        </StackPanel>
 
-		<StackPanel Grid.Row="5"
+        <StackPanel Grid.Row="5"
 		            Grid.Column="0"
 		            VerticalAlignment="Center"
 		            Orientation="Horizontal">
-			<Label Width="80" Margin="5,0,0,0">
-				Check In
-			</Label>
-			<DatePicker Width="120"
+            <Label Width="80" Margin="5,0,0,0">
+                Check In
+            </Label>
+            <DatePicker Width="120"
 			            Height="26"
 			            Margin="5,0,0,0"
 			            DisplayDateStart="{x:Static sys:DateTime.Today}"
 			            SelectedDate="{Binding Reservation.ReservationPeriod.CheckIn}"
 			            Validation.ErrorTemplate="{x:Null}" />
-		</StackPanel>
+        </StackPanel>
 
-		<StackPanel Grid.Row="5"
+        <StackPanel Grid.Row="5"
 		            Grid.Column="1"
 		            VerticalAlignment="Center"
 		            Orientation="Horizontal">
-			<Label Width="80" Margin="5,0,0,0">
-				Check Out
-			</Label>
-			<DatePicker Width="120"
+            <Label Width="80" Margin="5,0,0,0">
+                Check Out
+            </Label>
+            <DatePicker Width="120"
 			            Height="26"
 			            Margin="5,0,0,0"
 			            DisplayDateStart="{Binding Reservation.ReservationPeriod.CheckIn}"
 			            SelectedDate="{Binding Reservation.ReservationPeriod.CheckOut}"
 			            Validation.ErrorTemplate="{x:Null}" />
-		</StackPanel>
+        </StackPanel>
 
-		<StackPanel Grid.Row="4"
+        <StackPanel Grid.Row="4"
 		            Grid.Column="1"
 		            VerticalAlignment="Center"
 		            Orientation="Horizontal">
-			<Label Width="80" Margin="5,0,0,0">
-				Persons
-			</Label>
-			<TextBox Margin="5,0,0,0"
+            <Label Width="80" Margin="5,0,0,0">
+                Persons
+            </Label>
+            <TextBox Margin="5,0,0,0"
 			         Style="{StaticResource NormalTextBoxStyle}"
 			         Text="{Binding Reservation.NumberOfPersons,
 			                        UpdateSourceTrigger=PropertyChanged}" />
-		</StackPanel>
+        </StackPanel>
 
-		<Button Grid.Row="5"
+        <Button Grid.Row="5"
 		        Grid.Column="2"
 		        Width="100"
 		        Margin="10,0,0,0"
@@ -255,12 +256,12 @@
 		        VerticalAlignment="Center"
 		        Command="{Binding CheckAvailabilityCommand,
 		                          UpdateSourceTrigger=PropertyChanged}">
-			Check Availability
-		</Button>
+            Check Availability
+        </Button>
 
-		<StackPanel Grid.Row="6" Grid.ColumnSpan="3">
-			<Label>Best Options</Label>
-			<DataGrid MaxHeight="150"
+        <StackPanel Grid.Row="6" Grid.ColumnSpan="3">
+            <Label>Best Options</Label>
+            <DataGrid MaxHeight="150"
 			          Margin="5,0,5,0"
 			          AutoGenerateColumns="False"
 			          HeadersVisibility="Column"
@@ -270,37 +271,39 @@
 			                                 Mode=OneWayToSource,
 			                                 UpdateSourceTrigger=PropertyChanged}"
 			          VerticalScrollBarVisibility="Auto">
-				<DataGrid.Columns>
-					<DataGridTextColumn Width="140"
+                <DataGrid.Columns>
+                    <DataGridTextColumn Width="140"
 					                    Binding="{Binding Hotel.Name}"
 					                    Header="Hotel"
 					                    IsReadOnly="True" />
-					<DataGridTextColumn Width="50"
+                    <DataGridTextColumn Width="50"
 					                    Binding="{Binding Hotel.NumberOfStars}"
 					                    Header="Stars"
 					                    IsReadOnly="True" />
-					<DataGridTextColumn Width="150"
+                    <DataGridTextColumn Width="150"
 					                    Binding="{Binding Hotel.Location}"
 					                    Header="Location"
 					                    IsReadOnly="True" />
-					<DataGridTextColumn Width="200"
+                    <DataGridTextColumn Width="200"
 					                    Binding="{Binding Result}"
 					                    Header="Best option for you" />
-					<DataGridTextColumn Width="100" 
+                    <DataGridTextColumn Width="100" 
                                         Header="Total Price" 
                                         Binding="{Binding TotalPrice.FullPrice}"/>
-					<DataGridTextColumn Width="150"
+                    <DataGridTextColumn Width="150"
 					                    Binding="{Binding Hotel.AvailableRoomsList.Count}"
 					                    Header="Available Rooms" />
-				</DataGrid.Columns>
-			</DataGrid>
-		</StackPanel>
+                </DataGrid.Columns>
+            </DataGrid>
+        </StackPanel>
 
         <StackPanel Grid.Row="7">
             <Label>Available rooms</Label>
-            <DataGrid MaxHeight="100"
+            <DataGrid MaxHeight="150"
 			          Margin="5,0,5,0"
+                      Width="220"
 			          AutoGenerateColumns="False"
+                      HorizontalAlignment="Left"
 			          HeadersVisibility="Column"
 			          HorizontalScrollBarVisibility="Disabled"
                       VerticalScrollBarVisibility="Auto"
@@ -325,9 +328,10 @@
         </StackPanel>
 
         <Button Grid.Row="8"
+                Grid.Column="0"
                 Width="100"
-                VerticalAlignment="Bottom"
-                HorizontalAlignment="Left"
+                VerticalAlignment="Center"
+                HorizontalAlignment="Right"
                 Command="{Binding AddRoomToReservationCommand}"
                 CommandParameter="{Binding SelectedRoom}">
             Add
@@ -338,7 +342,9 @@
             <Label>Reserved Rooms</Label>
             <DataGrid MaxHeight="150"
 			          Margin="5,0,5,0"
+                      Width="250"
 			          AutoGenerateColumns="False"
+                      HorizontalAlignment="Left"
 			          HeadersVisibility="Column"
 			          HorizontalScrollBarVisibility="Disabled"
                       VerticalScrollBarVisibility="Auto"
@@ -362,10 +368,11 @@
 		        Grid.Column="2"
 		        Width="100"
 		        Height="20"
-		        Margin="0,0,0,30"
-		        VerticalAlignment="Bottom"
+		        Margin="0,0,0,0"
+		        VerticalAlignment="Center"
+                HorizontalAlignment="Left"
 		        Command="{Binding ShowBookingVoucherCommand}">
-			Next
-		</Button>
-	</Grid>
+            Next
+        </Button>
+    </Grid>
 </UserControl>

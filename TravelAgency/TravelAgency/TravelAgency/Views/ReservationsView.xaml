@@ -17,18 +17,33 @@
 	<Grid DataContext="{Binding Source={StaticResource ReservationViewModel}}">
 
 		<Grid.RowDefinitions>
-			<RowDefinition />
-			<RowDefinition />
-		</Grid.RowDefinitions>
+			<RowDefinition Height="40" />
+			<RowDefinition Height="*"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
 
-        <Label>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Label Style="{StaticResource HeadingLeabelStyle}"
+               Grid.Row="0"
+		       Grid.Column="0">
             Customer Reservations
         </Label>
 
         <DataGrid Width="673"
-		          Height="100"
+		          MaxHeight="300"
 		          AutoGenerateColumns="False"
 		          HeadersVisibility="Column"
+                  Grid.Row="1"
+                  Grid.Column="0" Grid.ColumnSpan="2"
+                  HorizontalScrollBarVisibility="Disabled"
+                  VerticalScrollBarVisibility="Auto"
+                  HorizontalAlignment="Left"
+                  VerticalAlignment="Top"
 		          ItemsSource="{Binding ReservationRepository.ReservationList}"
 		          SelectedItem="{Binding SelectedReservation,
 		                                 Mode=OneWayToSource}">
@@ -60,24 +75,33 @@
 			</DataGrid.Columns>
 		</DataGrid>
 
-		<Button Width="120"
+
+
+        <Button Width="120"
 		        Height="20"
 		        Margin="0,0,20,20"
+                Grid.Row="1"
+                Grid.Column="1"
 		        HorizontalAlignment="Right"
 		        VerticalAlignment="Bottom"
 		        Command="{Binding CancelReservationCommand}">
 			Cancel Reservation
 		</Button>
 
-		<Label Grid.Row="1">
+		<Label Grid.Row="2"
+               Style="{StaticResource HeadingLeabelStyle}">
 			Hotel Reservations
 		</Label>
 
-		<DataGrid Grid.Row="1"
-		          Width="800"
-		          Height="100"
+		<DataGrid Grid.Row="3"
+		          Width="232"
+		          MaxHeight="200"
 		          AutoGenerateColumns="False"
 		          HeadersVisibility="Column"
+                  HorizontalAlignment="Left"
+                  HorizontalScrollBarVisibility="Disabled"
+                  VerticalScrollBarVisibility="Auto"
+                  VerticalAlignment="Top"
 		          ItemsSource="{Binding ReservationRepository.HotelReservationList}"
 		          SelectedItem="{Binding SelectedHotelReservation,
 		                                 Mode=OneWayToSource}">
@@ -95,11 +119,13 @@
 
 		</DataGrid>
 
-		<Button Grid.Row="1"
+		<Button Grid.Row="3"
+                Grid.Column="1"
 		        Width="120"
 		        Height="20"
 		        HorizontalAlignment="Right"
 		        VerticalAlignment="Bottom"
+                Margin="0,0,20,20"
 		        Command="{Binding CancelHotelReservationCommand}">
 			Cancel Reservation
 		</Button>

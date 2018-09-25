@@ -7,9 +7,9 @@
         xmlns:views="clr-namespace:TravelAgency.Views"
         Title="MainWindow"
         Width="1000"
-        Height="800"
+        Height="600"
         WindowStartupLocation="CenterScreen"
-        mc:Ignorable="d">
+        mc:Ignorable="d" WindowStyle="None">
 	<Window.Resources>
 		<ResourceDictionary>
 			<ResourceDictionary.MergedDictionaries>
@@ -18,9 +18,9 @@
 		</ResourceDictionary>
 	</Window.Resources>
 
-	<Grid>
-		<TabControl TabStripPlacement="Left">
-			<TabItem Style="{StaticResource TabItemStyle}">
+    <Grid >
+        <TabControl Grid.Row="1" TabStripPlacement="Left">
+            <TabItem Style="{StaticResource TabItemStyle}">
 				<TabItem.Header>
 					<StackPanel Orientation="Horizontal">
 						<Image Height="30" Source="..\Icons\book.png" />
@@ -43,7 +43,8 @@
 						<TextBlock Style="{StaticResource TabHeaderText}" Text="Reservations" />
 					</StackPanel>
 				</TabItem.Header>
-				<views:ReservationsView />
+				<views:ReservationsView Margin="20"
+                                       />
 			</TabItem>
 			<TabItem Style="{StaticResource TabItemStyle}">
 				<TabItem.Header>
@@ -57,7 +58,8 @@
 						<TextBlock Style="{StaticResource TabHeaderText}" Text="Management" />
 					</StackPanel>
 				</TabItem.Header>
-				<views:HotelManagementView Margin="20" />
+				<views:HotelManagementView Margin="20"
+                                           VerticalAlignment="Top"/>
 			</TabItem>
 			<TabItem Style="{StaticResource TabItemStyle}">
 				<TabItem.Header>
