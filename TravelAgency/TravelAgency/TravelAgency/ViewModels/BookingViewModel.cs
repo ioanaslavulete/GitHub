@@ -13,9 +13,10 @@ namespace TravelAgency.ViewModels
     public class BookingViewModel : INotifyPropertyChanged
     {
         private Reservation _reservation;
+        private ReservationRepository _reservationRepository;
         private Location _selectedLocation;
-        private ObservableCollection<IAccomodation> _hotelList;
-        private ObservableCollection<IAccomodation> _availableHotels;
+        private ObservableCollection<IAccomodation> _accomodationList;
+        private ObservableCollection<IAccomodation> _availableAccomodations;
         private ObservableCollection<Location> _locationList;
         private ObservableCollection<Option> _availableOptions;
         private Option _selectedOption;
@@ -27,13 +28,12 @@ namespace TravelAgency.ViewModels
         private CheckAvailabilityCommand _checkAvailabilityCommand;
         private ShowBookingVoucherCommand _showBookingVoucherCommand;
         private GetCustomerInfoCommand _getCustomerInfoCommand;
-        private ReservationRepository _reservationRepository;
         private EmptyCustomerFieldsCommand _newCustomerCommand;
         private AddRoomToReservationCommand _addRoomToReservationCommand;
 
         public BookingViewModel()
         {
-            _hotelList = DataManagementService.Instance.MainRepository.AccomodationRepository.HotelList;
+            _accomodationList = DataManagementService.Instance.MainRepository.AccomodationRepository.AccomodationList;
             _locationList = DataManagementService.Instance.MainRepository.LocationRepository.LocationList;
             _reservationRepository = DataManagementService.Instance.MainRepository.ReservationRepository;
 
@@ -61,15 +61,15 @@ namespace TravelAgency.ViewModels
                 _locationList = value;
             }
         }
-        public ObservableCollection<IAccomodation> HotelsList
+        public ObservableCollection<IAccomodation> AccomodationsList
         {
             get
             {
-                return _availableHotels;
+                return _availableAccomodations;
             }
             set
             {
-                _availableHotels = value;
+                _availableAccomodations = value;
             }
         }
         public Reservation Reservation
@@ -116,7 +116,6 @@ namespace TravelAgency.ViewModels
                 OnPropertyChanged();
             }
         }
-
         public ObservableCollection<IRoom> RoomsToReserve
         {
             get { return _roomsToReserve; }
@@ -133,7 +132,6 @@ namespace TravelAgency.ViewModels
                 _selectedRoom = value;
             }
         }
-
 
         public CheckAvailabilityCommand CheckAvailabilityCommand
         {
@@ -193,7 +191,7 @@ namespace TravelAgency.ViewModels
         {
             AvailableOptions.Clear();
 
-            foreach (IAccomodation accomodation in _hotelList)
+            foreach (IAccomodation accomodation in _accomodationList)
             {
                 if (accomodation.HasSameLocationAs(_selectedLocation))
                 {

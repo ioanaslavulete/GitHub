@@ -11,12 +11,12 @@ namespace TravelAgency.Models
 	public class ReservationRepository
 	{
 		private ObservableCollection<Reservation> _reservationList;
-		private ObservableCollection<HotelReservation> _hotelReservationList;
+		private ObservableCollection<AccomodationReservation> _hotelReservationList;
 
 		public ReservationRepository()
 		{
 			_reservationList = new ObservableCollection<Reservation>();
-			_hotelReservationList = new ObservableCollection<HotelReservation>();
+			_hotelReservationList = new ObservableCollection<AccomodationReservation>();
 		}
 
 		public ObservableCollection<Reservation> ReservationList
@@ -31,7 +31,7 @@ namespace TravelAgency.Models
 				_reservationList = value;
 			}
 		}
-		public ObservableCollection<HotelReservation> HotelReservationList
+		public ObservableCollection<AccomodationReservation> HotelReservationList
 		{
 			get { return _hotelReservationList; }
 			set
@@ -50,12 +50,12 @@ namespace TravelAgency.Models
 			_reservationList.Remove(selectedReservation);
 		}
 
-		public void AddHotelReservation(HotelReservation reservation)
+		public void AddHotelReservation(AccomodationReservation reservation)
 		{
 			_hotelReservationList.Add(reservation);
 		}
 
-		public void DeleteHotelReservation(HotelReservation reservation)
+		public void DeleteHotelReservation(AccomodationReservation reservation)
 		{
 			_hotelReservationList.Remove(reservation);
 		}

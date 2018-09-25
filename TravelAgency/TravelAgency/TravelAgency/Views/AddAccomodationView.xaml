@@ -1,0 +1,175 @@
+﻿<UserControl x:Class="TravelAgency.Views.AddHotelView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:enum="clr-namespace:TravelAgency.Models"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             mc:Ignorable="d">
+
+    <UserControl.Resources>
+        <ObjectDataProvider x:Key="dataFromEnum"
+		                    MethodName="GetValues"
+		                    ObjectType="{x:Type sys:Enum}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="enum:AccomodationType" />
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+    </UserControl.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40" />
+            <RowDefinition Height="40" />
+            <RowDefinition Height="40" />
+            <RowDefinition Height="40" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Row="0"
+                    Grid.Column="0"
+		            VerticalAlignment="Center"
+		            Orientation="Horizontal">
+            <Label Width="45" Margin="5,0,0,0">
+                Id
+            </Label>
+            <TextBox Style="{StaticResource NormalTextBoxStyle}"
+			         Margin="5,0,0,0"
+                     x:Name="HotelId"
+			         Text="{Binding Accomodation.Id,
+			                        Mode=TwoWay,
+			                        UpdateSourceTrigger=PropertyChanged,
+                                    ValidatesOnDataErrors=True}"
+                     Validation.ErrorTemplate="{x:Null}"/>
+            <Label Content="{Binding ElementName=HotelId,
+                                     Path=(Validation.Errors).CurrentItem.ErrorContent}"
+                   FontWeight="Bold"
+                   Foreground="Red"
+                   >
+            </Label>
+        </StackPanel>
+        <StackPanel Grid.Row="0"
+                    Grid.Column="1"
+		            VerticalAlignment="Center"
+		            Orientation="Horizontal">
+            <Label Margin="5,0,0,0">Type</Label>
+            <ComboBox Width="100"
+			          Height="20"
+			          Margin="22,0,0,0"
+			          ItemsSource="{Binding Source={StaticResource dataFromEnum}}"
+					  SelectedValue="{Binding AcomodationType, Mode=OneWayToSource}"
+					  SelectedIndex="0"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="1"
+                    Grid.Column="0"
+		            VerticalAlignment="Center"
+		            Orientation="Horizontal">
+            <Label Width="45" Margin="5,0,0,0">
+                Name
+            </Label>
+            <TextBox Style="{StaticResource NormalTextBoxStyle}"
+			         Margin="5,0,0,0"
+                     x:Name="HotelName"
+			         Text="{Binding Accomodation.Name,
+			                        Mode=TwoWay,
+			                        UpdateSourceTrigger=PropertyChanged,
+                                    ValidatesOnDataErrors=True}"
+                     Validation.ErrorTemplate="{x:Null}"/>
+            <Label Content="{Binding ElementName=HotelName,
+                                     Path=(Validation.Errors).CurrentItem.ErrorContent}"
+                   FontWeight="Bold"
+                   Foreground="Red"
+                   >
+            </Label>
+        </StackPanel>
+
+        <StackPanel Grid.Row="2"
+                    Grid.Column="0"
+		            VerticalAlignment="Center"
+		            Orientation="Horizontal">
+            <Label Width="45" Margin="5,0,0,0">
+                City
+            </Label>
+            <TextBox Style="{StaticResource NormalTextBoxStyle}"
+			         Margin="5,0,0,0"
+                     x:Name="HotelCity"
+			         Text="{Binding Accomodation.Location.CityName,
+			                        Mode=TwoWay,
+			                        UpdateSourceTrigger=PropertyChanged,
+                                    ValidatesOnDataErrors=True}"
+                     Validation.ErrorTemplate="{x:Null}"/>
+            <Label Content="{Binding ElementName=HotelCity,
+                                     Path=(Validation.Errors).CurrentItem.ErrorContent}"
+                   FontWeight="Bold"
+                   Foreground="Red"
+                   >
+            </Label>
+        </StackPanel>
+        <StackPanel Grid.Row="2"
+                    Grid.Column="1"
+		            VerticalAlignment="Center"
+		            Orientation="Horizontal">
+            <Label Width="52" Margin="5,0,0,0">
+                Country
+            </Label>
+            <TextBox Style="{StaticResource NormalTextBoxStyle}"
+			         Margin="5,0,0,0"
+                     x:Name="HotelCountry"
+			         Text="{Binding Accomodation.Location.CountryName,
+			                        Mode=TwoWay,
+			                        UpdateSourceTrigger=PropertyChanged,
+                                    ValidatesOnDataErrors=True}"
+                     Validation.ErrorTemplate="{x:Null}"/>
+            <Label Content="{Binding ElementName=HotelCountry,
+                                     Path=(Validation.Errors).CurrentItem.ErrorContent}"
+                   FontWeight="Bold"
+                   Foreground="Red"
+                   >
+            </Label>
+        </StackPanel>
+
+
+
+        <StackPanel Grid.Row="3"
+                    Grid.Column="0"
+		            VerticalAlignment="Center"
+		            Orientation="Horizontal">
+            <Label Width="45"
+			       Margin="5,0,0,0"
+			       VerticalAlignment="Center">
+                Stars
+            </Label>
+            <TextBox Style="{StaticResource NormalTextBoxStyle}"
+			         Margin="5,0,0,0"
+                     x:Name="HotelStars"
+			         Text="{Binding Accomodation.NumberOfStars,
+			                        Mode=TwoWay,
+			                        UpdateSourceTrigger=PropertyChanged,
+                                    ValidatesOnDataErrors=True}"
+                      Validation.ErrorTemplate="{x:Null}"/>
+            <Label Content="{Binding ElementName=HotelStars,
+                                     Path=(Validation.Errors).CurrentItem.ErrorContent}"
+                   FontWeight="Bold"
+                   Foreground="Red"
+                   >
+            </Label>
+        </StackPanel>
+        <StackPanel Grid.Row="3"
+                    Grid.Column="1"
+		            VerticalAlignment="Center"
+		            Orientation="Horizontal">
+            <Button Width="100"
+			        Margin="62,0,0,0"
+			        VerticalAlignment="Center"
+			        Command="{Binding AddAccomodationCommand}" Background="#FFDDDDDD">
+                Add
+            </Button>
+        </StackPanel>
+
+    </Grid>
+</UserControl>
+

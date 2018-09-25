@@ -6,11 +6,11 @@ namespace TravelAgency.Models.Commands
 {
     public class AddRoomCommand : ICommand
     {
-        private HotelManagementViewModel _hotelViewModel;
+        private AccomodationManagementViewModel _accomodationManagementViewModel;
 
-        public AddRoomCommand(HotelManagementViewModel hotelViewModel)
+        public AddRoomCommand(AccomodationManagementViewModel accomodationManagementViewModel)
         {
-            _hotelViewModel = hotelViewModel;
+            _accomodationManagementViewModel = accomodationManagementViewModel;
         }
 
         public event EventHandler CanExecuteChanged
@@ -21,12 +21,12 @@ namespace TravelAgency.Models.Commands
 
         public bool CanExecute(object parameter)
         {
-            return _hotelViewModel.Room.IsValid();
+            return _accomodationManagementViewModel.Room.IsValid();
         }
 
         public void Execute(object parameter)
         {
-            _hotelViewModel.AddRoom();
+            _accomodationManagementViewModel.AddRoom();
         }
     }
 }

@@ -12,7 +12,7 @@ namespace TravelAgency.Models
 		private ReservationPeriod _reservationPeriod;
 		private string _numberOfPersons;
 		private Customer _owner;
-		private IAccomodation _hotel;
+		private IAccomodation _accomodation;
 
 		public Reservation()
 		{
@@ -21,10 +21,10 @@ namespace TravelAgency.Models
 			_numberOfPersons = string.Empty;
 		}
 
-		public Reservation(Customer owner, IAccomodation hotel, ReservationPeriod reservationPeriod, string numberOfPersons, Option bestOption)
+		public Reservation(Customer owner, IAccomodation accomodation, ReservationPeriod reservationPeriod, string numberOfPersons, Option bestOption)
 		{
 			Owner = owner;
-			Hotel = hotel;
+			Hotel = accomodation;
 			ReservationPeriod = reservationPeriod;
 			NumberOfPersons = numberOfPersons;
 			BestOption = bestOption;
@@ -57,10 +57,10 @@ namespace TravelAgency.Models
 		}
 		public IAccomodation Hotel
 		{
-			get { return _hotel; }
+			get { return _accomodation; }
 			set
 			{
-				_hotel = value;
+				_accomodation = value;
 			}
 		}
 		public Option BestOption { get; set; }

@@ -80,14 +80,14 @@
 		          AutoGenerateColumns="False"
 		          HeadersVisibility="Column"
 		          HorizontalScrollBarVisibility="Disabled"
-		          ItemsSource="{Binding Hotel.RoomList}"
+		          ItemsSource="{Binding Accomodation.RoomList}"
 		          SelectedItem="{Binding SelectedRoom,
 		                                 Mode=OneWayToSource}"
 		          VerticalScrollBarVisibility="Auto">
 
 			<DataGrid.Columns>
 
-				<DataGridTextColumn Width="50"
+				<DataGridTextColumn Width="70"
 				                    Binding="{Binding Price.FullPrice}"
 				                    Header="Price" />
 				<DataGridTextColumn Width="120"

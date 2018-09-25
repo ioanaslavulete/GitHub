@@ -14,7 +14,7 @@ namespace TravelAgency.Models
 			_accomodationList = new ObservableCollection<IAccomodation>();
 		}
 
-		public ObservableCollection<IAccomodation> HotelList
+		public ObservableCollection<IAccomodation> AccomodationList
 		{
 			get { return _accomodationList; }
 			set

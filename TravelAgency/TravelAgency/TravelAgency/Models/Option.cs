@@ -9,20 +9,20 @@ namespace TravelAgency.Models
 	[Serializable]
 	public class Option
 	{
-		private IAccomodation _hotel;
+		private IAccomodation _accomodation;
 		private ObservableCollection<IRoom> _roomList;
         private Price _totalPrice;
 
-        public Option(IAccomodation hotel, ObservableCollection<IRoom> roomList)
+        public Option(IAccomodation accomodation, ObservableCollection<IRoom> roomList)
 		{
-			this._hotel = hotel;
+			this._accomodation = accomodation;
 			this._roomList = roomList;
             _totalPrice = new Price();
 		}
 
 		public Option()
 		{
-			_hotel = new Hotel();
+			_accomodation = new Hotel();
 			_roomList = new ObservableCollection<IRoom>();
             _totalPrice = new Price();
 		}
@@ -31,12 +31,12 @@ namespace TravelAgency.Models
 		{
 			get
 			{
-				return _hotel;
+				return _accomodation;
 			}
 
 			set
 			{
-				_hotel = value;
+				_accomodation = value;
 			}
 		}
 		public ObservableCollection<IRoom> RoomList

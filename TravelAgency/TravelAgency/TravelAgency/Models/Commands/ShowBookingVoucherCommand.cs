@@ -21,7 +21,6 @@ namespace TravelAgency.Models.Commands
 
         public bool CanExecute(object parameter)
         {
-            //return _bookingViewModel.SelectedOption != null;
             if (_bookingViewModel.SelectedOption != null && _bookingViewModel.Reservation.Owner.IsValid())
                 return true;
             else

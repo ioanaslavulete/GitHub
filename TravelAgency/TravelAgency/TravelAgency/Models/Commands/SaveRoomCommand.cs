@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
 using TravelAgency.ViewModels;
 
@@ -10,11 +6,11 @@ namespace TravelAgency.Models.Commands
 {
     public class SaveRoomCommand : ICommand
     {
-        private HotelManagementViewModel _hotelManagementViewModel;
+        private AccomodationManagementViewModel _accomodationManagementViewModel;
 
-        public SaveRoomCommand(HotelManagementViewModel hotelManagementViewModel)
+        public SaveRoomCommand(AccomodationManagementViewModel accomodationManagementViewModel)
         {
-            _hotelManagementViewModel = hotelManagementViewModel;
+            _accomodationManagementViewModel = accomodationManagementViewModel;
         }
 
         public event EventHandler CanExecuteChanged
@@ -25,7 +21,7 @@ namespace TravelAgency.Models.Commands
 
         public bool CanExecute(object parameter)
         {
-            if (_hotelManagementViewModel.SelectedRoom != null)
+            if (_accomodationManagementViewModel.SelectedRoom != null)
                 return true;
             else
                 return false;
@@ -33,7 +29,7 @@ namespace TravelAgency.Models.Commands
 
         public void Execute(object parameter)
         {
-            _hotelManagementViewModel.SaveRoom();
+            _accomodationManagementViewModel.SaveRoom();
         }
     }
 }

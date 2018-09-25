@@ -191,7 +191,7 @@
                                     UpdateSourceTrigger=PropertyChanged,
                                     ValidatesOnDataErrors=True}" 
                      Validation.ErrorTemplate="{x:Null}"/>
-            <Label Content="{Binding ElementName=CustomerLastName,
+            <Label Content="{Binding ElementName=CustomerPhone,
                                      Path=(Validation.Errors).CurrentItem.ErrorContent}"
                    FontWeight="Bold"
                    Foreground="Red"
@@ -288,7 +288,7 @@
                 <DataGrid.Columns>
                     <DataGridTextColumn Width="140"
 					                    Binding="{Binding Hotel.Name}"
-					                    Header="Hotel"
+					                    Header="Accomodation"
 					                    IsReadOnly="True" />
                     <DataGridTextColumn Width="50"
 					                    Binding="{Binding Hotel.NumberOfStars}"
@@ -328,7 +328,7 @@
                                                UpdateSourceTrigger=PropertyChanged}">
                 <DataGrid.Columns>
 
-                    <DataGridTextColumn Width="50"
+                    <DataGridTextColumn Width="70"
                                         Header="Price"
                                         Binding="{Binding Price.FullPrice}"/>
                     <DataGridTextColumn Width="100"
@@ -365,7 +365,7 @@
                       ItemsSource="{Binding RoomsToReserve}">
                 <DataGrid.Columns>
 
-                    <DataGridTextColumn Width="50"
+                    <DataGridTextColumn Width="70"
                                         Header="Price"
                                         Binding="{Binding Price.FullPrice}"/>
                     <DataGridTextColumn Width="100"

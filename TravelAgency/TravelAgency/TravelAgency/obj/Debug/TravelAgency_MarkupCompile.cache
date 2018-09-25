@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\Cosmin\Documents\GitHub\GitHub\TravelAgency\TravelAgency\TravelAgency\App.xaml
-11-60358360
+111724911223
 
-601716508202
+60-1941805314
 151984215308
-Styles.xaml;Views\AddHotelView.xaml;Views\BookingView.xaml;Views\BookingVoucherView.xaml;Views\HotelBooksRoomsView.xaml;Views\HotelListView.xaml;Views\HotelManagementView.xaml;Views\HotelReservationsView.xaml;Views\MainWindow.xaml;Views\ReservationsView.xaml;Views\RoomView.xaml;
+Styles.xaml;Views\AddAccomodationView.xaml;Views\BookingView.xaml;Views\BookingVoucherView.xaml;Views\AccomodationBooksRoomsView.xaml;Views\AccomodationListView.xaml;Views\AccomodationManagementView.xaml;Views\AccomodationReservationsView.xaml;Views\MainWindow.xaml;Views\CustomerReservationsView.xaml;Views\RoomView.xaml;
 
 False
 

@@ -112,6 +112,15 @@ namespace TravelAgency.Models
             }
         }
 
+        public bool IsValid()
+        {
+            string acceptsOnlyLettersAndSpaces = "^[A-Za-z ]+$";
+            if (string.IsNullOrEmpty(CityName) || Regex.IsMatch(CityName, acceptsOnlyLettersAndSpaces) == false || string.IsNullOrEmpty(CountryName) || Regex.IsMatch(CountryName, acceptsOnlyLettersAndSpaces) == false)
+                return false;
+            else
+                return true;
+        }
+
         public override bool Equals(object obj)
         {
             Location location = obj as Location;

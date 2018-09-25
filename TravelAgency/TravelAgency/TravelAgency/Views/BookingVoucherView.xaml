@@ -56,8 +56,8 @@
 		            VerticalAlignment="Center"
 		            Orientation="Horizontal">
 			<Label>
-				Hotel
-			</Label>
+                Accomodation
+            </Label>
 			<TextBlock Margin="10,0,0,0"
 			           VerticalAlignment="Center"
 			           FontWeight="DemiBold"
@@ -90,7 +90,7 @@
 		          ItemsSource="{Binding Reservation.BestOption.RoomList}"
 		          VerticalScrollBarVisibility="Auto">
 			<DataGrid.Columns>
-				<DataGridTextColumn Width="50"
+				<DataGridTextColumn Width="70"
 				                    Binding="{Binding Price.FullPrice}"
 				                    Header="Price" />
 				<DataGridTextColumn Width="120"
@@ -141,7 +141,7 @@
 		<StackPanel Grid.Row="6"
 		            VerticalAlignment="Center"
 		            Orientation="Horizontal">
-			<RadioButton IsChecked="True">Cash at Hotel</RadioButton>
+            <RadioButton IsChecked="True">Cash</RadioButton>
 			<RadioButton Margin="20,0,0,0">Credit Card</RadioButton>
 		</StackPanel>
 
@@ -192,7 +192,7 @@
 		        HorizontalAlignment="Center"
 		        VerticalAlignment="Center"
 		        Click="Button_Click"
-		        Command="{Binding ReserveRoomCommand}">
+		        Command="{Binding CustomerBooksRoomCommand}">
 			Finalize
 		</Button>
 

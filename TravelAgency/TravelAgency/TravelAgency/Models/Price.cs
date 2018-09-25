@@ -13,14 +13,13 @@ namespace TravelAgency.Models
         private string _fullPrice;
 
         public Price()
-        {
-
+        {                    
         }
 
         public Price(string value, CurrencyType currency)
         {
-            _value = value;
-            _currency = currency;
+            Value = value;
+            Currency = currency;
         }
 
         public CurrencyType Currency
@@ -58,7 +57,7 @@ namespace TravelAgency.Models
         {
             return FullPrice;
         }
-        [field:NonSerialized]
+        [field: NonSerialized]
         public event PropertyChangedEventHandler PropertyChanged;
         private void OnPropertyChanged([CallerMemberName] string caller = "")
         {

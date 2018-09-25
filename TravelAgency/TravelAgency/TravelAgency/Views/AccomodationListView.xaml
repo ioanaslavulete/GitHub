@@ -1,0 +1,64 @@
+﻿<UserControl x:Class="TravelAgency.Views.HotelListView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:viewModel="clr-namespace:TravelAgency.ViewModels"
+             mc:Ignorable="d">
+
+	<Grid>
+		<StackPanel VerticalAlignment="Center">
+			<DataGrid Height="150"
+			          MaxHeight="150"
+			          AutoGenerateColumns="False"
+                      Width="380"
+			          HeadersVisibility="Column"
+			          HorizontalScrollBarVisibility="Disabled"
+			          ItemsSource="{Binding AccomodationRepository.AccomodationList}"
+			          SelectedItem="{Binding SelectedAccomodation,
+			                                 Mode=OneWayToSource}"
+			          VerticalScrollBarVisibility="Auto">
+
+				<DataGrid.Columns>
+					<DataGridTextColumn Width="40"
+					                    Binding="{Binding Id}"
+					                    Header="Id" />
+					<DataGridTextColumn Width="100"
+					                    Binding="{Binding Name}"
+					                    Header="Name" />
+					<DataGridTextColumn Width="150"
+					                    Binding="{Binding Location.FullName}"
+					                    Header=" Location" />
+					<DataGridTextColumn Width="40"
+					                    Binding="{Binding NumberOfStars}"
+					                    Header="Stars" />
+					<DataGridTextColumn Width="50"
+					                    Binding="{Binding RoomList.Count}"
+					                    Header=" Rooms" />
+				</DataGrid.Columns>
+			</DataGrid>
+
+			<DockPanel Margin="0,10,0,0">
+				<Button Width="100"
+				        HorizontalAlignment="Left"
+				        Command="{Binding SaveAccomodationCommand}">
+					Save
+				</Button>
+
+				<Button Width="100"
+				        Margin="15,0,0,0"
+				        HorizontalAlignment="Right"
+				        Command="{Binding DeleteAccomodationCommand}">
+					Delete
+				</Button>
+
+				<Button Width="100"
+				        Margin="15,0,0,0"
+				        HorizontalAlignment="Left"
+				        Command="{Binding EditAccomodationCommand}">
+					Edit
+				</Button>
+			</DockPanel>
+		</StackPanel>
+	</Grid>
+</UserControl>

@@ -35,7 +35,7 @@ namespace TravelAgency.Models
         public void Delete(Location location, AccomodationRepository hotelRepository)
         {
            int locationCount = 0;
-           foreach(Hotel hotel in hotelRepository.HotelList)
+           foreach(Hotel hotel in hotelRepository.AccomodationList)
             {
                 if (hotel.Location.FullName == location.FullName)
                     locationCount++;

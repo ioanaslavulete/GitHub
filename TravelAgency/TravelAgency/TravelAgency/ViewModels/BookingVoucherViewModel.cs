@@ -9,26 +9,26 @@ namespace TravelAgency.ViewModels
 {
 	public class BookingVoucherViewModel
 	{
-		private ReserveRoomCommand _reserveRoomCommand;
+		private CustomerBooksRoomCommand _customerBooksRoomCommand;
 		private ReservationRepository _reservationRepository;
         private Reservation _reservation;
 
 		public BookingVoucherViewModel()
 		{
 			_reservationRepository = DataManagementService.Instance.MainRepository.ReservationRepository;
-			_reserveRoomCommand = new ReserveRoomCommand(this);
+			_customerBooksRoomCommand = new CustomerBooksRoomCommand(this);
 		}
 
-		public ReserveRoomCommand ReserveRoomCommand
+		public CustomerBooksRoomCommand CustomerBooksRoomCommand
 		{
 			get
 			{
-				return _reserveRoomCommand;
+				return _customerBooksRoomCommand;
 			}
 
 			set
 			{
-				_reserveRoomCommand = value;
+				_customerBooksRoomCommand = value;
 			}
 		}
 

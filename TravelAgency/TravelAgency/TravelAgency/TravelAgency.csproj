@@ -62,29 +62,29 @@
     </Compile>
     <Compile Include="Models\AccomodationFactory.cs" />
     <Compile Include="Models\AccomodationType.cs" />
-    <Compile Include="Models\Commands\AddHotelCommand.cs" />
+    <Compile Include="Models\Commands\AddAccomodationCommand.cs" />
     <Compile Include="Models\Commands\AddRoomCommand.cs" />
     <Compile Include="Models\Commands\AddRoomToReservationCommand.cs" />
-    <Compile Include="Models\Commands\CancelHotelReservationCommand.cs" />
+    <Compile Include="Models\Commands\CancelAccomodationReservationCommand.cs" />
     <Compile Include="Models\Commands\CheckAvailabilityCommand.cs" />
-    <Compile Include="Models\Commands\DeleteHotelCommand.cs" />
-    <Compile Include="Models\Commands\CancelReservationCommand.cs" />
-    <Compile Include="Models\Commands\EditHotelCommand.cs" />
+    <Compile Include="Models\Commands\DeleteAccomodationCommand.cs" />
+    <Compile Include="Models\Commands\CancelCustomerReservationCommand.cs" />
+    <Compile Include="Models\Commands\EditAccomodationCommand.cs" />
     <Compile Include="Models\Commands\EditRoomCommand.cs" />
     <Compile Include="Models\Commands\GetCustomerInfoCommand.cs" />
-    <Compile Include="Models\Commands\HotelBooksRoomCommand.cs" />
+    <Compile Include="Models\Commands\AccomodationBooksRoomCommand.cs" />
     <Compile Include="Models\Commands\EmptyCustomerFieldsCommand.cs" />
-    <Compile Include="Models\Commands\ReserveRoomCommand.cs" />
-    <Compile Include="Models\Commands\SaveHotelCommand.cs" />
+    <Compile Include="Models\Commands\CustomerBooksRoomCommand.cs" />
+    <Compile Include="Models\Commands\SaveAccomodationCommand.cs" />
     <Compile Include="Models\Commands\SaveRoomCommand.cs" />
     <Compile Include="Models\Commands\SearchCustomerReservationCommand.cs" />
-    <Compile Include="Models\Commands\SearchHotelCommand.cs" />
-    <Compile Include="Models\Commands\SearchHotelReservationCommand.cs" />
+    <Compile Include="Models\Commands\SearchAccomodationCommand.cs" />
+    <Compile Include="Models\Commands\SearchAccomodationReservationCommand.cs" />
     <Compile Include="Models\Commands\ShowBookingVoucherCommand.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\Hotel.cs" />
     <Compile Include="Models\AccomodationRepository.cs" />
-    <Compile Include="Models\HotelReservation.cs" />
+    <Compile Include="Models\AccomodationReservation.cs" />
     <Compile Include="Models\Interfaces\IAccomodation.cs" />
     <Compile Include="Models\Interfaces\IRoom.cs" />
     <Compile Include="Models\Location.cs" />
@@ -102,12 +102,12 @@
     <Compile Include="Models\Services\DataManagementService.cs" />
     <Compile Include="ViewModels\BookingViewModel.cs" />
     <Compile Include="ViewModels\BookingVoucherViewModel.cs" />
-    <Compile Include="ViewModels\HotelBooksRoomsViewModel.cs" />
-    <Compile Include="ViewModels\HotelManagementViewModel.cs" />
+    <Compile Include="ViewModels\AccomodationBooksRoomsViewModel.cs" />
+    <Compile Include="ViewModels\AccomodationManagementViewModel.cs" />
     <Compile Include="Models\Option.cs" />
     <Compile Include="ViewModels\ReservationsViewModel.cs" />
-    <Compile Include="Views\AddHotelView.xaml.cs">
-      <DependentUpon>AddHotelView.xaml</DependentUpon>
+    <Compile Include="Views\AddAccomodationView.xaml.cs">
+      <DependentUpon>AddAccomodationView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\BookingView.xaml.cs">
       <DependentUpon>BookingView.xaml</DependentUpon>
@@ -115,23 +115,23 @@
     <Compile Include="Views\BookingVoucherView.xaml.cs">
       <DependentUpon>BookingVoucherView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\HotelBooksRoomsView.xaml.cs">
-      <DependentUpon>HotelBooksRoomsView.xaml</DependentUpon>
+    <Compile Include="Views\AccomodationBooksRoomsView.xaml.cs">
+      <DependentUpon>AccomodationBooksRoomsView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\HotelListView.xaml.cs">
-      <DependentUpon>HotelListView.xaml</DependentUpon>
+    <Compile Include="Views\AccomodationListView.xaml.cs">
+      <DependentUpon>AccomodationListView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\HotelManagementView.xaml.cs">
-      <DependentUpon>HotelManagementView.xaml</DependentUpon>
+    <Compile Include="Views\AccomodationManagementView.xaml.cs">
+      <DependentUpon>AccomodationManagementView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\HotelReservationsView.xaml.cs">
-      <DependentUpon>HotelReservationsView.xaml</DependentUpon>
+    <Compile Include="Views\AccomodationReservationsView.xaml.cs">
+      <DependentUpon>AccomodationReservationsView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\ReservationsView.xaml.cs">
-      <DependentUpon>ReservationsView.xaml</DependentUpon>
+    <Compile Include="Views\CustomerReservationsView.xaml.cs">
+      <DependentUpon>CustomerReservationsView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\RoomView.xaml.cs">
       <DependentUpon>RoomView.xaml</DependentUpon>
@@ -173,7 +173,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\AddHotelView.xaml">
+    <Page Include="Views\AddAccomodationView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -185,19 +185,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\HotelBooksRoomsView.xaml">
+    <Page Include="Views\AccomodationBooksRoomsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\HotelListView.xaml">
+    <Page Include="Views\AccomodationListView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\HotelManagementView.xaml">
+    <Page Include="Views\AccomodationManagementView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\HotelReservationsView.xaml">
+    <Page Include="Views\AccomodationReservationsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -205,7 +205,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\ReservationsView.xaml">
+    <Page Include="Views\CustomerReservationsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

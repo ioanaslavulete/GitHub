@@ -27,7 +27,6 @@ namespace TravelAgency.Models.Commands
                 return false;
             else
                 return true;
-
         }
 
 		public void Execute(object parameter)

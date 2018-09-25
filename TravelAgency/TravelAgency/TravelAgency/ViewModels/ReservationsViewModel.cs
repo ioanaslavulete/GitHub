@@ -12,25 +12,26 @@ namespace TravelAgency.ViewModels
     {
         private ReservationRepository _reservationRepository;
         private Reservation _selectedReservation;
-        private HotelReservation _selectedHotelReservation;
+        private AccomodationReservation _selectedAccomodationReservation;
         private string _searchedCustomerId;
-        private string _searchedHotelName;
-        private ObservableCollection<HotelReservation> _searchHotelReservationList;
+        private string _searchedAccomodationName;
+        private ObservableCollection<AccomodationReservation> _searchAccomodationReservationList;
         private ObservableCollection<Reservation> _searchCustomerReservationList;
-        private CancelReservationCommand _cancelReservationCommand;
-        private CancelHotelReservationCommand _cancelHotelReservationCommand;
+
+        private CancelCustomerReservationCommand _cancelReservationCommand;
+        private CancelAccomodationReservationCommand _cancelHotelReservationCommand;
         private SearchCustomerReservationCommand _searchCustomerReservationCommand;
-        private SearchHotelReservationCommand _searchHotelReservationCommand;
+        private SearchAccomodationReservationCommand _searchHotelReservationCommand;
 
         public ReservationsViewModel()
         {
             _reservationRepository = DataManagementService.Instance.MainRepository.ReservationRepository;
             _searchCustomerReservationList = new ObservableCollection<Reservation>();
-            _searchHotelReservationList = new ObservableCollection<HotelReservation>();
-            _cancelReservationCommand = new CancelReservationCommand(this);
-            _cancelHotelReservationCommand = new CancelHotelReservationCommand(this);
+            _searchAccomodationReservationList = new ObservableCollection<AccomodationReservation>();
+            _cancelReservationCommand = new CancelCustomerReservationCommand(this);
+            _cancelHotelReservationCommand = new CancelAccomodationReservationCommand(this);
             _searchCustomerReservationCommand = new SearchCustomerReservationCommand(this);
-            _searchHotelReservationCommand = new SearchHotelReservationCommand(this);
+            _searchHotelReservationCommand = new SearchAccomodationReservationCommand(this);
         }
 
         public ReservationRepository ReservationRepository
@@ -54,16 +55,15 @@ namespace TravelAgency.ViewModels
                 OnPropertyChanged();
             }
         }
-        public HotelReservation SelectedHotelReservation
+        public AccomodationReservation SelectedAccomodationReservation
         {
-            get { return _selectedHotelReservation; }
+            get { return _selectedAccomodationReservation; }
             set
             {
-                _selectedHotelReservation = value;
+                _selectedAccomodationReservation = value;
                 OnPropertyChanged();
             }
         }
-
         public string SearchedCustomerId
         {
             get { return _searchedCustomerId; }
@@ -73,7 +73,8 @@ namespace TravelAgency.ViewModels
                 OnPropertyChanged();
             }
         }
-        public CancelReservationCommand CancelReservationCommand
+
+        public CancelCustomerReservationCommand CancelReservationCommand
         {
             get { return _cancelReservationCommand; }
             set
@@ -81,7 +82,7 @@ namespace TravelAgency.ViewModels
                 _cancelReservationCommand = value;
             }
         }
-        public CancelHotelReservationCommand CancelHotelReservationCommand
+        public CancelAccomodationReservationCommand CancelHotelReservationCommand
         {
             get { return _cancelHotelReservationCommand; }
             set
@@ -89,7 +90,6 @@ namespace TravelAgency.ViewModels
                 _cancelHotelReservationCommand = value;
             }
         }
-
         public SearchCustomerReservationCommand SearchCustomerReservationCommand
         {
             get { return _searchCustomerReservationCommand; }
@@ -98,7 +98,6 @@ namespace TravelAgency.ViewModels
                 _searchCustomerReservationCommand = value;
             }
         }
-
         public ObservableCollection<Reservation> SearchCustomerReservationList
         {
             get { return _searchCustomerReservationList; }
@@ -108,26 +107,26 @@ namespace TravelAgency.ViewModels
             }
         }
 
-        public string SearchedHotelName
+        public string SearchedAccomodationName
         {
-            get { return _searchedHotelName; }
+            get { return _searchedAccomodationName; }
             set
             {
-                _searchedHotelName = value;
+                _searchedAccomodationName = value;
                 OnPropertyChanged();
             }
         }
 
-        public ObservableCollection<HotelReservation> SearchHotelReservationList
+        public ObservableCollection<AccomodationReservation> SearchAccomodationReservationList
         {
-            get { return _searchHotelReservationList; }
+            get { return _searchAccomodationReservationList; }
             set
             {
-                _searchHotelReservationList = value;
+                _searchAccomodationReservationList = value;
             }
         }
 
-        public SearchHotelReservationCommand SearchHotelReservationCommand { get => _searchHotelReservationCommand; set => _searchHotelReservationCommand = value; }
+        public SearchAccomodationReservationCommand SearchHotelReservationCommand { get => _searchHotelReservationCommand; set => _searchHotelReservationCommand = value; }
 
         public void CancelReservation()
         {
@@ -142,10 +141,10 @@ namespace TravelAgency.ViewModels
 
         public void CancelHotelReservation()
         {
-            _selectedHotelReservation.Room.Delete(_selectedHotelReservation.ReservationPeriod);
+            _selectedAccomodationReservation.Room.Delete(_selectedAccomodationReservation.ReservationPeriod);
 
-            _reservationRepository.DeleteHotelReservation(_selectedHotelReservation);
-            SearchHotelReservationList.Clear();
+            _reservationRepository.DeleteHotelReservation(_selectedAccomodationReservation);
+            SearchAccomodationReservationList.Clear();
             DataManagementService.Instance.SaveData();
         }
 
@@ -163,13 +162,13 @@ namespace TravelAgency.ViewModels
 
         public void SearchHotelReservation()
         {
-            _searchHotelReservationList.Clear();
-            if(SearchedHotelName != string.Empty)
+            _searchAccomodationReservationList.Clear();
+            if(SearchedAccomodationName != string.Empty)
             {
-                foreach(HotelReservation hotelReservation in _reservationRepository.HotelReservationList)
+                foreach(AccomodationReservation hotelReservation in _reservationRepository.HotelReservationList)
                 {
-                    if (hotelReservation.Hotel.Name.ToLower().Contains(SearchedHotelName.ToLower()))
-                        _searchHotelReservationList.Add(hotelReservation);
+                    if (hotelReservation.Hotel.Name.ToLower().Contains(SearchedAccomodationName.ToLower()))
+                        _searchAccomodationReservationList.Add(hotelReservation);
                 }
 
             }

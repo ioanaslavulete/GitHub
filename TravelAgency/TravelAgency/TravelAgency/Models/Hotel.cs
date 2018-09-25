@@ -120,7 +120,7 @@ namespace TravelAgency.Models
             foreach (IRoom room in _availableRoomsList)
                 newList.Add(room);
 
-            List<IRoom> descendingList = newList.OrderByDescending(o => o.NumberOfPersons).ThenBy(o => o.Price).ToList();
+            List<IRoom> descendingList = newList.OrderByDescending(o => o.NumberOfPersons).ThenBy(o => o.Price.Value).ToList();
 
             int numberOfPersons = int.Parse(reservation.NumberOfPersons);
 
@@ -137,7 +137,7 @@ namespace TravelAgency.Models
 
             if (numberOfPersons > 0)
             {
-                List<IRoom> ascendingList = newList.OrderBy(o => o.NumberOfPersons).ThenBy(o => o.Price).ToList();
+                List<IRoom> ascendingList = newList.OrderBy(o => o.NumberOfPersons).ThenBy(o => o.Price.Value).ToList();
 
                 foreach (IRoom room in ascendingList)
                 {
@@ -183,7 +183,7 @@ namespace TravelAgency.Models
         public bool IsValid()
         {
             if (((string.IsNullOrEmpty(Id)) || Regex.IsMatch(Id, acceptsOnlyNumbers) == false) || (string.IsNullOrEmpty(Name) || Regex.IsMatch(Name, acceptsOnlyLettersAndSpaces) == false)
-                || (string.IsNullOrEmpty(NumberOfStars) || Regex.IsMatch(NumberOfStars, acceptsOnlyDigitsOneToFive) == false))
+                || (string.IsNullOrEmpty(NumberOfStars) || Regex.IsMatch(NumberOfStars, acceptsOnlyDigitsOneToFive) == false || Location.IsValid() == false))
                 return false;
             else
                 return true;

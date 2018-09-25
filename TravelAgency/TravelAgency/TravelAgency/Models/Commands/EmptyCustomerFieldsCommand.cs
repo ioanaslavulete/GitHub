@@ -1,14 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
 using TravelAgency.ViewModels;
 
 namespace TravelAgency.Models.Commands
 {
-	public class EmptyCustomerFieldsCommand : ICommand
+    public class EmptyCustomerFieldsCommand : ICommand
 	{
 		private BookingViewModel _bookingViewModel;
 
